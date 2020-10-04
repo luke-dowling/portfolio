@@ -13,19 +13,19 @@
   <body>
     <!-- NAVBAR -->
     <nav class="navbar">
-      <!-- logo when activated drops down -->
       <nav class="subnav">
-        <a href="/index.html">
-          <div class="logo">
-            <!-- some kind of logo -->
-
-            <div class="logo-part-one"></div>
-            <div class="logo-part-two"></div>
-            <div class="logo-part-three"></div>
-          </div>
-        </a>
+        <!-- LOGO -->
+        <div class="logo">
+          <div class="logo-part-one"></div>
+          <div class="logo-part-two"></div>
+          <div class="logo-part-three"></div>
+        </div>
+        <!-- END LOGO -->
 
         <ul class="navbar-links">
+          <li class="navbar-link-items">
+            <a href="/index.html">Home</a>
+          </li>
           <li class="navbar-link-items"><a href="/about.html">About</a></li>
           <li class="navbar-link-items">
             <a href="/projects.html">Projects</a>
@@ -50,23 +50,25 @@
             type="text"
             name="name"
             id="name"
-            placeholder="John Doe"
+            placeholder="name"
             minlength="2"
             maxlength="30"
             required
           />
         </div>
+
         <div>
           <label for="email">Email: </label>
           <input
             type="email"
             name="email"
             id="email"
-            placeholder="Johns-Got-Doe@money.com"
+            placeholder="@example.com"
             minlength="5"
             required
           />
         </div>
+
         <div>
           <label for="message">Message: </label>
           <textarea
@@ -74,7 +76,6 @@
             name="message"
             id="message"
             rows="1"
-            placeholder="Hi I'm John, something about money..."
             required
           ></textarea>
         </div>
@@ -84,20 +85,29 @@
         </div>
       </fieldset>
     </form>
-
     <!-- END FORM -->
 
     <!-- FOOTER -->
     <footer>
       <div class="social-media">
         <div class="social-media-icons">
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a
+            href="https://www.linkedin.com/in/luke-dowling-760840147/"
+            target="_blank"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
         </div>
         <div class="social-media-icons">
-          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="https://github.com/luke-dowling" target="_blank"
+            ><i class="fab fa-github"></i
+          ></a>
+        </div>
+        <div class="social-media-icons">
+          <a href="https://codepen.io/luke-dowling" target="_blank"
+            ><i class="fab fa-codepen"></i
+          ></a>
         </div>
       </div>
-      <p>@lpdowling26</p>
     </footer>
     <!-- END FOOTER -->
   </body>

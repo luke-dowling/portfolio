@@ -188,20 +188,11 @@ footer {
   position: fixed;
   bottom: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
   padding: 0.5rem 1rem;
   background-color: #24ebd7;
   align-items: center;
-}
-footer p {
-  color: #212121;
-  opacity: 0.6;
-  font-size: 2.6rem;
-  padding: 0.5rem 1rem;
-}
-footer p:hover {
-  opacity: 1;
 }
 
 .social-media {
@@ -306,12 +297,14 @@ footer p:hover {
 }
 
 .heading-container {
-  position: absolute;
-  top: 25%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin: 3rem auto;
   width: 90%;
   max-width: 900px;
+}
+@media (min-width: 768px) {
+  .heading-container {
+    margin: 5rem auto;
+  }
 }
 
 .display-1 {
@@ -336,26 +329,31 @@ footer p:hover {
   }
 }
 
-.intro-text {
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.welcome-text {
+  display: none;
+  margin: 3rem auto;
   width: 75%;
   max-width: 750px;
-  color: #24ebd7;
+  opacity: 0.8;
   font-style: italic;
   padding: 0.5rem 1rem;
   font-size: 2rem;
 }
+@media (min-width: 768px) {
+  .welcome-text {
+    display: block;
+  }
+}
 
 .container-slider {
-  position: absolute;
-  width: 75%;
+  width: 90%;
   max-width: 750px;
-  top: 60%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin: 3rem auto;
+}
+@media (min-width: 768px) {
+  .container-slider {
+    width: 75%;
+  }
 }
 
 .slider-headings {
@@ -376,24 +374,24 @@ footer p:hover {
 }
 
 .creative {
-  animation: creative 22s infinite 5.5s;
+  animation: creative 20s infinite 5.5s;
   visibility: hidden;
   opacity: 0;
 }
 
 .clean {
-  animation: clean 22s infinite 5.5s;
+  animation: clean 20s infinite 5.5s;
   visibility: hidden;
 }
 
 .code {
-  animation: code 22s infinite 5.5s;
+  animation: code 20s infinite 5.5s;
   visibility: hidden;
 }
 
 @keyframes creative {
   0% {
-    transform: translateX(-10%);
+    transform: translateX(-15%);
     visibility: hidden;
     opacity: 0;
   }
@@ -408,24 +406,24 @@ footer p:hover {
     opacity: 1;
   }
   33% {
-    transform: translateX(-10%);
+    transform: translateX(-15%);
     visibility: hidden;
     opacity: 0;
   }
   100% {
-    transform: translateX(-10%);
+    transform: translateX(-15%);
     visibility: hidden;
     opacity: 0;
   }
 }
 @keyframes clean {
   0% {
-    transform: translateX(-10%);
+    transform: translateX(-15%);
     visibility: hidden;
     opacity: 0;
   }
   33% {
-    transform: translateX(-10%);
+    transform: translateX(-15%);
     visibility: hidden;
     opacity: 0;
   }
@@ -440,24 +438,24 @@ footer p:hover {
     opacity: 1;
   }
   66% {
-    transform: translateX(-10%);
+    transform: translateX(-15%);
     visibility: hidden;
     opacity: 0;
   }
   100% {
-    transform: translateX(-10%);
+    transform: translateX(-15%);
     visibility: hidden;
     opacity: 0;
   }
 }
 @keyframes code {
   0% {
-    transform: translateX(-10%);
+    transform: translateX(-15%);
     visibility: hidden;
     opacity: 0;
   }
   66% {
-    transform: translateX(-10%);
+    transform: translateX(-15%);
     visibility: hidden;
     opacity: 0;
   }
@@ -472,7 +470,7 @@ footer p:hover {
     opacity: 1;
   }
   100% {
-    transform: translateX(-10%);
+    transform: translateX(-15%);
     visibility: hidden;
     opacity: 0;
   }
@@ -480,7 +478,7 @@ footer p:hover {
 .about-container {
   width: 75%;
   max-width: 900px;
-  margin: 3rem auto;
+  margin: 5rem auto;
 }
 .about-header {
   font-size: 2.6rem;
@@ -492,7 +490,7 @@ footer p:hover {
   }
 }
 .about-text {
-  margin: 2rem;
+  margin: 3rem auto;
   padding: 0.5rem 1rem;
   font-style: italic;
   font-size: 2rem;
@@ -501,11 +499,11 @@ footer p:hover {
 
 .skills-container {
   position: relative;
-  margin: 3rem auto;
+  margin: 5rem auto;
 }
 
 .skills-heading {
-  margin: 3rem auto;
+  margin: 5rem auto;
   padding: 1rem 2rem;
   text-align: center;
   font-size: 2.6rem;
@@ -649,7 +647,7 @@ footer p:hover {
 }
 
 .projects {
-  margin: 3rem auto;
+  margin: 5rem auto;
   display: flex;
   flex-flow: column wrap;
   width: 90%;
@@ -730,7 +728,7 @@ footer p:hover {
 }
 
 form {
-  margin: 3rem auto;
+  margin: 5rem auto;
   max-width: 900px;
   width: 90%;
 }
