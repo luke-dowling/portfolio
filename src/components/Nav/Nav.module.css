@@ -1,0 +1,30 @@
+nav {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+  background-color: transparent;
+  padding: 30px 50px 0 0;
+}
+
+ul li {
+  list-style-type: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 3;
+  padding: 0.1em;
+}
+
+li a {
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+a svg {
+  font-size: 3.5rem;
+}
+
+li a:hover {
+  transform: scale(1.2);
+  text-shadow: 0 0 10px inherit;
+}
