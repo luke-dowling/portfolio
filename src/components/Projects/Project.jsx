@@ -1,14 +1,17 @@
 export const Project = ({ project }) => {
   return (
-    <div>
+    <div className="project">
       <h2>{project.name}</h2>
-      <p>Text about the project</p>
-      <h3>Technology included:</h3>
       <ul>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>Javascript</li>
+        {project.technologies.map((technology) => {
+          return <li key={technology}>{technology}</li>;
+        })}
       </ul>
+      <button>
+        <a href={project.url} target="_blank" rel="noreferrer">
+          View Project
+        </a>
+      </button>
     </div>
   );
 };

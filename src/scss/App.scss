@@ -1,9 +1,12 @@
 @use "reset";
 
+// pages
 @use "homepage";
 @use "about";
-
+@use "projects";
 @use "contact";
+
+@use "nav";
 
 @use "utilities";
 @use "screen";

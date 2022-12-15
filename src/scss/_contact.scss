@@ -1,7 +1,51 @@
+@use "variables" as *;
+@use "mixins" as mix;
+
+%contact-container {
+  flex: 50vw 0 1;
+  padding: 0 3em;
+}
+
 .contact {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   position: relative;
   left: -100%;
+
+  &__container-text {
+    @extend %contact-container;
+    text-align: center;
+  }
+
+  &__container-form {
+    @extend %contact-container;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+
+  input,
+  textarea {
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid $white;
+    background-color: inherit;
+    font-size: 2.6rem;
+    margin-block: 0.5em;
+    padding-bottom: 0.3em;
+    color: $white;
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  button {
+    @include mix.button;
+    align-self: flex-end;
+  }
 }

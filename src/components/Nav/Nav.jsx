@@ -5,7 +5,6 @@ import {
   navItemAnimation,
 } from "../Animations/navAnimation";
 import { Link } from "react-router-dom";
-import "./Nav.module.css";
 
 export const Nav = ({ theme }) => {
   return (

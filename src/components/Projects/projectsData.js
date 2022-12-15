@@ -1,8 +1,17 @@
 export const projectsData = [
   {
-    name: "project 1",
+    name: "Librix",
+    technologies: ["React Native"],
+    url: "https://github.com/Final-Project-X",
   },
   {
-    name: "project 2",
+    name: "Trivia App",
+    technologies: ["React"],
+    url: "https://github.com/luke-dowling/letsplaytrivia",
+  },
+  {
+    name: "Record Shop",
+    technologies: ["React"],
+    url: "https://github.com/record-shoppers/record-shop",
   },
 ];

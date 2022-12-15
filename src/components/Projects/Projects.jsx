@@ -4,15 +4,30 @@ import { Project } from "./Project";
 import { projectsData } from "./projectsData";
 
 import { projectsPageAnimation } from "../Animations/pageAnimation";
+import { motion } from "framer-motion";
+import {
+  projectsItemAnimation,
+  projectsLayoutAnimation,
+} from "../Animations/projectsAnimations";
 
 export const Projects = () => {
   return (
     <PageTransitionAnimation animation={projectsPageAnimation}>
       <Nav theme="dark" />
-      <h1>Projects</h1>
-      {projectsData.map((project) => {
-        return <Project project={project} id={project.name} />;
-      })}
+      <motion.div
+        className="projects-grid container"
+        variants={projectsLayoutAnimation}
+      >
+        {projectsData.map((project) => {
+          return (
+            <Project
+              project={project}
+              id={project.name}
+              variants={projectsItemAnimation}
+            />
+          );
+        })}
+      </motion.div>
     </PageTransitionAnimation>
   );
 };
