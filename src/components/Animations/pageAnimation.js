@@ -8,7 +8,25 @@ const transitionExit = {
   delay: 0.2,
 };
 
-export const homePageAnimation = {
+export const homePageAnimationMobile = {
+  initial: { x: 0, width: "100vw", y: "-100%", height: "100vh" },
+  animate: {
+    x: 0,
+    width: "100vw",
+    y: 0,
+    height: "100vh",
+    transition: transitionAnimate,
+  },
+  exit: {
+    x: 0,
+    width: "100vw",
+    y: 0,
+    height: "0vh",
+    transition: transitionExit,
+  },
+};
+
+export const homePageAnimationDesktop = {
   initial: { x: "200%", width: "50vw" },
   animate: {
     x: 0,

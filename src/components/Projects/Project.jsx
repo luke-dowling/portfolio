@@ -7,8 +7,13 @@ export const Project = ({ project }) => {
           return <li key={technology}>{technology}</li>;
         })}
       </ul>
-      <button>
-        <a href={project.url} target="_blank" rel="noreferrer">
+      <button className="project__btn">
+        <a
+          href={project.url}
+          target="_blank"
+          rel="noreferrer"
+          className="project__link"
+        >
           View Project
         </a>
       </button>

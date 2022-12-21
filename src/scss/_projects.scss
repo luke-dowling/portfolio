@@ -1,3 +1,5 @@
+@use "./variables" as *;
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(Auto-fit, 300px);
@@ -18,11 +20,30 @@
     transition: 0.3s ease-in-out;
   }
 
-  h4 {
-    margin-bottom: 10px;
+  h2 {
+    margin-block: 20px;
   }
 
   ul {
     list-style-type: none;
+  }
+
+  &__btn {
+    background-color: $black;
+    border: none;
+    padding: 0.4em 1em;
+    font-size: 1.8rem;
+    color: rgba($white, 0.6);
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: $white;
+      box-shadow: 0 0 8px $white;
+      cursor: pointer;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
   }
 }

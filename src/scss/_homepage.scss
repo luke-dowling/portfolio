@@ -1,11 +1,5 @@
 @use "variables" as *;
 
-.homeContainer {
-  width: 100vw;
-  height: 100vh;
-  position: relative;
-}
-
 %heading-animation-start {
   content: "";
   display: block;
@@ -28,7 +22,7 @@
 .home {
   &--title {
     position: absolute;
-    top: 50%;
+    left: 50%;
     font-size: 32px;
     white-space: nowrap;
     letter-spacing: 0.1rem;
@@ -36,7 +30,7 @@
 
   &__h1 {
     color: $white;
-    left: 25%;
+    top: 40%;
 
     &::after {
       @extend %heading-animation-start;
@@ -49,12 +43,12 @@
   }
 
   &__h2 {
-    color: $black;
-    left: 75%;
+    color: $white;
+    top: 60%;
 
     &::after {
       @extend %heading-animation-start;
-      background-color: $black;
+      background-color: $white;
     }
 
     &:hover::after {
@@ -67,4 +61,30 @@
 .home__h2:hover.home__h2::after {
   width: 100%;
   left: 0;
+}
+
+@media (min-width: $desktop) {
+  .home {
+    &--title {
+      position: absolute;
+      top: 50%;
+      font-size: 32px;
+      white-space: nowrap;
+      letter-spacing: 0.1rem;
+    }
+
+    &__h1 {
+      left: 25%;
+    }
+
+    &__h2 {
+      left: 75%;
+      color: $black;
+
+      &::after {
+        @extend %heading-animation-start;
+        background-color: $black;
+      }
+    }
+  }
 }
