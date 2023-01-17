@@ -1,5 +1,5 @@
 import { PageTransitionAnimation } from "../Animations/PageTransitionAnimation";
-import { Nav } from "../Nav/Nav";
+import { Nav } from "../Nav";
 import { Project } from "./Project";
 import { projectsData } from "./projectsData";
 
@@ -21,6 +21,7 @@ export const Projects = () => {
         {projectsData.map((project) => {
           return (
             <Project
+              key={project.name}
               project={project}
               id={project.name}
               variants={projectsItemAnimation}

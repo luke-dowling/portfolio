@@ -1,21 +1,21 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { PageTransitionAnimation } from "../Animations/PageTransitionAnimation";
+import { PageTransitionAnimation } from "./Animations/PageTransitionAnimation";
 import {
   homePageAnimationMobile,
   homePageAnimationDesktop,
-} from "../Animations/pageAnimation";
-import { nameAnimation, jobAnimation } from "../Animations/homeAnimations";
-import { Nav } from "../Nav/Nav";
+} from "./Animations/pageAnimation";
+import { nameAnimation, jobAnimation } from "./Animations/homeAnimations";
+import { Nav } from "./Nav";
 
 export const Homepage = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  const windowResizeHandler = () => {
+  const windowResizeHandler = useCallback(() => {
     console.log(windowWidth);
     setWindowWidth(window.innerWidth);
-  };
+  }, [windowWidth]);
 
   useEffect(() => {
     console.log("this runs");
@@ -23,7 +23,7 @@ export const Homepage = () => {
     return () => {
       window.removeEventListener("resize", windowResizeHandler);
     };
-  }, [windowWidth]);
+  }, [windowWidth, windowResizeHandler]);
 
   return (
     <PageTransitionAnimation

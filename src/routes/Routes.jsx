@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import { Routes, Route, useLocation } from "react-router-dom";
 
-import { Homepage } from "../components/Home/Homepage";
-import { About } from "../components/About/About";
+import { Homepage } from "../components/Homepage";
+import { About } from "../components/About";
 import { Projects } from "../components/Projects/Projects";
-import { Contact } from "../components/Contact/Contact";
+import { Contact } from "../components/Contact";
 
 export const Routing = () => {
   let location = useLocation();

@@ -3,7 +3,7 @@ import { FaGithubSquare, FaLinkedin } from "react-icons/fa";
 import {
   navContainerAnimation,
   navItemAnimation,
-} from "../Animations/navAnimation";
+} from "./Animations/navAnimation";
 import { Link } from "react-router-dom";
 
 export const Nav = ({ theme }) => {

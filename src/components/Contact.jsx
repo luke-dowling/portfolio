@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
-import { PageTransitionAnimation } from "../Animations/PageTransitionAnimation";
-import { Nav } from "../Nav/Nav";
+import { PageTransitionAnimation } from "./Animations/PageTransitionAnimation";
+import { Nav } from "./Nav";
 
-import { contactPageAnimation } from "../Animations/pageAnimation";
+import { contactPageAnimation } from "./Animations/pageAnimation";
 import {
   contactLayoutAnimation,
   contactItemAnimation,
-} from "../Animations/contactAnimation";
+} from "./Animations/contactAnimation";
 
 export const Contact = () => {
   const handleSubmit = (event) => {
