@@ -1,3 +1,5 @@
+@use "variables" as *;
+
 * {
   margin: 0;
   padding: 0;
@@ -6,15 +8,15 @@
 
 :root {
   font-size: 62.5%;
+  overflow: hidden;
 }
 
 body {
-  font-family: monospace;
+  font-family: "Roboto Mono", monospace;
   font-size: 1.8rem;
   line-height: 1.49;
-  background-color: var(--white);
-  color: var(--black);
+  background-color: $white;
+  color: $black;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
 }

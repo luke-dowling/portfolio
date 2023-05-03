@@ -1,4 +1,5 @@
 @use "variables" as *;
+@use "mixins" as mix;
 
 %heading-animation-start {
   content: "";
@@ -20,71 +21,69 @@
 }
 
 .home {
-  &--title {
-    position: absolute;
-    left: 50%;
-    font-size: 32px;
-    white-space: nowrap;
-    letter-spacing: 0.1rem;
+  &-title {
+    @include mix.heading($h3);
+    white-space: wrap;
+    position: relative;
+    margin: 0 5px;
   }
 
   &__h1 {
-    color: $white;
-    top: 40%;
+    text-align: right;
+    width: 8ch;
+    grid-column: 2 / span 2;
+    justify-self: end;
+    top: -100%;
 
     &::after {
       @extend %heading-animation-start;
       background-color: $white;
-    }
-
-    &:hover::after {
-      @extend %heading-hover-animation;
     }
   }
 
   &__h2 {
-    color: $white;
-    top: 60%;
+    // margin-top: 500px;
+    grid-column: 4 / span 2;
+    justify-self: start;
+    color: $black;
+    width: 9ch;
+    top: -50%;
 
     &::after {
       @extend %heading-animation-start;
-      background-color: $white;
+      background-color: $black;
     }
 
-    &:hover::after {
-      @extend %heading-hover-animation;
+    a {
+      vertical-align: bottom;
     }
   }
 }
 
 .home__h1:hover.home__h1::after,
 .home__h2:hover.home__h2::after {
-  width: 100%;
-  left: 0;
+  @extend %heading-hover-animation;
 }
 
 @media (min-width: $desktop) {
   .home {
-    &--title {
-      position: absolute;
-      top: 50%;
-      font-size: 32px;
+    &-title {
+      @include mix.heading($h2);
       white-space: nowrap;
-      letter-spacing: 0.1rem;
     }
 
     &__h1 {
-      left: 25%;
+      width: fit-content;
+      grid-column: 1 / span 6;
+      justify-self: center;
+      top: -50%;
     }
 
     &__h2 {
-      left: 75%;
-      color: $black;
-
-      &::after {
-        @extend %heading-animation-start;
-        background-color: $black;
-      }
+      width: fit-content;
+      grid-column: 7 / span 6;
+      justify-self: center;
+      top: -50%;
     }
   }
 }

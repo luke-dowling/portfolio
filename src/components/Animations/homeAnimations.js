@@ -1,18 +1,18 @@
 export const nameAnimation = {
-  initial: { x: "-112vw", y: "-50%" },
+  initial: { x: "-112vw", y: "50vh" },
   animate: {
-    x: "-50%",
-    y: "-50%",
+    x: "0%",
+    y: "50vh",
     transition: { duration: 0.8, delay: 0.1 },
   },
   exit: { opacity: 0, transition: { duration: 0.2 } },
 };
 
 export const jobAnimation = {
-  initial: { x: "-55%", y: "-50%", opacity: 0 },
+  initial: { x: "-15%", y: "50vh", opacity: 0 },
   animate: {
-    x: "-50%",
-    y: "-50%",
+    x: "0%",
+    y: "50vh",
     opacity: 1,
     transition: { delay: 1, duration: 0.2 },
   },

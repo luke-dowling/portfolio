@@ -12,6 +12,7 @@ export const Contact = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
   };
+
   return (
     <PageTransitionAnimation animation={contactPageAnimation}>
       <motion.div
