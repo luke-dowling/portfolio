@@ -4,9 +4,16 @@
 $black: #101112;
 $white: #f7f8f8;
 $grey: #686e6d;
+$red: red;
+$gradient: linear-gradient(115.71deg, #101112 1.37%, #f7f8f8 100%);
 
-// screen sizes
+// screen sizes - width
+$mobile: 375px;
 $desktop: 769px;
+
+//height full page without nav + grid
+$m-height: calc(100vh - 60px - 6px);
+$d-height: calc(100vh - 200px - 12px);
 
 // font sizes
 $m-paragraph: 16px;

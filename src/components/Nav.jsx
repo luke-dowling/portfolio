@@ -4,10 +4,12 @@ import { FaGithubSquare, FaLinkedin } from "react-icons/fa";
 import MenuIcon from "@mui/icons-material/Menu";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import {
   navContainerAnimation,
   mobileNavContainerAnimation,
   navItemAnimation,
+  navIconAnimation,
 } from "./Animations/navAnimation";
 import { Link } from "react-router-dom";
 
@@ -32,7 +34,7 @@ const Modal = ({ theme, handleClick }) => {
         </motion.li>
         <motion.li variants={navItemAnimation}>
           <Link to="/projects" className={`link--${mobileTheme}`}>
-            projects
+            project
           </Link>
         </motion.li>
         <motion.li variants={navItemAnimation}>
@@ -73,15 +75,29 @@ export const Nav = ({ theme }) => {
     setIsOpen(!isOpen);
   };
 
+  const oppositeTheme = (theme) => (theme === "light" ? "dark" : "light");
+
   return (
     <>
       {window.innerWidth < 769 ? (
         <nav>
-          {!isOpen ? (
-            <MenuIcon style={{ fontSize: "35px" }} onClick={handleClick} />
-          ) : (
-            <Modal theme={theme} handleClick={handleClick} />
-          )}
+          <motion.div
+            variants={navIconAnimation}
+            className={`nav-icon link--${
+              isOpen ? oppositeTheme(theme) : theme
+            }`}
+          >
+            {!isOpen ? (
+              <MenuIcon style={{ fontSize: "35px" }} onClick={handleClick} />
+            ) : (
+              <ExitToAppIcon
+                style={{ fontSize: "35px", zIndex: 30, position: "relative" }}
+                onClick={handleClick}
+              />
+            )}
+          </motion.div>
+
+          {isOpen ? <Modal theme={theme} handleClick={handleClick} /> : null}
         </nav>
       ) : (
         <nav>
@@ -98,7 +114,7 @@ export const Nav = ({ theme }) => {
             </motion.li>
             <motion.li variants={navItemAnimation}>
               <Link to="/projects" className={`link--${theme}`}>
-                projects
+                project
               </Link>
             </motion.li>
             <motion.li variants={navItemAnimation}>
@@ -106,7 +122,10 @@ export const Nav = ({ theme }) => {
                 contact
               </Link>
             </motion.li>
-            <motion.li variants={navItemAnimation} className="flex-container">
+            <motion.li
+              variants={navItemAnimation}
+              className="flex-container-sb"
+            >
               <a
                 href="https://github.com/luke-dowling"
                 target="_blank"

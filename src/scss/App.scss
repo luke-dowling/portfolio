@@ -6,6 +6,7 @@
 @use "about";
 @use "projects";
 @use "contact";
+@use "error404";
 
 @use "nav";
 
@@ -14,3 +15,6 @@
 
 // @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto+Mono:wght@400;600&display=swap");
+
+// design mobile smallest 320 by 640
+// 375px × 667px iphone 8

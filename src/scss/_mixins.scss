@@ -1,27 +1,37 @@
 @use "variables" as *;
 
-@mixin button {
+@mixin button($color: $white) {
   background-color: inherit;
-  border: none;
+  border: 1px solid rgba($color, 0.6);
   padding: 0.4em 1em;
+  width: 162px;
+  align-self: center;
+  height: fit-content;
   font-size: $m-paragraph;
-  color: rgba($white, 0.6);
+  color: rgba($color, 0.6);
   transition: all 0.2s ease;
 
   &:hover {
-    color: $white;
-    box-shadow: 0 0 8px $white;
+    color: $color;
+    box-shadow: 0 0 8px $color;
     cursor: pointer;
+  }
+
+  &:visited {
+    color: $color;
   }
 
   @media (min-width: $desktop) {
     font-size: $d-paragraph;
+    width: 173px;
+    border: none;
   }
 }
 
 @mixin heading($size: 32px) {
   font-family: Poppins, sans-serif;
-  font-weight: 400;
+  font-weight: 600;
   font-size: $size;
   letter-spacing: 0.1em;
+  margin-bottom: 0.8em;
 }

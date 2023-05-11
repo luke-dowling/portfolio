@@ -1,43 +1,30 @@
 @use "variables" as *;
+@use "mixins" as mix;
 
 .about {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 2rem;
   color: $white;
 
-  &__heading {
-    margin-bottom: 1rem;
+  p {
+    font-size: 1.4rem;
   }
 
-  &__text {
-    color: rgba($white, 0.8);
-    margin-bottom: 0.8rem;
-    text-align: justify;
+  button {
+    @include mix.button();
   }
+}
 
-  &__container-btn {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: space-between;
+@media (min-width: 375px) and (min-height: 800px) {
+  .about {
+    p {
+      font-size: 1.6rem;
+    }
   }
+}
 
-  &__btn {
-    background-color: inherit;
-    border: none;
-    padding: 0.4em 1em;
-    font-size: 1.8rem;
-    color: rgba($white, 0.6);
-    transition: all 0.2s ease;
-
-    &:hover {
-      color: $white;
-      box-shadow: 0 0 8px $white;
-      cursor: pointer;
+@media (min-width: $desktop) {
+  .about {
+    p {
+      font-size: 1.8rem;
     }
   }
 }

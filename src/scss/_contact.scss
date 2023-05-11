@@ -1,51 +1,95 @@
 @use "variables" as *;
 @use "mixins" as mix;
 
-%contact-container {
-  flex: 50vw 0 1;
-  padding: 0 3em;
-}
-
 .contact {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  position: relative;
-  left: -100%;
-
-  &__container-text {
-    @extend %contact-container;
-    text-align: center;
-  }
-
-  &__container-form {
-    @extend %contact-container;
+  button {
+    @include mix.button($black);
   }
 }
 
-form {
-  display: flex;
-  flex-direction: column;
+.contact-form {
+  text-align: center;
 
   input,
   textarea {
+    text-align: center;
     display: block;
     width: 100%;
     border: none;
-    border-bottom: 1px solid $white;
+    border-bottom: 1px solid $black;
     background-color: inherit;
-    font-size: 2.6rem;
-    margin-block: 0.5em;
+    font-size: 1.8rem;
+    margin: 0.8em auto;
     padding-bottom: 0.3em;
-    color: $white;
 
     &:focus-visible {
       outline: none;
     }
   }
 
-  button {
-    @include mix.button;
-    align-self: flex-end;
+  &-error {
+    position: absolute;
+    top: 26px;
+    right: 0;
+    font-size: 1rem;
+    color: $red;
   }
+
+  button {
+    @include mix.button($black);
+  }
+}
+
+@media (min-width: $desktop) {
+  .contact-form {
+    &-divider {
+      position: relative;
+      display: inline-block;
+      width: 47%;
+
+      &:nth-child(1) {
+        margin-right: 3%;
+      }
+      &:nth-child(2) {
+        margin-left: 3%;
+      }
+
+      &:nth-child(3) {
+        width: 100%;
+      }
+    }
+
+    input,
+    textarea {
+      font-size: 2.4rem;
+      margin: 1em auto;
+    }
+
+    &-error {
+      top: 64px;
+      right: 0;
+      font-size: 1.4rem;
+      color: $red;
+    }
+  }
+}
+
+// MODAL
+
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba($black, 0.8);
+  color: $white;
+
+  z-index: 100;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }

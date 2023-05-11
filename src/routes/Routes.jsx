@@ -6,6 +6,7 @@ import { Homepage } from "../components/Homepage";
 import { About } from "../components/About";
 import { Projects } from "../components/Projects/Projects";
 import { Contact } from "../components/Contact";
+import Error404 from "../components/Error404";
 
 export const Routing = () => {
   let location = useLocation();
@@ -13,12 +14,10 @@ export const Routing = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const windowResizeHandler = () => {
-    console.log(windowWidth);
     setWindowWidth(window.innerWidth);
   };
 
   useEffect(() => {
-    console.log("this runs");
     window.addEventListener("resize", windowResizeHandler);
     return () => {
       window.removeEventListener("resize", windowResizeHandler);
@@ -30,24 +29,19 @@ export const Routing = () => {
       <Routes location={location} key={location.pathname}>
         <Route
           exact
-          path="/"
+          index={true}
           element={<Homepage screenWidth={windowWidth} />}
         />
+        <Route path="/about" element={<About screenWidth={windowWidth} />} />
         <Route
-          exact
-          path="/about"
-          element={<About screenWidth={windowWidth} />}
-        />
-        <Route
-          exact
           path="/projects"
           element={<Projects screenWidth={windowWidth} />}
         />
         <Route
-          exact
           path="/contact"
           element={<Contact screenWidth={windowWidth} />}
         />
+        <Route path="/*" element={<Error404 />} />
       </Routes>
     </AnimatePresence>
   );

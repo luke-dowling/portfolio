@@ -21,69 +21,86 @@
 }
 
 .home {
+  &-container {
+    grid-row: 2;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  &-container-left {
+    justify-content: flex-end;
+    grid-column: 1 / span 3;
+  }
+  &-container-right {
+    justify-content: start;
+    grid-column: 4 / span 3;
+  }
+
   &-title {
-    @include mix.heading($h3);
     white-space: wrap;
     position: relative;
-    margin: 0 5px;
   }
 
-  &__h1 {
-    text-align: right;
+  h1 {
     width: 8ch;
-    grid-column: 2 / span 2;
-    justify-self: end;
-    top: -100%;
-
-    &::after {
-      @extend %heading-animation-start;
-      background-color: $white;
-    }
-  }
-
-  &__h2 {
-    // margin-top: 500px;
-    grid-column: 4 / span 2;
-    justify-self: start;
-    color: $black;
-    width: 9ch;
-    top: -50%;
-
-    &::after {
-      @extend %heading-animation-start;
-      background-color: $black;
-    }
+    text-align: right;
+    top: -80px;
 
     a {
-      vertical-align: bottom;
+      position: relative;
+      display: block;
+      &::after {
+        @extend %heading-animation-start;
+        background-color: $white;
+      }
+    }
+  }
+
+  h2 {
+    width: 9ch;
+    color: $black;
+
+    top: -40px;
+
+    a {
+      position: relative;
+      display: block;
+      &::after {
+        @extend %heading-animation-start;
+        background-color: $black;
+      }
     }
   }
 }
 
-.home__h1:hover.home__h1::after,
-.home__h2:hover.home__h2::after {
+.home__h1:hover > a:hover::after,
+.home__h2:hover > a:hover::after {
   @extend %heading-hover-animation;
 }
 
 @media (min-width: $desktop) {
   .home {
+    &-container-left {
+      justify-content: center;
+      grid-column: 1 / span 6;
+    }
+    &-container-right {
+      justify-content: center;
+      grid-column: 7 / span 6;
+    }
     &-title {
       @include mix.heading($h2);
-      white-space: nowrap;
     }
 
-    &__h1 {
+    h1 {
       width: fit-content;
-      grid-column: 1 / span 6;
-      justify-self: center;
-      top: -50%;
+      top: -100px;
     }
 
-    &__h2 {
+    h2 {
       width: fit-content;
-      grid-column: 7 / span 6;
-      justify-self: center;
-      top: -50%;
+      top: -100px;
     }
   }
 }

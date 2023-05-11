@@ -1,17 +1,17 @@
 @use "variables" as *;
 
 nav {
-  padding: 18px 12px 0 0;
   display: block;
-  grid-column: 5 / span 2;
-  justify-self: end;
-  height: 1px;
+  height: 60px;
+  grid-column: 6 / span 1;
+  grid-row: 1;
+}
 
-  svg {
-    &:hover {
-      cursor: pointer;
-      transform: scale(1.1);
-    }
+.nav-icon {
+  margin-top: 25px;
+
+  &:hover {
+    cursor: pointer;
   }
 }
 
@@ -29,6 +29,8 @@ nav {
   justify-content: space-around;
   align-items: center;
   padding: 10vh 0;
+
+  list-style-type: none;
 
   &-dark {
     background-color: $black;
@@ -52,7 +54,11 @@ nav {
 
 @media (min-width: $desktop) {
   nav {
+    // padding-top: 20px;
+    height: 160px;
     grid-column: 11 / span 2;
+    align-self: end;
+    justify-self: start;
 
     li {
       list-style-type: none;
