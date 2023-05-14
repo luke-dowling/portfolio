@@ -60,11 +60,11 @@
 .page-container {
   grid-column: 1 / span 6;
   grid-row: 2;
-  height: $m-height;
+  height: 100%;
   max-height: 750px;
   margin: auto 0;
 
-  padding: 0 0 10vh 0;
+  padding: 0 0 15vh 0;
 
   h1 {
     @include mix.heading($h3);
@@ -72,7 +72,16 @@
 
   p {
     margin-bottom: 0.8em;
-    // text-align: justify;
+    font-size: 1.4rem;
+  }
+}
+
+@media (min-height: 800px) and (min-width: 345px) {
+  .page-container {
+    padding: 0 0 10vh 0;
+    p {
+      font-size: 1.6rem;
+    }
   }
 }
 
