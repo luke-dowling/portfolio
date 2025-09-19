@@ -5,28 +5,28 @@
 
 .container {
   width: 100vw;
-  height: 100vh;
-  position: relative;
-  z-index: 2;
 
-  &-projects {
-    transform: translateX(-50vw);
+  // &-projects {
+  //   transform: translateX(-50vw);
+  // }
+
+  &-dark {
+    background-color: $black;
+    color: $white;
   }
 }
 
 // LAYOUT
 
 .layout {
-  height: 100%;
   max-width: 500px;
   margin: 0 12px;
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 6px;
 }
 
-.main-layout {
-  grid-template-rows: 60px 1fr;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
 }
 
 @media (min-width: 500px) {

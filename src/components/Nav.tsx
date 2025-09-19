@@ -10,10 +10,20 @@ import {
   mobileNavContainerAnimation,
   navItemAnimation,
   navIconAnimation,
-} from "./Animations/navAnimation";
+} from "../Animations/navAnimation";
 import { Link } from "react-router-dom";
 
-const Modal = ({ theme, handleClick }) => {
+import type { Theme } from "../types.ts";
+
+interface NavProps {
+  theme: Theme;
+}
+
+interface ModalProps extends NavProps {
+  handleClick: () => void;
+}
+
+const Modal = ({ theme, handleClick }: ModalProps) => {
   const mobileTheme = theme === "light" ? "dark" : "light";
 
   return (
@@ -68,19 +78,21 @@ const Modal = ({ theme, handleClick }) => {
   );
 };
 
-export const Nav = ({ theme }) => {
+export const Nav = ({ theme }: NavProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
 
-  const oppositeTheme = (theme) => (theme === "light" ? "dark" : "light");
+  const oppositeTheme = (theme: Theme) =>
+    theme === "light" ? "dark" : "light";
 
   return (
     <>
       {window.innerWidth < 769 ? (
         <nav>
+          <Link to="/">lukeDowling</Link>
           <motion.div
             variants={navIconAnimation}
             className={`nav-icon link--${

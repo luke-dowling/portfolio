@@ -1,15 +1,18 @@
 @use "variables" as *;
 
 nav {
-  display: block;
-  height: 60px;
-  grid-column: 6 / span 1;
-  grid-row: 1;
+  position: sticky;
+  top: 20px;
+  width: calc(100vw - 24px);
+
+  margin-inline: 6px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .nav-icon {
-  margin-top: 25px;
-
   &:hover {
     cursor: pointer;
   }

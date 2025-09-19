@@ -1,6 +1,18 @@
 @use "variables" as *;
 @use "mixins" as mix;
 
+.util {
+  &__button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2em;
+  }
+
+  &__scroll-snap {
+    scroll-snap-type: y mandatory;
+  }
+}
+
 .link--dark {
   color: $black;
   text-decoration: none;
