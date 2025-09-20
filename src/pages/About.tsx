@@ -10,13 +10,13 @@ import { useNavigate } from "react-router-dom";
 
 export const About = () => {
   const navigate = useNavigate();
-  const onClickHandler = (path) => {
+  const onClickHandler = (path: string) => {
     navigate(path);
   };
 
   return (
-    <PageTransitionAnimation animation={aboutPageAnimation}>
-      <div className="container overflow">
+    <PageTransitionAnimation>
+      <div className="container">
         <div className="layout main-layout">
           <Nav theme="light" />
           <motion.div
