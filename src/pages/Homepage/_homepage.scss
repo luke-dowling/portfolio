@@ -35,10 +35,6 @@ section:nth-of-type(2) {
   h1 {
     padding-top: 18vh;
     line-height: 1.1;
-
-    span {
-      color: $orange;
-    }
   }
 
   &__job-title {
@@ -80,21 +76,12 @@ section:nth-of-type(2) {
     }
   }
 
-  h2 {
-    // margin-bottom: 2em;
-
-    span {
-      color: $orange;
-    }
-  }
-
   &__about-me {
     margin-block: 4em;
     letter-spacing: 0.05rem;
 
     p:nth-of-type(1) {
       font-weight: 700;
-      margin-bottom: 1em;
 
       span {
         border: 1px solid $orange;

@@ -10,9 +10,11 @@ import {
 } from "../../Animations/homeAnimations.js";
 import { Nav } from "@components/Nav/Nav.tsx";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, use } from "react";
+import { set } from "react-hook-form";
 
 export const Homepage = () => {
+  const pageRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
   const [scrollDirection, setScrollDirection] = useState("up");
   const [isVisible, setIsVisible] = useState(true);
@@ -21,26 +23,28 @@ export const Homepage = () => {
   useMotionValueEvent(scrollY, "change", (current) => {
     const prevY = scrollY.getPrevious() ?? 0;
     if (current > prevY) {
-      setScrollDirection("down");
+      // setScrollDirection("down");
+      setIsVisible(false);
     } else {
-      setScrollDirection("up");
+      // setScrollDirection("up");
+      setIsVisible(true);
     }
   });
 
   // Update visibility based on scroll direction
   useEffect(() => {
-    if (scrollDirection === "down") {
-      setIsVisible(false);
-    } else if (scrollDirection === "up") {
-      setIsVisible(true);
-    }
-  }, [scrollDirection]);
+    pageRef.current?.scrollIntoView({ behavior: "smooth" });
+    setIsVisible(true);
+  }, []);
 
   return (
     <PageTransitionAnimation>
-      <div className="container container-dark util__scroll-snap">
+      <div
+        ref={pageRef}
+        className="container container-dark util__scroll-snap home"
+      >
         <Nav theme="light" />
-        <section className="layout home">
+        <section>
           <motion.h1
             className="wrap"
             initial={{ opacity: 0, y: -50 }}
@@ -79,7 +83,7 @@ export const Homepage = () => {
             <p>more about me</p>
           </motion.div>
         </section>
-        <section className="layout home">
+        <section>
           <motion.h2
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}

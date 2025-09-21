@@ -13,7 +13,6 @@ export const PageTransitionAnimation = ({ animation, children }: PageProps) => {
       initial="initial"
       animate="animate"
       exit="exit"
-      className="screen"
     >
       {children}
     </motion.div>

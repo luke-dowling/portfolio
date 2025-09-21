@@ -1,0 +1,12 @@
+@use "@styles/abstracts" as *;
+
+button {
+  @include button($white);
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4em;
+  padding-bottom: 2em;
+}
