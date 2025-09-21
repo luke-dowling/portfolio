@@ -1,12 +1,9 @@
-@use "variables" as *;
-
 nav {
   position: fixed;
   z-index: 50;
   top: 20px;
+  left: 12px;
   width: calc(100vw - 24px);
-
-  margin-inline: 12px;
 
   display: flex;
   justify-content: space-between;

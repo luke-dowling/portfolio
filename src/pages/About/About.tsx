@@ -1,11 +1,13 @@
-import { PageTransitionAnimation } from "../Animations/PageTransitionAnimation";
-import { aboutPageAnimation } from "../Animations/pageAnimation";
-import { Nav } from "../components/Nav";
+import "./_about.scss";
+
+import { PageTransitionAnimation } from "../../Animations/PageTransitionAnimation";
+import { aboutPageAnimation } from "../../Animations/pageAnimation";
+import { Nav } from "@components/Nav/Nav";
 import { motion } from "framer-motion";
 import {
   aboutLayoutAnimation,
   aboutItemAnimation,
-} from "../Animations/aboutAnimation";
+} from "../../Animations/aboutAnimation";
 import { useNavigate } from "react-router-dom";
 
 export const About = () => {

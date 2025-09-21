@@ -1,9 +1,6 @@
-@use "variables" as *;
-@use "mixins" as mix;
-
 .contact {
   button {
-    @include mix.button($black);
+    @include button($black);
   }
 }
 
@@ -36,7 +33,7 @@
   }
 
   button {
-    @include mix.button($black);
+    @include button($black);
   }
 }
 

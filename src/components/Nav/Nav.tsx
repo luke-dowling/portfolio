@@ -1,3 +1,5 @@
+import "./_nav.scss";
+
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { FaGithubSquare, FaLinkedin } from "react-icons/fa";
@@ -10,10 +12,10 @@ import {
   mobileNavContainerAnimation,
   navItemAnimation,
   navIconAnimation,
-} from "../Animations/navAnimation";
+} from "../../Animations/navAnimation";
 import { Link } from "react-router-dom";
 
-import type { Theme } from "../types.ts";
+import type { Theme } from "../../types.ts";
 
 interface NavProps {
   theme: Theme;

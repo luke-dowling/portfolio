@@ -1,14 +1,12 @@
-import "./scss/App.scss";
-
 import { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import { Routes, Route, useLocation } from "react-router-dom";
 
-import { Homepage } from "./pages/Homepage.tsx";
-import { About } from "./pages/About";
-import { Projects } from "./pages/Projects";
-import { Contact } from "./pages/Contact";
-import { NotFound } from "./pages/NotFound";
+import { Homepage } from "@pages/Homepage/Homepage.tsx";
+import { About } from "@pages/About/About.tsx";
+import { Projects } from "@pages/Projects/Projects.tsx";
+import { Contact } from "@pages/Contact/Contact.tsx";
+import { NotFound } from "@/pages/NotFound/NotFound.js";
 
 export default function App() {
   let location = useLocation();

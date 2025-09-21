@@ -1,5 +1,4 @@
-@use "variables" as *;
-@use "mixins" as mix;
+@use "@styles/abstracts" as *;
 
 * {
   margin: 0;
@@ -27,14 +26,14 @@ body {
 }
 
 h1 {
-  @include mix.heading($h0);
+  @include heading($h0);
 }
 h2 {
-  @include mix.heading($h1);
+  @include heading($h1);
 }
 
 button {
-  @include mix.button($white);
+  @include button($white);
 }
 
 a {
@@ -94,10 +93,10 @@ html {
   }
 
   h1 {
-    @include mix.heading($h1);
+    @include heading($h1);
   }
   h2 {
-    @include mix.heading($h2);
+    @include heading($h2);
   }
 
   ::-webkit-scrollbar {

@@ -1,9 +1,14 @@
+import "./_homepage.scss";
+
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { Link } from "react-router-dom";
-import { PageTransitionAnimation } from "../Animations/PageTransitionAnimation";
-import { homePageAnimationDesktop } from "../Animations/pageAnimation";
-import { nameAnimation, jobAnimation } from "../Animations/homeAnimations";
-import { Nav } from "../components/Nav.tsx";
+import { PageTransitionAnimation } from "../../Animations/PageTransitionAnimation.tsx";
+import { homePageAnimationDesktop } from "../../Animations/pageAnimation.js";
+import {
+  nameAnimation,
+  jobAnimation,
+} from "../../Animations/homeAnimations.js";
+import { Nav } from "@components/Nav/Nav.tsx";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import { useEffect, useState } from "react";
 

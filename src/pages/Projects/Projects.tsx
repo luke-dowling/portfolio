@@ -1,9 +1,9 @@
-import { PageTransitionAnimation } from "../Animations/PageTransitionAnimation";
-import { Nav } from "../components/Nav";
-import { Project } from "../components/Projects/Project";
-import { projectsData } from "../components/Projects/projectsData";
+import { PageTransitionAnimation } from "../../Animations/PageTransitionAnimation";
+import { Nav } from "@components/Nav/Nav";
+import { Project } from "@components/Project/Project";
+import { projectsData } from "@components/Project/projectsData";
 
-import { projectsPageAnimation } from "../Animations/pageAnimation";
+import { projectsPageAnimation } from "../../Animations/pageAnimation";
 
 export const Projects = () => {
   return (

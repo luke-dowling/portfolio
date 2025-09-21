@@ -1,7 +1,5 @@
-@use "variables" as *;
-@use "mixins" as mix;
-
 // CONTAINER
+@use "@styles/abstracts" as *;
 
 .container {
   width: 100vw;
@@ -20,7 +18,7 @@
 
 .layout {
   max-width: 500px;
-  margin: 0 12px;
+  padding: 0 12px;
 }
 
 .grid {
@@ -31,7 +29,7 @@
 
 @media (min-width: 500px) {
   .layout {
-    margin: 0 auto;
+    padding: 0 auto;
   }
 }
 
@@ -64,10 +62,10 @@
   max-height: 750px;
   margin: auto 0;
 
-  padding: 0 0 12.5vh 0;
+  // padding: 0 0 12.5vh 0;
 
   h1 {
-    @include mix.heading($h3);
+    @include heading($h3);
   }
 
   p {
@@ -94,7 +92,7 @@
     height: 100%;
 
     h1 {
-      @include mix.heading($h1);
+      @include heading($h1);
     }
 
     p {

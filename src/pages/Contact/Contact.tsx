@@ -2,14 +2,14 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { useState, useRef } from "react";
 import emailjs from "emailjs-com";
-import { PageTransitionAnimation } from "../Animations/PageTransitionAnimation";
-import { Nav } from "../components/Nav";
+import { PageTransitionAnimation } from "../../Animations/PageTransitionAnimation";
+import { Nav } from "@components/Nav/Nav";
 
-import { contactPageAnimation } from "../Animations/pageAnimation";
+import { contactPageAnimation } from "../../Animations/pageAnimation";
 import {
   contactLayoutAnimation,
   contactItemAnimation,
-} from "../Animations/contactAnimation";
+} from "../../Animations/contactAnimation";
 
 const Modal = ({ setIsOpen }) => {
   return (
