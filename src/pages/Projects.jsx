@@ -1,7 +1,7 @@
 import { PageTransitionAnimation } from "../Animations/PageTransitionAnimation";
-import { Nav } from "../Nav";
-import { Project } from "./Project";
-import { projectsData } from "./projectsData";
+import { Nav } from "../components/Nav";
+import { Project } from "../components/Projects/Project";
+import { projectsData } from "../components/Projects/projectsData";
 
 import { projectsPageAnimation } from "../Animations/pageAnimation";
 

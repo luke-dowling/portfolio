@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import {
   projectsItemAnimation,
   projectsLayoutAnimation,
-} from "../Animations/projectsAnimations";
+} from "../../Animations/projectsAnimations";
 
 export const Project = ({ project }) => {
   const navigate = useNavigate();

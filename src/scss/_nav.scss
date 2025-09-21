@@ -1,15 +1,19 @@
 @use "variables" as *;
 
 nav {
-  display: block;
-  height: 60px;
-  grid-column: 6 / span 1;
-  grid-row: 1;
+  position: fixed;
+  z-index: 50;
+  top: 20px;
+  width: calc(100vw - 24px);
+
+  margin-inline: 12px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .nav-icon {
-  margin-top: 25px;
-
   &:hover {
     cursor: pointer;
   }
@@ -17,20 +21,24 @@ nav {
 
 .modal-nav {
   position: absolute;
-  width: 49.5vw;
+  width: 40vw;
   height: 100vh;
-  top: 0;
-  right: 0;
+  top: -19px;
+  right: -12px;
   bottom: 0;
   z-index: 10;
 
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: start;
   align-items: center;
   padding: 10vh 0;
 
   list-style-type: none;
+
+  li {
+    padding: 1em 12px;
+  }
 
   &-dark {
     background-color: $black;

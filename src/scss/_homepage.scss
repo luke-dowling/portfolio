@@ -1,82 +1,109 @@
 @use "variables" as *;
 @use "mixins" as mix;
+@use "sass:color";
 
-%heading-animation-start {
-  content: "";
-  display: block;
-  height: 4px;
-  width: 0;
-  border-radius: 4px;
-
-  position: absolute;
-  bottom: -6px;
-  left: 50%;
-
-  transition: 0.3s;
+.wrap {
+  white-space: pre-line;
+  word-wrap: break-word;
+  width: 10ch;
 }
 
-%heading-hover-animation {
-  width: 100%;
-  left: 0;
+@keyframes fadePulse {
+  0% {
+    color: $white;
+  }
+  20% {
+    color: color.adjust($orange, $lightness: 10%);
+  }
+  50% {
+    color: $white;
+  }
+}
+
+section:nth-of-type(1) {
+  height: 100vh;
+  position: relative; // for absolute positioning of more about me
+
+  scroll-snap-align: start;
+}
+
+section:nth-of-type(2) {
+  padding-bottom: 8vh;
+
+  scroll-snap-align: end;
 }
 
 .home {
-  &-container {
-    grid-row: 2;
-    height: 100%;
-    display: flex;
-    align-items: center;
-  }
-
-  &-container-left {
-    justify-content: flex-end;
-    grid-column: 1 / span 3;
-  }
-  &-container-right {
-    justify-content: start;
-    grid-column: 4 / span 3;
-  }
-
-  &-title {
-    white-space: wrap;
-    position: relative;
-  }
-
   h1 {
-    width: 8ch;
-    text-align: right;
-    top: -80px;
+    padding-top: 18vh;
+    line-height: 1.1;
 
-    a {
-      position: relative;
-      display: block;
-      &::after {
-        @extend %heading-animation-start;
-        background-color: $white;
+    span {
+      color: $orange;
+    }
+  }
+
+  &__job-title {
+    margin-top: 2.5em;
+    width: 50%;
+    margin-left: auto;
+
+    hr {
+      border: 1px solid $orange;
+    }
+
+    p {
+      padding-top: 0.5em;
+      line-height: 1.5;
+    }
+  }
+
+  &__more {
+    display: flex;
+    gap: 1ch;
+
+    position: absolute;
+    bottom: 6em;
+    left: 50%;
+    transform: translateX(-50%) rotate(-90deg);
+
+    animation: fadePulse 2s ease-in-out 3s infinite;
+
+    @keyframes fadePulse {
+      0% {
+        color: $white;
+      }
+      20% {
+        color: color.adjust($orange, $lightness: 10%);
+      }
+      50% {
+        color: $white;
       }
     }
   }
 
   h2 {
-    width: 9ch;
-    color: $black;
+    // margin-bottom: 2em;
 
-    top: -40px;
+    span {
+      color: $orange;
+    }
+  }
 
-    a {
-      position: relative;
-      display: block;
-      &::after {
-        @extend %heading-animation-start;
-        background-color: $black;
+  &__about-me {
+    margin-block: 4em;
+    letter-spacing: 0.05rem;
+
+    p:nth-of-type(1) {
+      font-weight: 700;
+      margin-bottom: 1em;
+
+      span {
+        border: 1px solid $orange;
+        padding: 0.2em;
       }
     }
   }
-}
-
-.home__h1:hover > a:hover::after,
-.home__h2:hover > a:hover::after {
-  @extend %heading-hover-animation;
 }
 
 @media (min-width: $desktop) {
