@@ -49,7 +49,10 @@ export const About = () => {
           </motion.p>
           <motion.p variants={aboutItemAnimation}>Peace & code.</motion.p>
 
-          <motion.div variants={aboutItemAnimation} className="button-group">
+          <motion.div
+            variants={aboutItemAnimation}
+            className="button-group-light"
+          >
             <motion.button onClick={() => onClickHandler("/projects")}>
               Projects
             </motion.button>

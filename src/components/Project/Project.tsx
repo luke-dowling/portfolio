@@ -4,47 +4,46 @@ import {
   projectsItemAnimation,
   projectsLayoutAnimation,
 } from "../../Animations/projectsAnimations";
+import type { Project as ProjectType } from "@/types";
+import { Link } from "react-router-dom";
 
-export const Project = ({ project }) => {
-  const navigate = useNavigate();
+interface ProjectProps {
+  project: ProjectType;
+}
 
-  const handleContactClick = () => {
-    navigate("/contact");
-  };
-
-  const handleClick = () => {
-    window.open(project.url, "_blank");
-  };
+export const Project = ({ project }: ProjectProps) => {
   return (
-    <motion.div
-      variants={projectsLayoutAnimation}
-      className="flex-container-column-sb project"
-    >
-      <motion.h1 variants={projectsItemAnimation}>Project.</motion.h1>
-      <div className="layout m-0">
-        <motion.div
-          variants={projectsItemAnimation}
-          className="project-img-container"
-        >
-          <img src={project.image_desktop} alt="Desktop Product Image" />
-          <img src={project.image_mobile} alt="Mobile Project Image" />
-        </motion.div>
-        <motion.h2 variants={projectsItemAnimation}>{project.title}</motion.h2>
-        <motion.p
-          variants={projectsItemAnimation}
-          className="project-description"
-        >
-          {project.description}
-        </motion.p>
-      </div>
+    <motion.div variants={projectsLayoutAnimation}>
+      <motion.h2 className="projects-title" variants={projectsItemAnimation}>
+        {project.title}
+      </motion.h2>
 
-      <motion.div variants={projectsItemAnimation} className="layout m-0">
-        <button className="project-btn-contact" onClick={handleContactClick}>
-          Contact
-        </button>
-        <button className="project-btn-project" onClick={handleClick}>
-          View Project
-        </button>
+      <motion.div
+        variants={projectsItemAnimation}
+        className="projects-image-container"
+      >
+        {" "}
+        <img
+          srcSet={project.image_mobile}
+          alt={`${project.title} project cover image`}
+        />
+      </motion.div>
+      <motion.p variants={projectsItemAnimation}>{project.tagline}</motion.p>
+      <motion.p
+        variants={projectsItemAnimation}
+        className="project-description"
+      >
+        {project.description}
+      </motion.p>
+
+      <motion.div variants={projectsItemAnimation} className="button-group">
+        <Link to={"/contact"}>
+          <button>Contact</button>
+        </Link>
+
+        <Link to={project.url}>
+          <button>View Project</button>
+        </Link>
       </motion.div>
     </motion.div>
   );

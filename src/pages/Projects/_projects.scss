@@ -1,70 +1,35 @@
-@use "./variables" as *;
-@use "./mixins" as mix;
-
-.project {
-  height: 100%;
-  margin: 0;
-
-  h2 {
-    grid-row: 2;
-    grid-column: 4 / span 2;
-    color: $white;
-    font-style: italic;
-    font-weight: normal;
-    margin: 0.8em 0 0;
+.projects {
+  h1 {
+    color: $black;
   }
 
-  p {
-    margin: 0;
-    grid-row: 3;
-    grid-column: 4 / span 3;
+  &-title {
+    margin-block: 3em 1em;
+    width: calc(50vw - 24px);
 
-    color: $white;
+    font-size: 1.6rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-wrap: nowrap;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      border-bottom: 1px solid $orange;
+      width: calc(100% - 24px - 10px);
+      margin-right: 3px;
+    }
   }
 
-  &-img-container {
-    grid-row: 1;
-    grid-column: 1 / span 6;
+  &-image-container {
+    border: 8px;
+    overflow: hidden;
+    height: 25vh;
 
-    position: relative;
-    img:nth-child(1) {
-      margin: 0 auto;
-      display: block;
-      height: 20vh;
+    img {
       width: 100%;
-      background-color: $gradient;
-      border-radius: 4px;
+      height: 100%;
     }
-
-    img:nth-child(2) {
-      position: absolute;
-      top: 10vh;
-      left: 10vw;
-      margin: 0 auto;
-      display: block;
-      height: 200px;
-      width: 100px;
-      border-radius: 12px;
-      background-color: $gradient;
-    }
-  }
-
-  &-btn-contact {
-    @include mix.button($black);
-    grid-row: 1;
-    grid-column: 1 / span 3;
-    align-self: end;
-  }
-  &-btn-project {
-    @include mix.button();
-    grid-row: 1;
-    grid-column: 4 / span 3;
-    justify-self: end;
-    align-self: end;
-  }
-
-  &__link {
-    text-decoration: none;
   }
 }
 

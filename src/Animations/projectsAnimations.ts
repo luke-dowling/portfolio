@@ -2,7 +2,7 @@ export const projectsLayoutAnimation = {
   initial: { opacity: 0 },
   animate: {
     opacity: 1,
-    transition: { staggerChildren: 0.4, delayChildren: 1 },
+    transition: { staggerChildren: 0.1, delayChildren: 0.1 },
   },
 };
 
