@@ -1,0 +1,17 @@
+footer {
+  background-color: $orange;
+  color: $white;
+
+  margin: 0 -12px;
+  padding: 12px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+
+  .icons {
+    display: flex;
+    gap: 6px;
+    font-size: $h2;
+  }
+}

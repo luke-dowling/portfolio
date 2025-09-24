@@ -12,21 +12,19 @@ import { Nav } from "@components/Nav/Nav.tsx";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import { useEffect, useState, useRef, use } from "react";
 import { set } from "react-hook-form";
+import { Footer } from "@/components/Footer/Footer.tsx";
 
 export const Homepage = () => {
   const pageRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
-  const [scrollDirection, setScrollDirection] = useState("up");
   const [isVisible, setIsVisible] = useState(true);
 
   // Track scroll direction
   useMotionValueEvent(scrollY, "change", (current) => {
     const prevY = scrollY.getPrevious() ?? 0;
     if (current > prevY) {
-      // setScrollDirection("down");
       setIsVisible(false);
     } else {
-      // setScrollDirection("up");
       setIsVisible(true);
     }
   });
@@ -121,6 +119,7 @@ export const Homepage = () => {
               <button>about </button>
             </Link>
           </motion.div>
+          <Footer />
         </section>
       </div>
     </PageTransitionAnimation>
