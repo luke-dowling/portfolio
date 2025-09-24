@@ -91,75 +91,68 @@ export const Nav = ({ theme }: NavProps) => {
     theme === "light" ? "dark" : "light";
 
   return (
-    <>
-      {window.innerWidth < 769 ? (
-        <nav>
-          <Link to="/">lukeDowling</Link>
-          <motion.div
-            variants={navIconAnimation}
-            className={`nav-icon link--${
-              isOpen ? oppositeTheme(theme) : theme
-            }`}
-          >
-            {!isOpen ? (
-              <MenuIcon style={{ fontSize: "35px" }} onClick={handleClick} />
-            ) : (
-              <ExitToAppIcon
-                style={{ fontSize: "35px", zIndex: 30, position: "relative" }}
-                onClick={handleClick}
-              />
-            )}
-          </motion.div>
+    <nav>
+      {/* mobile Nav */}
+      <div className="mobile">
+        <Link to="/">lukeDowling</Link>
+        <motion.div
+          variants={navIconAnimation}
+          className={`nav-icon link--${isOpen ? oppositeTheme(theme) : theme}`}
+        >
+          {!isOpen ? (
+            <MenuIcon style={{ fontSize: "35px" }} onClick={handleClick} />
+          ) : (
+            <ExitToAppIcon
+              style={{ fontSize: "35px", zIndex: 30, position: "relative" }}
+              onClick={handleClick}
+            />
+          )}
+        </motion.div>
 
-          {isOpen ? <Modal theme={theme} handleClick={handleClick} /> : null}
-        </nav>
-      ) : (
-        <nav>
-          <motion.ul variants={navContainerAnimation}>
-            <motion.li variants={navItemAnimation}>
-              <Link to="/" className={`link--${theme}`}>
-                home
-              </Link>
-            </motion.li>
-            <motion.li variants={navItemAnimation}>
-              <Link to="/about" className={`link--${theme}`}>
-                about
-              </Link>
-            </motion.li>
-            <motion.li variants={navItemAnimation}>
-              <Link to="/projects" className={`link--${theme}`}>
-                project
-              </Link>
-            </motion.li>
-            <motion.li variants={navItemAnimation}>
-              <Link to="/contact" className={`link--${theme}`}>
-                contact
-              </Link>
-            </motion.li>
-            <motion.li
-              variants={navItemAnimation}
-              className="flex-container-sb"
-            >
-              <a
-                href="https://github.com/luke-dowling"
-                target="_blank"
-                rel="noreferrer"
-                className={`link--${theme}`}
-              >
-                <FaGithubSquare />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/luke-dowling-760840147/"
-                target="_blank"
-                rel="noreferrer"
-                className={`link--${theme}`}
-              >
-                <FaLinkedin />
-              </a>
-            </motion.li>
-          </motion.ul>
-        </nav>
-      )}
-    </>
+        {isOpen ? <Modal theme={theme} handleClick={handleClick} /> : null}
+      </div>
+
+      {/* Desktop Nav */}
+      <motion.ul className="desktop" variants={navContainerAnimation}>
+        <motion.li variants={navItemAnimation}>
+          <Link to="/" className={`link--${theme}`}>
+            home
+          </Link>
+        </motion.li>
+        <motion.li variants={navItemAnimation}>
+          <Link to="/about" className={`link--${theme}`}>
+            about
+          </Link>
+        </motion.li>
+        <motion.li variants={navItemAnimation}>
+          <Link to="/projects" className={`link--${theme}`}>
+            project
+          </Link>
+        </motion.li>
+        <motion.li variants={navItemAnimation}>
+          <Link to="/contact" className={`link--${theme}`}>
+            contact
+          </Link>
+        </motion.li>
+        <motion.li variants={navItemAnimation} className="flex-container-sb">
+          <a
+            href="https://github.com/luke-dowling"
+            target="_blank"
+            rel="noreferrer"
+            className={`link--${theme}`}
+          >
+            <FaGithubSquare />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/luke-dowling-760840147/"
+            target="_blank"
+            rel="noreferrer"
+            className={`link--${theme}`}
+          >
+            <FaLinkedin />
+          </a>
+        </motion.li>
+      </motion.ul>
+    </nav>
   );
 };

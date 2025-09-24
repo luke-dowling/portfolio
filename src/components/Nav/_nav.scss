@@ -5,9 +5,17 @@ nav {
   left: 12px;
   width: calc(100vw - 24px);
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  .mobile {
+    display: block;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .desktop {
+    display: none;
+  }
 }
 
 .nav-icon {
@@ -57,12 +65,19 @@ nav {
   background-color: transparent;
 }
 
-@media (min-width: $desktop) {
+@media (min-width: $tablet) {
   nav {
     height: 160px;
     grid-column: 11 / span 2;
     align-self: end;
     justify-self: start;
+
+    .mobile {
+      display: none;
+    }
+    .desktop {
+      display: block;
+    }
 
     li {
       list-style-type: none;
