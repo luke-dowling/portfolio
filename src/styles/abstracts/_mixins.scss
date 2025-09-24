@@ -1,14 +1,13 @@
 @use "variables" as *;
 
-@mixin button($color: $white) {
+@mixin button($color: $orange) {
+  // width: 162px;
+  // border: 1px solid rgba($color, 1);
+  border: none;
   background-color: inherit;
-  border: 1px solid rgba($color, 1);
   padding: 0.4em 1em;
-  width: 162px;
-  align-self: center;
-  height: fit-content;
-  font-size: $m-paragraph;
-  color: rgba($color, 0.6);
+  font-size: $paragraph;
+  color: $color;
   transition: all 0.2s ease;
 
   &:hover {
@@ -22,7 +21,6 @@
   }
 
   @media (min-width: $desktop) {
-    font-size: $d-paragraph;
     width: 173px;
     border: none;
   }

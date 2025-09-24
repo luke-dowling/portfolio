@@ -106,17 +106,22 @@ export const Homepage = () => {
             </p>
           </motion.div>
           <motion.div
-            className="util__button-group"
+            className="button-group"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1 }}
             viewport={{ once: false, amount: 0.5 }}
           >
             <Link to="/projects">
-              <button> projects</button>
+              <button>
+                {" "}
+                <FiArrowLeft style={{ verticalAlign: "middle" }} /> projects
+              </button>
             </Link>
             <Link to="/about">
-              <button>about </button>
+              <button>
+                about <FiArrowRight style={{ verticalAlign: "middle" }} />
+              </button>
             </Link>
           </motion.div>
           <Footer />
