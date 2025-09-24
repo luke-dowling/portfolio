@@ -115,12 +115,12 @@ export const Homepage = () => {
             <Link to="/projects">
               <button>
                 {" "}
-                <FiArrowLeft style={{ verticalAlign: "middle" }} /> projects
+                <FiArrowLeft style={{ verticalAlign: "middle" }} /> experience
               </button>
             </Link>
             <Link to="/about">
               <button>
-                about <FiArrowRight style={{ verticalAlign: "middle" }} />
+                profile <FiArrowRight style={{ verticalAlign: "middle" }} />
               </button>
             </Link>
           </motion.div>

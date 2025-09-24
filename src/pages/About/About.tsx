@@ -1,15 +1,19 @@
 import "./_about.scss";
 
+import { useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+
+import headshot from "@/images/headshot.jpg";
 import { PageTransitionAnimation } from "../../Animations/PageTransitionAnimation";
 import { aboutPageAnimation } from "../../Animations/pageAnimation";
 import { Nav } from "@components/Nav/Nav";
-import { motion } from "framer-motion";
+
 import {
   aboutLayoutAnimation,
   aboutItemAnimation,
 } from "../../Animations/aboutAnimation";
-import { useNavigate } from "react-router-dom";
-import { useEffect, useRef } from "react";
+import { Footer } from "@/components/Footer/Footer";
 
 export const About = () => {
   const pageRef = useRef<HTMLDivElement>(null);
@@ -28,8 +32,14 @@ export const About = () => {
         <Nav theme="light" />
         <motion.div variants={aboutLayoutAnimation}>
           <motion.h1 variants={aboutItemAnimation}>
-            About<span>.</span>
+            Profile<span>.</span>
           </motion.h1>
+
+          <div className="intro">
+            <img src={headshot} alt="Luke Dowlings headshot" />
+            <h2>Luke 👨‍💻💃🎲</h2>
+            <p>web_developer/tap_dancer/nerd</p>
+          </div>
 
           <motion.p variants={aboutItemAnimation}>
             I actually used to be a musical theatre performer before I made a
@@ -49,19 +59,17 @@ export const About = () => {
           </motion.p>
           <motion.p variants={aboutItemAnimation}>Peace & code.</motion.p>
 
-          <motion.div
-            variants={aboutItemAnimation}
-            className="button-group-light"
-          >
+          <motion.div variants={aboutItemAnimation} className="button-group">
             <motion.button onClick={() => onClickHandler("/projects")}>
-              Projects
+              experience
             </motion.button>
 
             <motion.button onClick={() => onClickHandler("/contact")}>
-              Contact
+              contact
             </motion.button>
           </motion.div>
         </motion.div>
+        <Footer />
       </div>
     </PageTransitionAnimation>
   );
