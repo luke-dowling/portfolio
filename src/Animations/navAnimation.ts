@@ -1,8 +1,8 @@
 const transitionAnimate = {
-  duration: 0.8,
+  duration: 0.4,
   delay: 0.1,
-  staggerChildren: 0.2,
-  delayChildren: 1,
+  staggerChildren: 0.1,
+  delayChildren: 0.4,
 };
 
 const transitionExit = {
