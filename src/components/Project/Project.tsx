@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   projectsItemAnimation,
@@ -6,6 +5,7 @@ import {
 } from "../../Animations/projectsAnimations";
 import type { Project as ProjectType } from "@/types";
 import { Link } from "react-router-dom";
+import { FaExternalLinkAlt } from "react-icons/fa";
 
 interface ProjectProps {
   project: ProjectType;
@@ -18,17 +18,25 @@ export const Project = ({ project }: ProjectProps) => {
         {project.title}
       </motion.h2>
 
-      <motion.div
-        variants={projectsItemAnimation}
-        className="projects-image-container"
-      >
-        {" "}
-        <img
-          srcSet={project.image_mobile}
-          alt={`${project.title} project cover image`}
-        />
-      </motion.div>
-      <motion.p variants={projectsItemAnimation}>{project.tagline}</motion.p>
+      <Link to={project.url}>
+        <motion.div
+          variants={projectsItemAnimation}
+          className="projects-image-container"
+        >
+          <FaExternalLinkAlt />{" "}
+          <img
+            srcSet={project.image_mobile}
+            alt={`${project.title} project cover image`}
+          />
+        </motion.div>
+      </Link>
+
+      <motion.h3 variants={projectsItemAnimation}>{project.tagline}</motion.h3>
+      <div className="projects-tech-stack">
+        {project.techStack.map((tech: string) => {
+          return <p>{tech}</p>;
+        })}
+      </div>
       <motion.p
         variants={projectsItemAnimation}
         className="project-description"

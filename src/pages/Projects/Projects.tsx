@@ -7,6 +7,7 @@ import { PageTransitionAnimation } from "@/Animations/PageTransitionAnimation";
 import { Nav } from "@components/Nav/Nav";
 import { Project } from "@components/Project/Project";
 import { projectsData } from "@/lib/data";
+import { Footer } from "@/components/Footer/Footer";
 
 export const Projects = () => {
   const [index, setIndex] = useState<number>(0);
@@ -36,7 +37,7 @@ export const Projects = () => {
       <div className="container projects">
         <Nav theme="dark" />
         <h1>
-          Project<span>.</span>
+          Projects<span>.</span>
         </h1>
 
         <AnimatePresence custom={index} initial={false} mode="popLayout">
@@ -67,6 +68,7 @@ export const Projects = () => {
         >
           Right
         </motion.button>
+        <Footer />
       </div>
     </PageTransitionAnimation>
   );
