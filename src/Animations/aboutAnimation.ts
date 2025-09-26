@@ -2,7 +2,7 @@ export const aboutLayoutAnimation = {
   initial: { opacity: 0 },
   animate: {
     opacity: 1,
-    transition: { staggerChildren: 0.4, delayChildren: 1 },
+    transition: { staggerChildren: 0.2, delayChildren: 0.2 },
   },
 };
 

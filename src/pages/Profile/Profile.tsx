@@ -1,4 +1,4 @@
-import "./_about.scss";
+import "./_profile.scss";
 
 import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
@@ -14,17 +14,16 @@ import {
   aboutItemAnimation,
 } from "../../Animations/aboutAnimation";
 import { Footer } from "@/components/Footer/Footer";
+import { Link } from "react-router-dom";
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 
-export const About = () => {
+export const Profile = () => {
+  console.log(window);
   const pageRef = useRef<HTMLDivElement>(null);
-  const navigate = useNavigate();
-  const onClickHandler = (path: string) => {
-    navigate(path);
-  };
 
   useEffect(() => {
-    pageRef.current!.scrollTo({ top: -10, behavior: "smooth" });
-  }, []);
+    pageRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [window.location.pathname]);
 
   return (
     <PageTransitionAnimation>
@@ -35,11 +34,13 @@ export const About = () => {
             Profile<span>.</span>
           </motion.h1>
 
-          <div className="intro">
-            <img src={headshot} alt="Luke Dowlings headshot" />
+          <motion.div variants={aboutItemAnimation} className="intro">
+            <div className="img-container">
+              <img src={headshot} alt="Luke Dowlings headshot" />
+            </div>
             <h2>Luke 👨‍💻💃🎲</h2>
             <p>web_developer/tap_dancer/nerd</p>
-          </div>
+          </motion.div>
 
           <motion.p variants={aboutItemAnimation}>
             I actually used to be a musical theatre performer before I made a
@@ -60,13 +61,17 @@ export const About = () => {
           <motion.p variants={aboutItemAnimation}>Peace & code.</motion.p>
 
           <motion.div variants={aboutItemAnimation} className="button-group">
-            <motion.button onClick={() => onClickHandler("/projects")}>
-              experience
-            </motion.button>
-
-            <motion.button onClick={() => onClickHandler("/contact")}>
-              contact
-            </motion.button>
+            <Link to="/projects">
+              <button>
+                {" "}
+                <FiArrowLeft style={{ verticalAlign: "middle" }} /> experience
+              </button>
+            </Link>
+            <Link to="/contact">
+              <button>
+                contact <FiArrowRight style={{ verticalAlign: "middle" }} />
+              </button>
+            </Link>
           </motion.div>
         </motion.div>
         <Footer />

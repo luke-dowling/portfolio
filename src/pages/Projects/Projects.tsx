@@ -34,7 +34,7 @@ export const Projects = () => {
   return (
     <PageTransitionAnimation>
       <div className="container projects">
-        <Nav theme="light" />
+        <Nav theme="dark" />
         <h1>
           Project<span>.</span>
         </h1>
