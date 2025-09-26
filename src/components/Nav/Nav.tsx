@@ -40,8 +40,8 @@ const Modal = ({ theme, handleClick }: ModalProps) => {
           </Link>
         </motion.li>
         <motion.li variants={navItemAnimation}>
-          <Link to="/about" className={`link--${mobileTheme}`}>
-            about
+          <Link to="/profile" className={`link--${mobileTheme}`}>
+            profile
           </Link>
         </motion.li>
         <motion.li variants={navItemAnimation}>
@@ -91,12 +91,11 @@ export const Nav = ({ theme }: NavProps) => {
     theme === "light" ? "dark" : "light";
 
   return (
-    <nav>
+    <nav className={`nav nav-${theme}`}>
       {/* mobile Nav */}
       <div className="mobile">
         <Link to="/">lukeDowling</Link>
         <motion.div
-          variants={navIconAnimation}
           className={`nav-icon link--${isOpen ? oppositeTheme(theme) : theme}`}
         >
           {!isOpen ? (
