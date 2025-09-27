@@ -35,3 +35,15 @@
 .last-item-on-page {
   padding-bottom: 120px;
 }
+
+.orange-line {
+  width: calc(50vw - 24px);
+  text-wrap: nowrap;
+  &::before {
+    content: "";
+    display: inline-block;
+    border-bottom: 1px solid $orange;
+    width: calc(100% - 24px - 10px);
+    margin-right: 3px;
+  }
+}

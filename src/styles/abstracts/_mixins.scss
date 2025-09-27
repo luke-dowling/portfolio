@@ -16,6 +16,10 @@
     cursor: pointer;
   }
 
+  &:active {
+    box-shadow: none;
+  }
+
   &:visited {
     color: $color;
   }
