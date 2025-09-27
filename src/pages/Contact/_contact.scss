@@ -10,8 +10,22 @@
     display: block;
     width: 100%;
     border-bottom: 1px solid $black;
-    padding-bottom: 0.5em;
-    margin-bottom: 1em;
+    margin-bottom: 1.5em;
+    line-height: 2em;
+
+    &:focus {
+      border-bottom: none;
+    }
+  }
+
+  .form-field {
+    position: relative;
+    span {
+      position: absolute;
+      bottom: -1.8em;
+      color: $orange;
+      font-size: $paragraph-small;
+    }
   }
 
   .contact-submit-container {
@@ -27,37 +41,10 @@
       display: flex;
       gap: 12px;
     }
-  }
 
-  // input,
-  // textarea {
-  //   margin-block: 50px;
-
-  //   text-align: center;
-  //   display: block;
-  //   width: 100%;
-  //   border: none;
-  //   border-bottom: 1px solid $black;
-  //   background-color: inherit;
-  //   font-size: 1.8rem;
-  //   // margin: 0.8em auto;
-  //   padding-bottom: 0.3em;
-
-  //   &:focus-visible {
-  //     outline: none;
-  //   }
-  // }
-
-  &-error {
-    position: absolute;
-    top: 26px;
-    right: 0;
-    font-size: 1rem;
-    // color: $red;
-  }
-
-  button {
-    @include button($black);
+    button {
+      @include button($black);
+    }
   }
 }
 
