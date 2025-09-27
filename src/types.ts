@@ -6,7 +6,9 @@ type Technology =
   | "Express"
   | "MongoDb"
   | "TypeScript"
-  | "JavaScript";
+  | "JavaScript"
+  | "RestAPI"
+  | "Styled Components";
 
 export interface Project {
   id: number;
