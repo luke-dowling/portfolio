@@ -1,7 +1,7 @@
 import "./_projects.scss";
 
-import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { useRef, useState } from "react";
 
 import { PageTransitionAnimation } from "@/Animations/PageTransitionAnimation";
 import { Nav } from "@components/Nav/Nav";
@@ -9,7 +9,7 @@ import { Project } from "@components/Project/Project";
 import { projectsData } from "@/lib/data";
 import { Footer } from "@/components/Footer/Footer";
 import { Pagination } from "@components/Project/Pagination";
-import { projectsItemAnimation } from "@/Animations/projectsAnimations";
+import { itemAnimation } from "@/Animations/layoutAnimation";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
 
 export const Projects = () => {
@@ -30,7 +30,7 @@ export const Projects = () => {
   return (
     <PageTransitionAnimation ref={pageRef} classList="container projects">
       <Nav theme="dark" />
-      <motion.h1 variants={projectsItemAnimation}>
+      <motion.h1 variants={itemAnimation}>
         Projects<span>.</span>
       </motion.h1>
 

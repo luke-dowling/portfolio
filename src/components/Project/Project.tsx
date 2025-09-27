@@ -1,14 +1,10 @@
 import { AnimatePresence, motion } from "framer-motion";
-import {
-  projectsItemAnimation,
-  projectsLayoutAnimation,
-} from "../../Animations/projectsAnimations";
-import type { Project as ProjectType } from "@/types";
 import { Link } from "react-router-dom";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { useRef } from "react";
+
+import type { Project as ProjectType } from "@/types";
 import { projectsData } from "@/lib/data";
-import { PageTransitionAnimation } from "@/Animations/PageTransitionAnimation";
 
 const xOffset = 100;
 const variants = {
@@ -73,10 +69,7 @@ export const Project = ({
   }
 
   return (
-    <motion.div
-      variants={projectsItemAnimation}
-      className="projects-sliding-container"
-    >
+    <motion.div className="projects-sliding-container">
       <AnimatePresence custom={direction}>
         <motion.div
           key={currentProjectId}
@@ -94,15 +87,15 @@ export const Project = ({
           custom={direction}
         >
           <motion.h2
-            className="projects-title"
-            variants={projectsItemAnimation}
+            className="projects-title orange-line"
+            // variants={projectsItemAnimation}
           >
             {project.title}
           </motion.h2>
 
           <Link to={project.url}>
             <motion.div
-              variants={projectsItemAnimation}
+              // variants={projectsItemAnimation}
               className="projects-image-container"
             >
               <FaExternalLinkAlt className="icon" />{" "}
@@ -113,7 +106,9 @@ export const Project = ({
             </motion.div>
           </Link>
 
-          <motion.h3 variants={projectsItemAnimation}>
+          <motion.h3
+          // variants={projectsItemAnimation}
+          >
             {project.tagline}
           </motion.h3>
           <div className="projects-tech-stack">
@@ -122,13 +117,13 @@ export const Project = ({
             })}
           </div>
           <motion.p
-            variants={projectsItemAnimation}
+            // variants={projectsItemAnimation}
             className="project-description"
           >
             {project.description}
           </motion.p>
 
-          {/* <motion.div variants={projectsItemAnimation} className="button-group">
+          {/*  <motion.div variants={projectsItemAnimation} className="button-group">
           <Link to={"/contact"}>
             <button>Contact</button>
           </Link>
