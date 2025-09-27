@@ -2,22 +2,18 @@ import "./_contact.scss";
 
 import { motion } from "framer-motion";
 import { useState, useRef } from "react";
-import emailjs from "emailjs-com";
-import { PageTransitionAnimation } from "../../Animations/PageTransitionAnimation";
-import { Nav } from "@components/Nav/Nav";
-
-import { contactPageAnimation } from "../../Animations/pageAnimation";
-import {
-  contactLayoutAnimation,
-  contactItemAnimation,
-} from "../../Animations/contactAnimation";
-import { Footer } from "@/components/Footer/Footer";
 import { FaArrowRight } from "react-icons/fa";
+import emailjs from "emailjs-com";
+
+import { PageTransitionAnimation } from "../../Animations/PageTransitionAnimation";
+import { layoutAnimation, itemAnimation } from "@/Animations/layoutAnimation";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
 import {
   useContactForm,
   type ContactFormData,
 } from "@/hooks/useFormValidation";
+import { Nav } from "@components/Nav/Nav";
+import { Footer } from "@/components/Footer/Footer";
 
 export const Contact = () => {
   const pageRef = useRef<HTMLDivElement>(null);
@@ -75,22 +71,22 @@ export const Contact = () => {
       <Nav theme="dark" />
       {isOpen ? <Modal setIsOpen={setIsOpen} /> : null}
 
-      <motion.div variants={contactLayoutAnimation}>
-        <motion.h1 variants={contactItemAnimation}>
+      <motion.div variants={layoutAnimation}>
+        <motion.h1 variants={itemAnimation}>
           Hello<span>.</span>
         </motion.h1>
 
-        <motion.p variants={contactItemAnimation}>
+        <motion.p variants={itemAnimation}>
           I would love to hear your thoughts on my site or let me know if you
           are interested in collaborating.
         </motion.p>
 
-        <motion.p variants={contactItemAnimation}>
+        <motion.p variants={itemAnimation}>
           Either way, thanks for looking through and till next time!
         </motion.p>
 
         <motion.form
-          variants={contactItemAnimation}
+          variants={itemAnimation}
           onSubmit={onSubmit}
           ref={formRef}
           className="contact-form"
