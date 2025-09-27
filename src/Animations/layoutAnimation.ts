@@ -1,4 +1,4 @@
-export const aboutLayoutAnimation = {
+export const layoutAnimation = {
   initial: { opacity: 0 },
   animate: {
     opacity: 1,
@@ -6,7 +6,7 @@ export const aboutLayoutAnimation = {
   },
 };
 
-export const aboutItemAnimation = {
+export const itemAnimation = {
   initial: { opacity: 0 },
   animate: {
     opacity: 1,
