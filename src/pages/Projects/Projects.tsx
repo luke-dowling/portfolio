@@ -28,25 +28,20 @@ export const Projects = () => {
   }
 
   return (
-    <PageTransitionAnimation>
-      <motion.div className="container projects" ref={pageRef}>
-        <Nav theme="dark" />
-        <motion.h1 variants={projectsItemAnimation}>
-          Projects<span>.</span>
-        </motion.h1>
+    <PageTransitionAnimation ref={pageRef} classList="container projects">
+      <Nav theme="dark" />
+      <motion.h1 variants={projectsItemAnimation}>
+        Projects<span>.</span>
+      </motion.h1>
 
-        <Project
-          currentProjectId={currentProjectId}
-          direction={direction}
-          setProject={setProject}
-          project={selectedProject}
-        />
-        <Pagination
-          currentProjectId={currentProjectId}
-          setProject={setProject}
-        />
-        <Footer />
-      </motion.div>
+      <Project
+        currentProjectId={currentProjectId}
+        direction={direction}
+        setProject={setProject}
+        project={selectedProject}
+      />
+      <Pagination currentProjectId={currentProjectId} setProject={setProject} />
+      <Footer />
     </PageTransitionAnimation>
   );
 };

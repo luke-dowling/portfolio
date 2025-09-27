@@ -69,70 +69,64 @@ export const Contact = () => {
   };
 
   return (
-    <PageTransitionAnimation>
-      <div className="container contact" ref={pageRef}>
-        <Nav theme="dark" />
-        {isOpen ? <Modal setIsOpen={setIsOpen} /> : null}
-        <motion.div variants={contactLayoutAnimation}>
-          <motion.h1 variants={contactItemAnimation}>
-            Hello<span>.</span>
-          </motion.h1>
-          <motion.p variants={contactItemAnimation}>
-            I would love to hear your thoughts on my site or let me know if you
-            are interested in collaborating.
-          </motion.p>
-          <motion.p variants={contactItemAnimation}>
-            Either way, thanks for looking through and till next time!
-          </motion.p>
-          <motion.form
-            variants={contactItemAnimation}
-            onSubmit={handleSubmit(onSubmit)}
-            ref={formRef}
-            className="contact-form"
-          >
-            <motion.input
-              type="text"
-              placeholder="Name"
-              {...register("name", { required: true })}
-            />
-            {errors.name && (
-              <span className="contact-form-error">
-                Please leave your name.
-              </span>
-            )}
+    <PageTransitionAnimation ref={pageRef} classList="container contact">
+      <Nav theme="dark" />
+      {isOpen ? <Modal setIsOpen={setIsOpen} /> : null}
+      <motion.div variants={contactLayoutAnimation}>
+        <motion.h1 variants={contactItemAnimation}>
+          Hello<span>.</span>
+        </motion.h1>
+        <motion.p variants={contactItemAnimation}>
+          I would love to hear your thoughts on my site or let me know if you
+          are interested in collaborating.
+        </motion.p>
+        <motion.p variants={contactItemAnimation}>
+          Either way, thanks for looking through and till next time!
+        </motion.p>
+        <motion.form
+          variants={contactItemAnimation}
+          onSubmit={handleSubmit(onSubmit)}
+          ref={formRef}
+          className="contact-form"
+        >
+          <motion.input
+            type="text"
+            placeholder="Name"
+            {...register("name", { required: true })}
+          />
+          {errors.name && (
+            <span className="contact-form-error">Please leave your name.</span>
+          )}
 
-            <motion.input
-              type="email"
-              placeholder="Email"
-              {...register("email", { required: true })}
-            />
-            {errors.email && (
-              <span className="contact-form-error">
-                Please leave your Email.
-              </span>
-            )}
+          <motion.input
+            type="email"
+            placeholder="Email"
+            {...register("email", { required: true })}
+          />
+          {errors.email && (
+            <span className="contact-form-error">Please leave your Email.</span>
+          )}
 
-            <motion.textarea
-              placeholder="Message (under 150 words)"
-              {...register("message", {
-                required: true,
-              })}
-            ></motion.textarea>
-            {errors.message && (
-              <span className="contact-form-error">
-                Please leave a short message so I know why you are reaching out.
-              </span>
-            )}
+          <motion.textarea
+            placeholder="Message (under 150 words)"
+            {...register("message", {
+              required: true,
+            })}
+          ></motion.textarea>
+          {errors.message && (
+            <span className="contact-form-error">
+              Please leave a short message so I know why you are reaching out.
+            </span>
+          )}
 
-            <div className="contact-submit-container">
-              <motion.button>
-                Submit <FaArrowRight />
-              </motion.button>
-            </div>
-          </motion.form>
-        </motion.div>
-        <Footer />
-      </div>
+          <div className="contact-submit-container">
+            <motion.button>
+              Submit <FaArrowRight />
+            </motion.button>
+          </div>
+        </motion.form>
+      </motion.div>
+      <Footer />
     </PageTransitionAnimation>
   );
 };

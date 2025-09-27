@@ -2,14 +2,36 @@ import { motion } from "framer-motion";
 import type { ReactNode, RefAttributes } from "react";
 
 interface PageProps {
-  animation?: RefAttributes<HTMLDivElement>;
+  animation?: {
+    initial: {
+      x: string;
+      width: string;
+    };
+    animate: {
+      x: number;
+      width: string;
+      transition: {
+        duration: number;
+        delay: number;
+      };
+    };
+  };
+  ref?: React.RefObject<HTMLDivElement | null>;
+  classList?: string;
   children: ReactNode;
 }
 
-export const PageTransitionAnimation = ({ animation, children }: PageProps) => {
+export const PageTransitionAnimation = ({
+  animation,
+  ref,
+  classList,
+  children,
+}: PageProps) => {
   return (
     <motion.div
       // variants={animation}
+      ref={ref}
+      className={classList}
       initial="initial"
       animate="animate"
       exit="exit"
