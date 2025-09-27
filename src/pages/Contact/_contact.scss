@@ -10,7 +10,7 @@
     display: block;
     width: 100%;
     border-bottom: 1px solid $black;
-    margin-bottom: 1.5em;
+    margin-bottom: 2em;
     line-height: 2em;
 
     &:focus {
@@ -22,10 +22,18 @@
     position: relative;
     span {
       position: absolute;
-      bottom: -1.8em;
-      color: $orange;
+      bottom: -1.7em;
       font-size: $paragraph-small;
+      padding-left: 6px;
     }
+  }
+
+  &-error {
+    color: $error;
+  }
+
+  .submit-error {
+    border: 1px solid $error;
   }
 
   .contact-submit-container {
@@ -35,15 +43,10 @@
     margin-bottom: 2em;
 
     button {
-      color: $orange;
+      @include button($orange);
       font-weight: 600;
-
       display: flex;
       gap: 12px;
-    }
-
-    button {
-      @include button($black);
     }
   }
 }
