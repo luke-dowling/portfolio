@@ -1,4 +1,4 @@
-.about {
+.profile {
   min-height: 100vh;
   background-color: $black;
 
@@ -33,5 +33,9 @@
       font-weight: 200;
       font-size: $paragraph-small;
     }
+  }
+
+  &-tag-line {
+    margin-block: 3em;
   }
 }

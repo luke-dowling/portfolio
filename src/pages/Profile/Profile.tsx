@@ -25,7 +25,7 @@ export const Profile = () => {
   return (
     <PageTransitionAnimation
       ref={pageRef}
-      classList="container container-dark about"
+      classList="container container-dark profile"
     >
       <Nav theme="light" />
       <motion.div variants={aboutLayoutAnimation}>
@@ -37,27 +37,29 @@ export const Profile = () => {
           <div className="img-container">
             <img src={headshot} alt="Luke Dowlings headshot" />
           </div>
-          <h2>Luke 👨‍💻💃🎲</h2>
-          <p>web_developer/tap_dancer/nerd</p>
+          <h2>Luke 👨‍💻🕺</h2>
+          <p>web_dev / creative_coder / tap_dancer</p>
         </motion.div>
 
         <motion.p variants={aboutItemAnimation}>
-          I actually used to be a musical theatre performer before I made a
-          career change in 2020. Now, I am a full time programmer who can tap
-          dance and play the piano.
+          I’m a fullstack web developer passionate about building creative,
+          user-focused applications that make a real impact.
         </motion.p>
         <motion.p variants={aboutItemAnimation}>
-          No matter how much I progress in the world of computer science, there
-          will always be more to learn and that is something that drives me
-          forward, that and the satisfaction of my mates thinking I can fix any
-          gadget.
+          I love exploring new technologies, experimenting with ideas, and
+          writing clean, maintainable code.
         </motion.p>
         <motion.p variants={aboutItemAnimation}>
-          But in all seriousness, I am always happy to collaborate on projects,
-          if you want to reach out, please go to my contact page where I look
-          forward to hearing from you!
+          Before stepping into the world of software engineering, I was a
+          performer— so I might just be the only developer you’ll meet who can
+          tap dance 😉
         </motion.p>
-        <motion.p variants={aboutItemAnimation}>Peace & code.</motion.p>
+        <motion.p
+          className="orange-line profile-tag-line"
+          variants={aboutItemAnimation}
+        >
+          Peace & code ✌️
+        </motion.p>
 
         <motion.div
           variants={aboutItemAnimation}
