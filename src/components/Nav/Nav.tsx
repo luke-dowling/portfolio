@@ -46,7 +46,7 @@ const Modal = ({ theme, handleClick }: ModalProps) => {
         </motion.li>
         <motion.li variants={navItemAnimation}>
           <Link to="/projects" className={`link--${mobileTheme}`}>
-            project
+            projects
           </Link>
         </motion.li>
         <motion.li variants={navItemAnimation}>
