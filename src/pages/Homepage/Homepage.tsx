@@ -39,6 +39,7 @@ export const Homepage = () => {
     <PageTransitionAnimation
       ref={pageRef}
       classList="container container-dark util__scroll-snap home"
+      theme="dark"
     >
       <Nav theme="light" />
       <section>

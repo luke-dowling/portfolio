@@ -1,17 +1,12 @@
 @use "@styles/abstracts" as *;
 
 .container {
-  max-width: 500px;
+  margin: 0 auto;
   min-height: 100vh;
   padding: 0 12px;
 
   // to absolute the footer
   position: relative;
-
-  &-dark {
-    background-color: $black;
-    color: $white;
-  }
 
   h1 {
     padding-top: 12vh;

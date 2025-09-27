@@ -23,11 +23,6 @@
   &:visited {
     color: $color;
   }
-
-  @media (min-width: $desktop) {
-    width: 173px;
-    border: none;
-  }
 }
 
 @mixin heading($size: 32px) {

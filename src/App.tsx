@@ -7,6 +7,7 @@ import { Profile } from "@/pages/Profile/Profile";
 import { Projects } from "@pages/Projects/Projects.tsx";
 import { Contact } from "@pages/Contact/Contact.tsx";
 import { NotFound } from "@/pages/NotFound/NotFound.js";
+import { Footer } from "./components/Footer/Footer";
 
 export default function App() {
   let location = useLocation();
@@ -26,13 +27,15 @@ export default function App() {
 
   return (
     // <AnimatePresence exitBeforeEnter>
-    <Routes>
-      <Route path="/" index={true} element={<Homepage />} />
-      <Route path="/profile" element={<Profile />} />
-      <Route path="/projects" element={<Projects />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/*" element={<NotFound />} />
-    </Routes>
+    <>
+      <Routes>
+        <Route path="/" index={true} element={<Homepage />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/*" element={<NotFound />} />
+      </Routes>
+    </>
     // </AnimatePresence>
   );
 }

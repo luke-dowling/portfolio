@@ -19,6 +19,7 @@ interface PageProps {
   ref?: React.RefObject<HTMLDivElement | null>;
   classList?: string;
   children: ReactNode;
+  theme: string;
 }
 
 export const PageTransitionAnimation = ({
@@ -26,17 +27,20 @@ export const PageTransitionAnimation = ({
   ref,
   classList,
   children,
+  theme,
 }: PageProps) => {
   return (
-    <motion.div
-      // variants={animation}
-      ref={ref}
-      className={classList}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-    >
-      {children}
-    </motion.div>
+    <div className={theme}>
+      <motion.div
+        // variants={animation}
+        ref={ref}
+        className={classList}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+      >
+        {children}
+      </motion.div>
+    </div>
   );
 };

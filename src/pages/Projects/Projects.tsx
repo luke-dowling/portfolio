@@ -28,7 +28,11 @@ export const Projects = () => {
   }
 
   return (
-    <PageTransitionAnimation ref={pageRef} classList="container projects">
+    <PageTransitionAnimation
+      ref={pageRef}
+      classList="container projects"
+      theme="light"
+    >
       <Nav theme="dark" />
       <motion.h1 variants={itemAnimation}>
         Projects<span>.</span>

@@ -119,13 +119,13 @@ export const Nav = ({ theme }: NavProps) => {
           </Link>
         </motion.li>
         <motion.li variants={navItemAnimation}>
-          <Link to="/about" className={`link--${theme}`}>
-            about
+          <Link to="/profile" className={`link--${theme}`}>
+            profile
           </Link>
         </motion.li>
         <motion.li variants={navItemAnimation}>
           <Link to="/projects" className={`link--${theme}`}>
-            project
+            projects
           </Link>
         </motion.li>
         <motion.li variants={navItemAnimation}>

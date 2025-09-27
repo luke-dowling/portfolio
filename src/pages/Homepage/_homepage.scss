@@ -89,28 +89,80 @@ section:nth-of-type(2) {
   }
 }
 
-@media (min-width: $desktop) {
+@media (min-width: $tablet) {
+  .wrap {
+    width: 20ch; // allow more readable text width
+  }
+
   .home {
-    &-container-left {
-      justify-content: center;
-      grid-column: 1 / span 6;
-    }
-    &-container-right {
-      justify-content: center;
-      grid-column: 7 / span 6;
-    }
-    &-title {
-      @include heading($h2);
-    }
-
     h1 {
-      width: fit-content;
-      top: -100px;
+      padding-top: 20vh; // more breathing room
+      font-size: 2.2rem; // bump heading size
     }
 
-    h2 {
-      width: fit-content;
-      top: -100px;
+    &__job-title {
+      margin-top: 2em;
+      width: 60%; // wider layout for tablet
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center; // center align on mid screens
+    }
+
+    &__more {
+      bottom: 4em; // raise up slightly for larger screens
+    }
+
+    &__about-me {
+      margin-block: 4em;
+      font-size: 1.1rem;
+      max-width: 80%; // constrain line length
+      margin-inline: auto; // center
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .wrap {
+    width: 35ch; // full readability
+  }
+
+  .home {
+    h1 {
+      padding-top: 25vh;
+      font-size: 3rem; // bigger hero headline
+      text-align: left; // give a more professional desktop feel
+      max-width: 60%;
+      margin-inline: auto;
+    }
+
+    &__job-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 60%;
+      margin: 2em auto 0 auto;
+
+      hr {
+        flex: 1;
+        margin-inline: 1em;
+      }
+
+      p {
+        flex: 2;
+        font-size: 1.2rem;
+      }
+    }
+
+    &__more {
+      bottom: 3em;
+      font-size: 1.1rem;
+    }
+
+    &__about-me {
+      max-width: 60%;
+      margin-inline: auto;
+      font-size: 1.15rem;
+      line-height: 1.8;
     }
   }
 }
