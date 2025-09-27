@@ -4,7 +4,7 @@ import type { Project } from "@/types";
 
 export const projectsData: Project[] = [
   {
-    id: 1,
+    id: 0,
     title: "Librix",
     tagline: "Librix is a user based book exchange service",
     description:
@@ -16,7 +16,7 @@ export const projectsData: Project[] = [
     url: "https://github.com/Final-Project-X",
   },
   {
-    id: 2,
+    id: 1,
     title: "Example 2",
     tagline: "Librix is a user based book exchange service",
     description:
@@ -24,11 +24,11 @@ export const projectsData: Project[] = [
     image_mobile: librixImageMobile,
     image_tablet: librixImageMobile,
     image_desktop: librixImageDesktop,
-    techStack: ["React Native", "MongoDb", "Express"],
+    techStack: ["React", "TypeScript", "Express"],
     url: "https://github.com/Final-Project-X",
   },
   {
-    id: 3,
+    id: 2,
     title: "Example 3",
     tagline: "Librix is a user based book exchange service",
     description:
@@ -36,7 +36,7 @@ export const projectsData: Project[] = [
     image_mobile: librixImageMobile,
     image_tablet: librixImageMobile,
     image_desktop: librixImageDesktop,
-    techStack: ["React Native", "MongoDb", "Express"],
+    techStack: ["TypeScript", "JavaScript", "Express"],
     url: "https://github.com/Final-Project-X",
   },
 ];

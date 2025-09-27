@@ -14,6 +14,7 @@ import {
 } from "../../Animations/contactAnimation";
 import { Footer } from "@/components/Footer/Footer";
 import { FaArrowRight } from "react-icons/fa";
+import { useScrollToTop } from "@/hooks/useScrollToTop";
 
 interface ModalProps {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -29,6 +30,9 @@ const Modal = ({ setIsOpen }: ModalProps) => {
 };
 
 export const Contact = () => {
+  const pageRef = useRef<HTMLDivElement>(null);
+  useScrollToTop(pageRef);
+
   const {
     register,
     handleSubmit,
@@ -39,7 +43,7 @@ export const Contact = () => {
 
   const onSubmit = (
     data: { name: string; email: string; message: string },
-    event: SubmitHandler<FieldValues>
+    event: Event
   ) => {
     event.preventDefault();
 
@@ -66,7 +70,7 @@ export const Contact = () => {
 
   return (
     <PageTransitionAnimation>
-      <div className="container contact">
+      <div className="container contact" ref={pageRef}>
         <Nav theme="dark" />
         {isOpen ? <Modal setIsOpen={setIsOpen} /> : null}
         <motion.div variants={contactLayoutAnimation}>

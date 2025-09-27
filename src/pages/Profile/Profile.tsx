@@ -16,14 +16,11 @@ import {
 import { Footer } from "@/components/Footer/Footer";
 import { Link } from "react-router-dom";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
+import { useScrollToTop } from "@/hooks/useScrollToTop";
 
 export const Profile = () => {
-  console.log(window);
   const pageRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    pageRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [window.location.pathname]);
+  useScrollToTop(pageRef);
 
   return (
     <PageTransitionAnimation>
@@ -60,11 +57,14 @@ export const Profile = () => {
           </motion.p>
           <motion.p variants={aboutItemAnimation}>Peace & code.</motion.p>
 
-          <motion.div variants={aboutItemAnimation} className="button-group">
+          <motion.div
+            variants={aboutItemAnimation}
+            className="button-group last-item-on-page"
+          >
             <Link to="/projects">
               <button>
                 {" "}
-                <FiArrowLeft style={{ verticalAlign: "middle" }} /> experience
+                <FiArrowLeft style={{ verticalAlign: "middle" }} /> projects
               </button>
             </Link>
             <Link to="/contact">

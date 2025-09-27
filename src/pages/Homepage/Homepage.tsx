@@ -16,6 +16,12 @@ import { Footer } from "@/components/Footer/Footer.tsx";
 
 export const Homepage = () => {
   const pageRef = useRef<HTMLDivElement>(null);
+  // Update visibility based on scroll direction
+  useEffect(() => {
+    pageRef.current?.scrollIntoView({ behavior: "smooth" });
+    setIsVisible(true);
+  }, []);
+
   const { scrollY } = useScroll();
   const [isVisible, setIsVisible] = useState(true);
 
@@ -28,12 +34,6 @@ export const Homepage = () => {
       setIsVisible(true);
     }
   });
-
-  // Update visibility based on scroll direction
-  useEffect(() => {
-    pageRef.current?.scrollIntoView({ behavior: "smooth" });
-    setIsVisible(true);
-  }, []);
 
   return (
     <PageTransitionAnimation>
@@ -106,7 +106,7 @@ export const Homepage = () => {
             </p>
           </motion.div>
           <motion.div
-            className="button-group"
+            className="button-group last-item-on-page"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1 }}
@@ -118,7 +118,7 @@ export const Homepage = () => {
                 <FiArrowLeft style={{ verticalAlign: "middle" }} /> projects
               </button>
             </Link>
-            <Link to="/about">
+            <Link to="/profile">
               <button>
                 profile <FiArrowRight style={{ verticalAlign: "middle" }} />
               </button>
