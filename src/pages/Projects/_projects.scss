@@ -26,6 +26,15 @@
     border: 8px;
     overflow: hidden;
     height: 25vh;
+    position: relative;
+
+    .icon {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      color: $black;
+      font-size: $h3;
+    }
 
     img {
       width: 100%;
@@ -55,6 +64,48 @@
 
   p {
     font-size: $paragraph-small;
+  }
+}
+
+.projects-sliding-container {
+  position: relative;
+  // hard coded height for positions of pagination
+  height: 520px;
+
+  .project {
+    position: absolute;
+    top: 0;
+  }
+}
+
+.dots {
+  display: flex;
+  justify-content: space-around;
+  gap: 6px;
+  padding-top: 1em;
+  padding-bottom: 8em;
+
+  .dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: $orange;
+    position: relative;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    .dot-highlight {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      top: -10px;
+      left: -10px;
+      border: 1px solid $orange;
+      border-radius: 50%;
+      padding: 1em;
+    }
   }
 }
 
