@@ -82,7 +82,7 @@ export const Contact = () => {
         </motion.p>
 
         <motion.p variants={itemAnimation}>
-          Either way, thanks for looking through and till next time!
+          Either way, thanks for looking through and till next time 👋
         </motion.p>
 
         <motion.form
