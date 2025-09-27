@@ -1,22 +1,16 @@
 import "./_profile.scss";
 
-import { useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useRef } from "react";
 import { motion } from "framer-motion";
-
-import headshot from "@/images/headshot.jpg";
-import { PageTransitionAnimation } from "../../Animations/PageTransitionAnimation";
-import { aboutPageAnimation } from "../../Animations/pageAnimation";
-import { Nav } from "@components/Nav/Nav";
-
-import {
-  aboutLayoutAnimation,
-  aboutItemAnimation,
-} from "../../Animations/aboutAnimation";
-import { Footer } from "@/components/Footer/Footer";
 import { Link } from "react-router-dom";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
+
+import headshot from "@/images/headshot.jpg";
+import { PageTransitionAnimation } from "@/Animations/PageTransitionAnimation";
+import { layoutAnimation, itemAnimation } from "@/Animations/layoutAnimation";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
+import { Nav } from "@components/Nav/Nav";
+import { Footer } from "@/components/Footer/Footer";
 
 export const Profile = () => {
   const pageRef = useRef<HTMLDivElement>(null);
@@ -28,12 +22,12 @@ export const Profile = () => {
       classList="container container-dark profile"
     >
       <Nav theme="light" />
-      <motion.div variants={aboutLayoutAnimation}>
-        <motion.h1 variants={aboutItemAnimation}>
+      <motion.div variants={layoutAnimation}>
+        <motion.h1 variants={itemAnimation}>
           Profile<span>.</span>
         </motion.h1>
 
-        <motion.div variants={aboutItemAnimation} className="intro">
+        <motion.div variants={itemAnimation} className="intro">
           <div className="img-container">
             <img src={headshot} alt="Luke Dowlings headshot" />
           </div>
@@ -41,28 +35,28 @@ export const Profile = () => {
           <p>web_dev / creative_coder / tap_dancer</p>
         </motion.div>
 
-        <motion.p variants={aboutItemAnimation}>
+        <motion.p variants={itemAnimation}>
           I’m a fullstack web developer passionate about building creative,
           user-focused applications that make a real impact.
         </motion.p>
-        <motion.p variants={aboutItemAnimation}>
+        <motion.p variants={itemAnimation}>
           I love exploring new technologies, experimenting with ideas, and
           writing clean, maintainable code.
         </motion.p>
-        <motion.p variants={aboutItemAnimation}>
+        <motion.p variants={itemAnimation}>
           Before stepping into the world of software engineering, I was a
           performer— so I might just be the only developer you’ll meet who can
           tap dance 😉
         </motion.p>
         <motion.p
           className="orange-line profile-tag-line"
-          variants={aboutItemAnimation}
+          variants={itemAnimation}
         >
           Peace & code ✌️
         </motion.p>
 
         <motion.div
-          variants={aboutItemAnimation}
+          variants={itemAnimation}
           className="button-group last-item-on-page"
         >
           <Link to="/projects">
