@@ -111,18 +111,16 @@ section:nth-of-type(2) {
       }
     }
 
-    // override built in animation
-    &-logo-animation {
-      display: block;
-      margin-left: auto;
-      width: 400px !important;
-      height: 200px !important;
-      overflow: visible !important;
-      // border: 5px solid white;
-    }
-
     &__more {
       display: none;
+    }
+
+    &-logo-animation {
+      display: none;
+    }
+
+    h2 {
+      margin-top: 2em;
     }
 
     &__about-me {
@@ -131,48 +129,30 @@ section:nth-of-type(2) {
   }
 }
 
-@media (min-width: $desktop) {
-  .wrap {
-    width: 35ch; // full readability
-  }
-
+@media screen and (min-width: 600px) {
   .home {
-    h1 {
-      padding-top: 25vh;
-      font-size: 3rem; // bigger hero headline
-      text-align: left; // give a more professional desktop feel
-      max-width: 60%;
-      margin-inline: auto;
+    // override built in animation
+    &-animation-container {
+      position: relative;
     }
 
-    &__job-title {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 60%;
-      margin: 2em auto 0 auto;
-
-      hr {
-        flex: 1;
-        margin-inline: 1em;
-      }
-
-      p {
-        flex: 2;
-        font-size: 1.2rem;
-      }
+    &-logo-animation {
+      display: block;
+      position: absolute !important;
+      right: 0;
+      top: -150px;
+      margin-left: auto;
+      width: 370px !important;
+      height: 370px !important;
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
+      // border: 1px solid white;
+      border-radius: 50%;
     }
+  }
+}
 
-    &__more {
-      bottom: 3em;
-      font-size: 1.1rem;
-    }
-
-    &__about-me {
-      max-width: 60%;
-      margin-inline: auto;
-      font-size: 1.15rem;
-      line-height: 1.8;
-    }
+@media (min-width: $desktop) {
+  .home {
   }
 }

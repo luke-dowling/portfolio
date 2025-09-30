@@ -15,17 +15,15 @@
 }
 
 @media (min-width: $tablet) {
-  .container {
-    margin: 0 20px;
-    max-width: 900px;
-
-    grid-template-columns: repeat(6, 1fr);
-    gap: 12px;
+  .container,
+  .nav {
+    max-width: 650px;
   }
 }
 
 @media (min-width: $desktop) {
-  .container {
-    margin: 0 auto;
+  .container,
+  .nav {
+    max-width: 850px;
   }
 }

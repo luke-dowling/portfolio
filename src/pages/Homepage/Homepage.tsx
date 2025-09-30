@@ -64,7 +64,14 @@ export const Homepage = () => {
             <span>Website</span> <span>Developer</span>
           </p>
         </motion.div>
-        <LogosAnimation />
+        <motion.div
+          className="home-animation-container"
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, delay: 0.3 }}
+        >
+          <LogosAnimation />
+        </motion.div>
         <motion.div
           className="home__more"
           initial={{ opacity: 0 }}
