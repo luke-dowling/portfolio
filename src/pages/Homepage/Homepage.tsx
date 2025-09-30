@@ -13,6 +13,7 @@ import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import { useEffect, useState, useRef, use } from "react";
 import { set } from "react-hook-form";
 import { Footer } from "@/components/Footer/Footer.tsx";
+import LogosAnimation from "@/Animations/LogosAnimation/LogosAnimation.tsx";
 
 export const Homepage = () => {
   const pageRef = useRef<HTMLDivElement>(null);
@@ -63,6 +64,7 @@ export const Homepage = () => {
             <span>Website</span> <span>Developer</span>
           </p>
         </motion.div>
+        <LogosAnimation />
         <motion.div
           className="home__more"
           initial={{ opacity: 0 }}
