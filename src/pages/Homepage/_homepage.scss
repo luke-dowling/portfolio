@@ -51,13 +51,13 @@ section:nth-of-type(2) {
 
     @keyframes fadePulse {
       0% {
-        color: $white;
+        color: inherit;
       }
       20% {
         color: color.adjust($orange, $lightness: 10%);
       }
       50% {
-        color: $white;
+        color: inherit;
       }
     }
   }
