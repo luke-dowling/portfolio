@@ -106,29 +106,33 @@
     .desktop {
       display: block;
     }
-    display: grid;
 
-    height: 160px;
-    grid-column: 11 / span 2;
-    align-self: end;
-    justify-self: start;
+    display: flex;
+    justify-content: flex-end;
+    background-color: transparent;
 
     li {
+      text-align: end;
       list-style-type: none;
       cursor: pointer;
       position: relative;
       z-index: 3;
       padding: 0.1em;
 
-      a {
+      a,
+      button {
         display: block;
         transition: transform 0.3s ease;
 
         &:hover {
-          transform: scale(1.2);
-          text-shadow: 0 0 10px inherit;
+          transform: scale(1.1);
         }
       }
+    }
+
+    &-button-group {
+      display: flex;
+      gap: 6px;
     }
   }
 
