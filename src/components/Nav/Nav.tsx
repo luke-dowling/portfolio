@@ -111,47 +111,50 @@ export const Nav = () => {
       </div>
 
       {/* Desktop Nav */}
-      <motion.ul className="desktop" variants={navContainerAnimation}>
-        {" "}
-        <motion.li variants={navItemAnimation} className="nav-button-group">
-          <ThemeSwitch />
-          <a
-            href="https://github.com/luke-dowling"
-            target="_blank"
-            rel="noreferrer"
-            className={`link--${theme}`}
-          >
-            <FaGithubSquare />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/luke-dowling-760840147/"
-            target="_blank"
-            rel="noreferrer"
-            className={`link--${theme}`}
-          >
-            <FaLinkedin />
-          </a>
-        </motion.li>
-        <motion.li variants={navItemAnimation}>
-          <Link to="/" className={`link--${theme}`}>
-            home
-          </Link>
-        </motion.li>
-        <motion.li variants={navItemAnimation}>
-          <Link to="/profile" className={`link--${theme}`}>
-            profile
-          </Link>
-        </motion.li>
-        <motion.li variants={navItemAnimation}>
-          <Link to="/projects" className={`link--${theme}`}>
-            projects
-          </Link>
-        </motion.li>
-        <motion.li variants={navItemAnimation}>
-          <Link to="/contact" className={`link--${theme}`}>
-            contact
-          </Link>
-        </motion.li>
+      <motion.ul className="desktop" variants={mobileNavContainerAnimation}>
+        <div>
+          <motion.li variants={navItemAnimation}>
+            <Link to="/" className={`link--${theme}`}>
+              home
+            </Link>
+          </motion.li>
+          <motion.li variants={navItemAnimation}>
+            <Link to="/profile" className={`link--${theme}`}>
+              profile
+            </Link>
+          </motion.li>
+          <motion.li variants={navItemAnimation}>
+            <Link to="/projects" className={`link--${theme}`}>
+              projects
+            </Link>
+          </motion.li>
+          <motion.li variants={navItemAnimation}>
+            <Link to="/contact" className={`link--${theme}`}>
+              contact
+            </Link>
+          </motion.li>
+        </div>
+        <div>
+          <motion.li variants={navItemAnimation} className="nav-button-group">
+            <ThemeSwitch />
+            <a
+              href="https://github.com/luke-dowling"
+              target="_blank"
+              rel="noreferrer"
+              className={`link--${theme}`}
+            >
+              <FaGithubSquare />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/luke-dowling-760840147/"
+              target="_blank"
+              rel="noreferrer"
+              className={`link--${theme}`}
+            >
+              <FaLinkedin />
+            </a>
+          </motion.li>
+        </div>
       </motion.ul>
     </nav>
   );
