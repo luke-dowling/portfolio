@@ -20,7 +20,6 @@ export const Profile = () => {
     <PageTransitionAnimation
       ref={pageRef}
       classList="container container-dark profile"
-      theme="dark"
     >
       <Nav theme="light" />
       <motion.div variants={layoutAnimation}>

@@ -1,3 +1,12 @@
+.dark {
+  .contact-form {
+    input,
+    textarea {
+      border-bottom: 1px solid $white;
+    }
+  }
+}
+
 .contact-form {
   padding-block: 3em;
 

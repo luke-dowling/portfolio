@@ -1,8 +1,15 @@
-.projects {
-  h1 {
-    color: $black;
-  }
+.dark {
+  .projects-image-container {
+    background-color: $white;
 
+    .icon {
+      color: $black;
+      background-color: $white;
+    }
+  }
+}
+
+.projects {
   &-title {
     margin-block: 4rem 2rem;
 
@@ -53,7 +60,6 @@
       border-radius: 32px;
       background-color: $orange;
       padding: 0.3rem 0.7rem;
-      color: $white;
       font-weight: 700;
     }
   }
@@ -78,8 +84,7 @@
   display: flex;
   justify-content: space-around;
   gap: 6px;
-  padding-top: 1em;
-  padding-bottom: 8em;
+  padding-block: 1em;
 
   .dot {
     width: 20px;

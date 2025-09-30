@@ -67,12 +67,8 @@ export const Contact = () => {
   };
 
   return (
-    <PageTransitionAnimation
-      ref={pageRef}
-      classList="container contact"
-      theme="light"
-    >
-      <Nav theme="dark" />
+    <PageTransitionAnimation ref={pageRef} classList="container contact">
+      <Nav theme="light" />
       {isOpen ? <Modal setIsOpen={setIsOpen} /> : null}
 
       <motion.div variants={layoutAnimation}>

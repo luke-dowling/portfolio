@@ -39,9 +39,8 @@ export const Homepage = () => {
     <PageTransitionAnimation
       ref={pageRef}
       classList="container container-dark util__scroll-snap home"
-      theme="dark"
     >
-      <Nav theme="light" />
+      <Nav />
       <section>
         <motion.h1
           className="wrap"
@@ -114,7 +113,6 @@ export const Homepage = () => {
         >
           <Link to="/projects">
             <button>
-              {" "}
               <FiArrowLeft style={{ verticalAlign: "middle" }} /> projects
             </button>
           </Link>

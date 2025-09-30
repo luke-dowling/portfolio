@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
-import type { ReactNode, RefAttributes } from "react";
+import type { ReactNode } from "react";
+
+import { type Theme } from "@/types";
+import { useTheme } from "@/hooks/useThemeContext";
 
 interface PageProps {
   animation?: {
@@ -19,7 +22,6 @@ interface PageProps {
   ref?: React.RefObject<HTMLDivElement | null>;
   classList?: string;
   children: ReactNode;
-  theme: string;
 }
 
 export const PageTransitionAnimation = ({
@@ -27,8 +29,9 @@ export const PageTransitionAnimation = ({
   ref,
   classList,
   children,
-  theme,
 }: PageProps) => {
+  const { theme } = useTheme();
+
   return (
     <div className={theme}>
       <motion.div

@@ -11,6 +11,7 @@ import { Footer } from "@/components/Footer/Footer";
 import { Pagination } from "@components/Project/Pagination";
 import { itemAnimation } from "@/Animations/layoutAnimation";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
+import { Link } from "react-router-dom";
 
 export const Projects = () => {
   const pageRef = useRef<HTMLDivElement>(null);
@@ -28,12 +29,8 @@ export const Projects = () => {
   }
 
   return (
-    <PageTransitionAnimation
-      ref={pageRef}
-      classList="container projects"
-      theme="light"
-    >
-      <Nav theme="dark" />
+    <PageTransitionAnimation ref={pageRef} classList="container projects">
+      <Nav theme="light" />
       <motion.h1 variants={itemAnimation}>
         Projects<span>.</span>
       </motion.h1>
@@ -45,6 +42,18 @@ export const Projects = () => {
         project={selectedProject}
       />
       <Pagination currentProjectId={currentProjectId} setProject={setProject} />
+      <motion.div
+        variants={itemAnimation}
+        className="button-group last-item-on-page"
+      >
+        <Link to={"/profile"}>
+          <button>profile</button>
+        </Link>
+
+        <Link to={"/contact"}>
+          <button>contact</button>
+        </Link>
+      </motion.div>
       <Footer />
     </PageTransitionAnimation>
   );

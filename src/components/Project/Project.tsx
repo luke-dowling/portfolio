@@ -122,16 +122,6 @@ export const Project = ({
           >
             {project.description}
           </motion.p>
-
-          {/*  <motion.div variants={projectsItemAnimation} className="button-group">
-          <Link to={"/contact"}>
-            <button>Contact</button>
-          </Link>
-
-          <Link to={project.url}>
-            <button>View Project</button>
-          </Link>
-        </motion.div> */}
         </motion.div>
       </AnimatePresence>
     </motion.div>

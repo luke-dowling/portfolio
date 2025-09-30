@@ -3,10 +3,9 @@ import "./_nav.scss";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { FaGithubSquare, FaLinkedin } from "react-icons/fa";
-import MenuIcon from "@mui/icons-material/Menu";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import { RiMenu2Line } from "react-icons/ri";
+import { IoMdExit } from "react-icons/io";
+
 import {
   navContainerAnimation,
   mobileNavContainerAnimation,
@@ -16,6 +15,8 @@ import {
 import { Link } from "react-router-dom";
 
 import type { Theme } from "../../types.ts";
+import { useTheme } from "@/hooks/useThemeContext.ts";
+import { ThemeSwitch } from "../ThemeSwitch/ThemeSwitch.tsx";
 
 interface NavProps {
   theme: Theme;
@@ -30,10 +31,7 @@ const Modal = ({ theme, handleClick }: ModalProps) => {
 
   return (
     <>
-      <motion.ul
-        className={`modal-nav modal-nav-${theme}`}
-        variants={mobileNavContainerAnimation}
-      >
+      <motion.ul className={`modal-nav`} variants={mobileNavContainerAnimation}>
         <motion.li variants={navItemAnimation}>
           <Link to="/" className={`link--${mobileTheme}`}>
             home
@@ -61,7 +59,7 @@ const Modal = ({ theme, handleClick }: ModalProps) => {
             rel="noreferrer"
             className={`link--${mobileTheme}`}
           >
-            <GitHubIcon style={{ fontSize: "35px" }} />
+            <FaGithubSquare />
           </a>
         </motion.li>
         <motion.li variants={navItemAnimation}>
@@ -71,7 +69,7 @@ const Modal = ({ theme, handleClick }: ModalProps) => {
             rel="noreferrer"
             className={`link--${mobileTheme}`}
           >
-            <LinkedInIcon style={{ fontSize: "35px" }} />
+            <FaLinkedin />
           </a>
         </motion.li>
       </motion.ul>
@@ -80,15 +78,13 @@ const Modal = ({ theme, handleClick }: ModalProps) => {
   );
 };
 
-export const Nav = ({ theme }: NavProps) => {
+export const Nav = () => {
+  const { theme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
-
-  const oppositeTheme = (theme: Theme) =>
-    theme === "light" ? "dark" : "light";
 
   return (
     <nav className={`nav nav-${theme}`}>
@@ -96,12 +92,15 @@ export const Nav = ({ theme }: NavProps) => {
       <div className="mobile">
         <Link to="/">lukeDowling</Link>
         <motion.div
-          className={`nav-icon link--${isOpen ? oppositeTheme(theme) : theme}`}
+          className={`nav-icons link--${
+            isOpen ? (theme === "light" ? "dark" : "light") : theme
+          }`}
         >
+          <ThemeSwitch />
           {!isOpen ? (
-            <MenuIcon style={{ fontSize: "35px" }} onClick={handleClick} />
+            <RiMenu2Line onClick={handleClick} />
           ) : (
-            <ExitToAppIcon
+            <IoMdExit
               style={{ fontSize: "35px", zIndex: 30, position: "relative" }}
               onClick={handleClick}
             />

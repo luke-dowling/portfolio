@@ -1,3 +1,28 @@
+.dark {
+  .nav {
+    background-color: $black;
+    color: $white;
+  }
+
+  .modal-nav {
+    background-color: $white;
+    color: $black;
+  }
+}
+
+.link--light {
+  color: $black;
+  svg {
+    color: $black;
+  }
+}
+.link--dark {
+  color: $white;
+  svg {
+    color: $white;
+  }
+}
+
 .nav {
   position: fixed;
   z-index: 50;
@@ -10,15 +35,8 @@
 
   padding-top: 20px;
 
-  &-light {
-    background-color: $black;
-    color: $white;
-  }
-
-  &-dark {
-    background-color: $white;
-    color: $black;
-  }
+  background-color: $white;
+  color: $black;
 
   .mobile {
     display: block;
@@ -33,7 +51,11 @@
   }
 }
 
-.nav-icon {
+.nav-icons {
+  display: flex;
+  font-size: 3.5rem;
+  gap: 12px;
+
   &:hover {
     cursor: pointer;
   }
@@ -61,13 +83,8 @@
     padding: 1em 12px;
   }
 
-  &-dark {
-    background-color: $black;
-  }
-
-  &-light {
-    background-color: $white;
-  }
+  background-color: $black;
+  color: $white;
 }
 
 .modal-overlay {
