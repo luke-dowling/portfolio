@@ -26,3 +26,23 @@
     font-size: $h2;
   }
 }
+
+@media screen and (min-width: $tablet) {
+  .footer {
+    width: 100vw; /* full viewport width */
+    left: calc(-50vw + 50%);
+
+    .footer__inner {
+      max-width: 650px;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media (min-width: $desktop) {
+  .footer {
+    .footer__inner {
+      max-width: 850px;
+    }
+  }
+}
