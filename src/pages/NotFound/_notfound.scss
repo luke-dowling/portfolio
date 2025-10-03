@@ -1,0 +1,14 @@
+.error404 {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10vw;
+
+  button {
+    @include button($black);
+  }
+}

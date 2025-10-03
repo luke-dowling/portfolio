@@ -1,0 +1,55 @@
+@use "@styles/abstracts" as *;
+
+.util {
+  &__button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2em;
+  }
+
+  &__scroll-snap {
+    scroll-snap-type: y mandatory;
+  }
+}
+
+.link--dark {
+  color: $black;
+  text-decoration: none;
+  font-size: inherit;
+}
+
+.link--light {
+  color: $white;
+  text-decoration: none;
+  font-size: inherit;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.overflow {
+  overflow-y: auto;
+}
+
+.last-item-on-page {
+  padding-bottom: 120px;
+}
+
+.orange-line {
+  width: calc(50vw - 24px);
+  text-wrap: nowrap;
+  &::before {
+    content: "";
+    display: inline-block;
+    border-bottom: 1px solid $orange;
+    width: calc(100% - 24px - 10px);
+    margin-right: 3px;
+  }
+}
+
+@media screen and (min-width: $tablet) {
+  .orange-line {
+    width: 250px;
+  }
+}

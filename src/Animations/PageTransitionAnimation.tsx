@@ -1,21 +1,49 @@
 import { motion } from "framer-motion";
-import type { ReactNode, RefAttributes } from "react";
+import type { ReactNode } from "react";
+
+import { type Theme } from "@/types";
+import { useTheme } from "@/hooks/useThemeContext";
 
 interface PageProps {
-  animation?: RefAttributes<HTMLDivElement>;
+  animation?: {
+    initial: {
+      x: string;
+      width: string;
+    };
+    animate: {
+      x: number;
+      width: string;
+      transition: {
+        duration: number;
+        delay: number;
+      };
+    };
+  };
+  ref?: React.RefObject<HTMLDivElement | null>;
+  classList?: string;
   children: ReactNode;
 }
 
-export const PageTransitionAnimation = ({ animation, children }: PageProps) => {
+export const PageTransitionAnimation = ({
+  animation,
+  ref,
+  classList,
+  children,
+}: PageProps) => {
+  const { theme } = useTheme();
+
   return (
-    <motion.div
-      // variants={animation}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      className="screen"
-    >
-      {children}
-    </motion.div>
+    <div className={theme}>
+      <motion.div
+        // variants={animation}
+        ref={ref}
+        className={classList}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+      >
+        {children}
+      </motion.div>
+    </div>
   );
 };

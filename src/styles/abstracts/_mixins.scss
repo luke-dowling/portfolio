@@ -1,0 +1,32 @@
+@use "variables" as *;
+
+@mixin button($color: $orange) {
+  // width: 162px;
+  // border: 1px solid rgba($color, 1);
+  border: none;
+  background-color: inherit;
+  padding: 0.4em 1em;
+  font-size: $paragraph;
+  color: $color;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: $color;
+    box-shadow: 0 0 8px $color;
+    cursor: pointer;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+
+  &:visited {
+    color: $color;
+  }
+}
+
+@mixin heading($size: 32px) {
+  font-family: "Raleway", sans-serif;
+  font-weight: 900;
+  font-size: $size;
+}
