@@ -29,7 +29,7 @@
 
 @media screen and (min-width: $tablet) {
   .footer {
-    width: 100vw; /* full viewport width */
+    width: 100vw;
     left: calc(-50vw + 50%);
 
     .footer__inner {

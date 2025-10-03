@@ -21,7 +21,7 @@ export const Profile = () => {
       ref={pageRef}
       classList="container container-dark profile"
     >
-      <Nav theme="light" />
+      <Nav />
       <motion.div variants={layoutAnimation}>
         <motion.h1 variants={itemAnimation}>
           Profile<span>.</span>

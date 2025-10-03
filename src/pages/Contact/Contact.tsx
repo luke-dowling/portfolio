@@ -14,6 +14,8 @@ import {
 } from "@/hooks/useFormValidation";
 import { Nav } from "@components/Nav/Nav";
 import { Footer } from "@/components/Footer/Footer";
+import { Link } from "react-router-dom";
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 
 export const Contact = () => {
   const pageRef = useRef<HTMLDivElement>(null);
@@ -68,7 +70,7 @@ export const Contact = () => {
 
   return (
     <PageTransitionAnimation ref={pageRef} classList="container contact">
-      <Nav theme="light" />
+      <Nav />
       {isOpen ? <Modal setIsOpen={setIsOpen} /> : null}
 
       <motion.div variants={layoutAnimation}>
@@ -169,12 +171,29 @@ export const Contact = () => {
                 <span>Sending...</span>
               ) : (
                 <>
-                  Submit <FaArrowRight />
+                  Submit <FaArrowRight style={{ verticalAlign: "middle" }} />
                 </>
               )}
             </motion.button>
           </div>
         </motion.form>
+
+        <motion.div
+          variants={itemAnimation}
+          className="button-group last-item-on-page"
+        >
+          <Link to="/projects">
+            <button>
+              {" "}
+              <FiArrowLeft style={{ verticalAlign: "middle" }} /> projects
+            </button>
+          </Link>
+          <Link to="/contact">
+            <button>
+              contact <FiArrowRight style={{ verticalAlign: "middle" }} />
+            </button>
+          </Link>
+        </motion.div>
       </motion.div>
       <Footer />
     </PageTransitionAnimation>

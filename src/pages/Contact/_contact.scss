@@ -8,7 +8,7 @@
 }
 
 .contact-form {
-  padding-block: 3em;
+  padding-top: 3em;
 
   input,
   textarea {
@@ -44,36 +44,52 @@
   .contact-submit-container {
     display: flex;
     justify-content: center;
-    padding-block: 3em;
+    // padding-block: 3em;
     margin-bottom: 2em;
 
     button {
       @include button($orange);
-      font-weight: 600;
+
       display: flex;
-      gap: 12px;
+      align-items: center;
+      gap: 0.5em;
+
+      svg {
+        font-size: 2.4rem;
+      }
+    }
+  }
+}
+
+@media (min-width: $tablet) {
+  .contact {
+    h1 {
+      margin-bottom: 1em;
+    }
+  }
+
+  .contact-form {
+    .contact-submit-container {
+      justify-content: flex-start;
     }
   }
 }
 
 @media (min-width: $desktop) {
-  .contact-form {
-    &-divider {
-      position: relative;
-      display: inline-block;
-      width: 47%;
-
-      &:nth-child(1) {
-        margin-right: 3%;
-      }
-      &:nth-child(2) {
-        margin-left: 3%;
-      }
-
-      &:nth-child(3) {
-        width: 100%;
-      }
+  .contact {
+    h1 {
+      margin-bottom: 1em;
     }
+
+    p {
+      max-width: 650px;
+      text-align: justify;
+    }
+  }
+
+  .contact-form {
+    max-width: 650px;
+    padding-block: 0.5em;
 
     input,
     textarea {
@@ -82,10 +98,8 @@
     }
 
     &-error {
-      top: 64px;
+      top: 55px;
       right: 0;
-      font-size: 1.4rem;
-      // color: $red;
     }
   }
 }
