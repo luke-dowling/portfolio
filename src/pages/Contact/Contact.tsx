@@ -188,9 +188,9 @@ export const Contact = () => {
               <FiArrowLeft style={{ verticalAlign: "middle" }} /> projects
             </button>
           </Link>
-          <Link to="/contact">
+          <Link to="/profile">
             <button>
-              contact <FiArrowRight style={{ verticalAlign: "middle" }} />
+              profile <FiArrowRight style={{ verticalAlign: "middle" }} />
             </button>
           </Link>
         </motion.div>
