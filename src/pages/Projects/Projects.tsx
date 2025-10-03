@@ -31,7 +31,7 @@ export const Projects = () => {
 
   return (
     <PageTransitionAnimation ref={pageRef} classList="container projects">
-      <Nav theme="light" />
+      <Nav />
       <motion.h1 variants={itemAnimation}>
         Projects<span>.</span>
       </motion.h1>

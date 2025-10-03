@@ -97,7 +97,7 @@ export default function Scene() {
     <Canvas
       camera={{ position: [0, 2, 4] }}
       className="home-logo-animation"
-      frameloop={prefersReducedMotion ? "demand" : "always"} // 🔥 stop loop if motion reduced
+      frameloop={prefersReducedMotion ? "demand" : "always"}
     >
       <ambientLight intensity={1} />
       <pointLight position={[0, 0, 0]} intensity={1.5} />
