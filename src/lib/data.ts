@@ -1,5 +1,5 @@
 import librixImageMobile from "@/images/librix-m.png";
-import librixImageDesktop from "@/images/librix-d-2.png";
+import librixImageDesktop from "@/images/librix-d.png";
 import rickImageMobile from "@/images/rick.jpeg";
 import recordImageMobile from "@/images/record.jpg";
 import type { Project } from "@/types";

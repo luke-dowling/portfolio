@@ -93,16 +93,26 @@ export const Project = ({
             {project.title}
           </motion.h2>
 
-          <Link to={project.url}>
+          <Link to={project.url} target="_blank" rel="noreferrer">
             <motion.div
               // variants={projectsItemAnimation}
               className="projects-image-container"
             >
               <FaExternalLinkAlt className="icon" />{" "}
-              <img
-                srcSet={project.image_mobile}
-                alt={`${project.title} project cover image`}
-              />
+              <picture>
+                <source
+                  media="(min-width: 768px)"
+                  srcSet={project.image_desktop}
+                />
+                <source
+                  media="(max-width: 768px)"
+                  srcSet={project.image_mobile}
+                />
+                <img
+                  src={project.image_mobile}
+                  alt={`${project.title} project cover image`}
+                />
+              </picture>
             </motion.div>
           </Link>
 

@@ -36,13 +36,18 @@ export const Projects = () => {
         Projects<span>.</span>
       </motion.h1>
 
-      <Project
-        currentProjectId={currentProjectId}
-        direction={direction}
-        setProject={setProject}
-        project={selectedProject}
-      />
-      <Pagination currentProjectId={currentProjectId} setProject={setProject} />
+      <div className="projects-container">
+        <Project
+          currentProjectId={currentProjectId}
+          direction={direction}
+          setProject={setProject}
+          project={selectedProject}
+        />
+        <Pagination
+          currentProjectId={currentProjectId}
+          setProject={setProject}
+        />
+      </div>
       <motion.div
         variants={itemAnimation}
         className="button-group last-item-on-page"

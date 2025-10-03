@@ -36,10 +36,11 @@
       font-size: $h3;
     }
 
+    picture,
     img {
       width: 100%;
       height: 100%;
-      object-fit: contain; // or 'contain'
+      object-fit: contain;
       object-position: center;
       display: block;
     }
@@ -110,49 +111,28 @@
   }
 }
 
+@media (min-width: $tablet) {
+  .projects {
+    .projects-container {
+      max-width: 500px;
+    }
+  }
+}
 @media (min-width: $desktop) {
-  .project {
-    h2 {
-      font-weight: normal;
-      grid-column: 7 / span 2;
-      margin: 0;
+  .projects {
+    .projects-container {
+      max-width: 650px;
     }
 
-    p {
-      grid-column: 7 / span 6;
-      padding-bottom: 2em;
+    &-image-container {
+      height: 250px;
+      margin-block: 2em;
     }
+  }
 
-    &-img-container {
-      grid-row: 1;
-      grid-column: 3 / span 8;
-
-      position: relative;
-      img:nth-child(1) {
-        height: 260px;
-        width: 100%;
-        background-color: $gradient;
-      }
-
-      img:nth-child(2) {
-        position: absolute;
-        top: 120px;
-        left: 2vw;
-        margin: 0 auto;
-        display: block;
-        height: 280px;
-        width: 140px;
-        max-width: 200px;
-        border-radius: 12px;
-        background-color: $gradient;
-      }
-    }
-
-    &-btn-contact {
-      grid-column: 3 / span 4;
-    }
-    &-btn-project {
-      grid-column: 7 / span 4;
-    }
+  .dots {
+    justify-content: center;
+    gap: 3em;
+    padding-top: 5em;
   }
 }
