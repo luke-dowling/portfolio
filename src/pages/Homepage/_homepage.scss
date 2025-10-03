@@ -144,8 +144,7 @@ section:nth-of-type(2) {
       margin-left: auto;
       width: 370px !important;
       height: 370px !important;
-      overflow-y: auto !important;
-      overflow-x: hidden !important;
+      overflow: hidden !important;
       // border: 1px solid white;
       border-radius: 50%;
     }
