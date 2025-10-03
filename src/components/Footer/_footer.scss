@@ -35,6 +35,9 @@
     .footer__inner {
       max-width: 650px;
       margin: 0 auto;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 20px;
     }
   }
 }
