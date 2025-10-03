@@ -134,3 +134,13 @@
     font-size: 3.5rem;
   }
 }
+@media (min-width: $desktop) {
+  .nav {
+    .desktop {
+      div,
+      .nav-button-group {
+        gap: 16px;
+      }
+    }
+  }
+}

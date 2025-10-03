@@ -22,7 +22,7 @@
 
   .icons {
     display: flex;
-    gap: 0.3em;
+    gap: 6px;
     font-size: $h2;
   }
 }
@@ -39,6 +39,9 @@
       justify-content: space-between;
       padding: 20px;
     }
+    .icons {
+      gap: 12px;
+    }
   }
 }
 
@@ -46,6 +49,10 @@
   .footer {
     .footer__inner {
       max-width: 850px;
+    }
+
+    .icons {
+      gap: 16px;
     }
   }
 }
