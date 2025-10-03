@@ -27,27 +27,31 @@ export const Profile = () => {
           Profile<span>.</span>
         </motion.h1>
 
-        <motion.div variants={itemAnimation} className="intro">
-          <div className="img-container">
-            <img src={headshot} alt="Luke Dowlings headshot" />
-          </div>
-          <h2>Luke 👨‍💻🕺</h2>
-          <p>web_dev / creative_coder / tap_dancer</p>
-        </motion.div>
+        <div className="profile-intro-container">
+          <motion.div variants={itemAnimation} className="intro">
+            <div className="img-container">
+              <img src={headshot} alt="Luke Dowlings headshot" />
+            </div>
+            <h2>Luke 👨‍💻🕺</h2>
+            <p>web_dev / creative_coder / tap_dancer</p>
+          </motion.div>
 
-        <motion.p variants={itemAnimation}>
-          I’m a fullstack web developer passionate about building creative,
-          user-focused applications that make a real impact.
-        </motion.p>
-        <motion.p variants={itemAnimation}>
-          I love exploring new technologies, experimenting with ideas, and
-          writing clean, maintainable code.
-        </motion.p>
-        <motion.p variants={itemAnimation}>
-          Before stepping into the world of software engineering, I was a
-          performer— so I might just be the only developer you’ll meet who can
-          tap dance 😉
-        </motion.p>
+          <div>
+            <motion.p variants={itemAnimation}>
+              I’m a fullstack web developer passionate about building creative,
+              user-focused applications that make a real impact.
+            </motion.p>
+            <motion.p variants={itemAnimation}>
+              I love exploring new technologies, experimenting with ideas, and
+              writing clean, maintainable code.
+            </motion.p>
+            <motion.p variants={itemAnimation}>
+              Before stepping into the world of software engineering, I was a
+              performer— so I might just be the only developer you’ll meet who
+              can tap dance 😉
+            </motion.p>
+          </div>
+        </div>
         <motion.p
           className="orange-line profile-tag-line"
           variants={itemAnimation}

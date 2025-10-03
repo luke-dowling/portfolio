@@ -20,3 +20,10 @@ button {
     }
   }
 }
+
+@media screen and (min-width: $tablet) {
+  .button-group {
+    justify-content: flex-start;
+    gap: 3em;
+  }
+}

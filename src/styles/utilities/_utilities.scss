@@ -47,3 +47,9 @@
     margin-right: 3px;
   }
 }
+
+@media screen and (min-width: $tablet) {
+  .orange-line {
+    width: 250px;
+  }
+}
