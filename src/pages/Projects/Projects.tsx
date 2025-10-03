@@ -12,6 +12,7 @@ import { Pagination } from "@components/Project/Pagination";
 import { itemAnimation } from "@/Animations/layoutAnimation";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
 import { Link } from "react-router-dom";
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 
 export const Projects = () => {
   const pageRef = useRef<HTMLDivElement>(null);
@@ -47,11 +48,16 @@ export const Projects = () => {
         className="button-group last-item-on-page"
       >
         <Link to={"/profile"}>
-          <button>profile</button>
+          <button>
+            {" "}
+            <FiArrowLeft style={{ verticalAlign: "middle" }} /> profile
+          </button>
         </Link>
 
         <Link to={"/contact"}>
-          <button>contact</button>
+          <button>
+            contact <FiArrowRight style={{ verticalAlign: "middle" }} />
+          </button>
         </Link>
       </motion.div>
       <Footer />
