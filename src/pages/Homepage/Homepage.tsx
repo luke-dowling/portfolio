@@ -1,71 +1,44 @@
-import "./_homepage.scss";
+import "./_homepage.scss"
 
-import { motion, useMotionValueEvent, useScroll } from "framer-motion";
-import { Link } from "react-router-dom";
-import { PageTransitionAnimation } from "../../Animations/PageTransitionAnimation.tsx";
-import { homePageAnimationDesktop } from "../../Animations/pageAnimation.js";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion"
+import { Link } from "react-router-dom"
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi"
+import { useEffect, useState, useRef } from "react"
+
 import {
   nameAnimation,
-  jobAnimation,
-} from "../../Animations/homeAnimations.js";
-import { Nav } from "@components/Nav/Nav.tsx";
-import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
-import { useEffect, useState, useRef, use } from "react";
-import { set } from "react-hook-form";
-import { Footer } from "@/components/Footer/Footer.tsx";
-import LogosAnimation from "@/Animations/LogosAnimation/LogosAnimation.tsx";
+  jobTitleAnimation,
+} from "@/Animations/homeAnimations.js"
+import LogosAnimation from "@/Animations/LogosAnimation.tsx"
 
 export const Homepage = () => {
-  const pageRef = useRef<HTMLDivElement>(null);
-  // Update visibility based on scroll direction
-  useEffect(() => {
-    pageRef.current?.scrollIntoView({ behavior: "smooth" });
-    setIsVisible(true);
-  }, [window.location.pathname]);
-
-  const { scrollY } = useScroll();
-  const [isVisible, setIsVisible] = useState(true);
+  const { scrollY } = useScroll()
+  const [isVisible, setIsVisible] = useState(true)
 
   // Track scroll direction
   useMotionValueEvent(scrollY, "change", (current) => {
-    const prevY = scrollY.getPrevious() ?? 0;
+    const prevY = scrollY.getPrevious() ?? 0
     if (current > prevY) {
-      setIsVisible(false);
+      setIsVisible(false)
     } else {
-      setIsVisible(true);
+      setIsVisible(true)
     }
-  });
+  })
 
   return (
-    <PageTransitionAnimation
-      ref={pageRef}
-      classList="container container-dark util__scroll-snap home"
-    >
-      <Nav />
+    <div className='util__scroll-snap home'>
       <section>
-        <motion.h1
-          className="wrap"
-          initial={{ opacity: 0, y: -50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: false, amount: 0.5 }}
-        >
+        <motion.h1 className='wrap' {...nameAnimation}>
           Luke Dowling<span>.</span>
         </motion.h1>
-        <motion.div
-          className="home__job-title"
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          viewport={{ once: false, amount: 0.5 }}
-        >
+        <motion.div className='home__job-title' {...jobTitleAnimation}>
           <hr />
-          <p className="wrap">
+          <p className='wrap'>
             <span>Website</span> <span>Developer</span>
           </p>
         </motion.div>
         <motion.div
-          className="home-animation-container"
+          className='home-animation-container'
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
@@ -73,7 +46,7 @@ export const Homepage = () => {
           <LogosAnimation />
         </motion.div>
         <motion.div
-          className="home__more"
+          className='home__more'
           initial={{ opacity: 0 }}
           animate={{
             opacity: isVisible ? 1 : 0,
@@ -99,7 +72,7 @@ export const Homepage = () => {
           Hey there<span>.</span>
         </motion.h2>
         <motion.div
-          className="home__about-me"
+          className='home__about-me'
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
@@ -114,25 +87,24 @@ export const Homepage = () => {
           </p>
         </motion.div>
         <motion.div
-          className="button-group last-item-on-page"
+          className='button-group last-item-on-page'
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1 }}
           viewport={{ once: false, amount: 0.5 }}
         >
-          <Link to="/projects">
+          <Link to='/projects'>
             <button>
               <FiArrowLeft style={{ verticalAlign: "middle" }} /> projects
             </button>
           </Link>
-          <Link to="/profile">
+          <Link to='/profile'>
             <button>
               profile <FiArrowRight style={{ verticalAlign: "middle" }} />
             </button>
           </Link>
         </motion.div>
-        <Footer />
       </section>
-    </PageTransitionAnimation>
-  );
-};
+    </div>
+  )
+}
