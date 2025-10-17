@@ -1,62 +1,70 @@
-import "./_nav.scss";
+import "./_nav.scss"
 
-import { motion } from "framer-motion";
-import { useState } from "react";
-import { FaGithubSquare, FaLinkedin } from "react-icons/fa";
-import { RiMenu2Line } from "react-icons/ri";
-import { IoMdExit } from "react-icons/io";
+import { motion } from "framer-motion"
+import { useState } from "react"
+import { FaGithubSquare, FaLinkedin } from "react-icons/fa"
+import { RiMenu2Line } from "react-icons/ri"
+import { IoMdExit } from "react-icons/io"
 
 import {
   navContainerAnimation,
   mobileNavContainerAnimation,
   navItemAnimation,
   navIconAnimation,
-} from "../../Animations/navAnimation";
-import { Link } from "react-router-dom";
+} from "../../Animations/navAnimation"
+import { Link } from "react-router-dom"
 
-import type { Theme } from "../../types.ts";
-import { useTheme } from "@/hooks/useThemeContext.ts";
-import { ThemeSwitch } from "../ThemeSwitch/ThemeSwitch.tsx";
+import type { Theme } from "../../types.ts"
+import { useTheme } from "@/hooks/useThemeContext.ts"
+import { ThemeSwitch } from "../ThemeSwitch/ThemeSwitch.tsx"
 
 interface NavProps {
-  theme: Theme;
+  theme: Theme
 }
 
 interface ModalProps extends NavProps {
-  handleClick: () => void;
+  handleClick: () => void
 }
 
 const Modal = ({ theme, handleClick }: ModalProps) => {
-  const mobileTheme = theme === "light" ? "dark" : "light";
+  const mobileTheme = theme === "light" ? "dark" : "light"
 
   return (
     <>
       <motion.ul className={`modal-nav`} variants={mobileNavContainerAnimation}>
         <motion.li variants={navItemAnimation}>
-          <Link to="/" className={`link--${mobileTheme}`}>
+          <Link onClick={handleClick} to='/' className={`link--${mobileTheme}`}>
             home
           </Link>
         </motion.li>
         <motion.li variants={navItemAnimation}>
-          <Link to="/profile" className={`link--${mobileTheme}`}>
+          <Link
+            onClick={handleClick}
+            to='/profile'
+            className={`link--${mobileTheme}`}
+          >
             profile
           </Link>
         </motion.li>
         <motion.li variants={navItemAnimation}>
-          <Link to="/projects" className={`link--${mobileTheme}`}>
+          <Link
+            onClick={handleClick}
+            to='/projects'
+            className={`link--${mobileTheme}`}
+          >
             projects
           </Link>
         </motion.li>
-        <motion.li variants={navItemAnimation}>
-          <Link to="/contact" className={`link--${mobileTheme}`}>
+        <motion.li onClick={handleClick} variants={navItemAnimation}>
+          <Link to='/contact' className={`link--${mobileTheme}`}>
             contact
           </Link>
         </motion.li>
         <motion.li variants={navItemAnimation}>
           <a
-            href="https://github.com/luke-dowling"
-            target="_blank"
-            rel="noreferrer"
+            href='https://github.com/luke-dowling'
+            target='_blank'
+            rel='noreferrer'
             className={`link--${mobileTheme}`}
           >
             <FaGithubSquare />
@@ -64,33 +72,33 @@ const Modal = ({ theme, handleClick }: ModalProps) => {
         </motion.li>
         <motion.li variants={navItemAnimation}>
           <a
-            href="https://www.linkedin.com/in/luke-dowling-760840147/"
-            target="_blank"
-            rel="noreferrer"
+            href='https://www.linkedin.com/in/luke-dowling-760840147/'
+            target='_blank'
+            rel='noreferrer'
             className={`link--${mobileTheme}`}
           >
             <FaLinkedin />
           </a>
         </motion.li>
       </motion.ul>
-      <div className="modal-overlay" onClick={handleClick}></div>
+      <div className='modal-overlay' onClick={handleClick}></div>
     </>
-  );
-};
+  )
+}
 
 export const Nav = () => {
-  const { theme } = useTheme();
-  const [isOpen, setIsOpen] = useState(false);
+  const { theme } = useTheme()
+  const [isOpen, setIsOpen] = useState(false)
 
   const handleClick = () => {
-    setIsOpen(!isOpen);
-  };
+    setIsOpen(!isOpen)
+  }
 
   return (
     <nav className={`nav nav-${theme}`}>
       {/* mobile Nav */}
-      <div className="mobile">
-        <Link to="/">lukeDowling</Link>
+      <div className='mobile'>
+        <Link to='/'>lukeDowling</Link>
         <motion.div
           className={`nav-icons link--${
             isOpen ? (theme === "light" ? "dark" : "light") : theme
@@ -111,44 +119,44 @@ export const Nav = () => {
       </div>
 
       {/* Desktop Nav */}
-      <motion.ul className="desktop" variants={mobileNavContainerAnimation}>
+      <motion.ul className='desktop' variants={mobileNavContainerAnimation}>
         <div>
           <motion.li variants={navItemAnimation}>
-            <Link to="/" className={`link--${theme}`}>
+            <Link to='/' className={`link--${theme}`}>
               home
             </Link>
           </motion.li>
           <motion.li variants={navItemAnimation}>
-            <Link to="/profile" className={`link--${theme}`}>
+            <Link to='/profile' className={`link--${theme}`}>
               profile
             </Link>
           </motion.li>
           <motion.li variants={navItemAnimation}>
-            <Link to="/projects" className={`link--${theme}`}>
+            <Link to='/projects' className={`link--${theme}`}>
               projects
             </Link>
           </motion.li>
           <motion.li variants={navItemAnimation}>
-            <Link to="/contact" className={`link--${theme}`}>
+            <Link to='/contact' className={`link--${theme}`}>
               contact
             </Link>
           </motion.li>
         </div>
         <div>
-          <motion.li variants={navItemAnimation} className="nav-button-group">
+          <motion.li variants={navItemAnimation} className='nav-button-group'>
             <ThemeSwitch />
             <a
-              href="https://github.com/luke-dowling"
-              target="_blank"
-              rel="noreferrer"
+              href='https://github.com/luke-dowling'
+              target='_blank'
+              rel='noreferrer'
               className={`link--${theme}`}
             >
               <FaGithubSquare />
             </a>
             <a
-              href="https://www.linkedin.com/in/luke-dowling-760840147/"
-              target="_blank"
-              rel="noreferrer"
+              href='https://www.linkedin.com/in/luke-dowling-760840147/'
+              target='_blank'
+              rel='noreferrer'
               className={`link--${theme}`}
             >
               <FaLinkedin />
@@ -157,5 +165,5 @@ export const Nav = () => {
         </div>
       </motion.ul>
     </nav>
-  );
-};
+  )
+}
