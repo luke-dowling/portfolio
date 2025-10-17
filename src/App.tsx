@@ -5,15 +5,18 @@ import { Profile } from "@/pages/Profile/Profile"
 import { Projects } from "@pages/Projects/Projects.tsx"
 import { Contact } from "@pages/Contact/Contact.tsx"
 import { NotFound } from "@/pages/NotFound/NotFound.js"
+import { Layout } from "@/components/Layout/Layout"
 
 export default function App() {
   return (
     <Routes>
-      <Route path='/' index={true} element={<Homepage />} />
-      <Route path='/profile' element={<Profile />} />
-      <Route path='/projects' element={<Projects />} />
-      <Route path='/contact' element={<Contact />} />
-      <Route path='/*' element={<NotFound />} />
+      <Route path='/' element={<Layout />}>
+        <Route index element={<Homepage />} />
+        <Route path='profile' element={<Profile />} />
+        <Route path='projects' element={<Projects />} />
+        <Route path='contact' element={<Contact />} />
+      </Route>
+      <Route path='*' element={<NotFound />} />
     </Routes>
   )
 }

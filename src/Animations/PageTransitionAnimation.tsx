@@ -1,49 +1,36 @@
-import { motion } from "framer-motion";
-import type { ReactNode } from "react";
+import { motion } from "framer-motion"
+import { useEffect, useRef, type ReactNode } from "react"
+import { useLocation } from "react-router-dom"
 
-import { type Theme } from "@/types";
-import { useTheme } from "@/hooks/useThemeContext";
+import { useTheme } from "@/hooks/useThemeContext"
+import { Footer } from "@/components/Footer/Footer"
 
 interface PageProps {
-  animation?: {
-    initial: {
-      x: string;
-      width: string;
-    };
-    animate: {
-      x: number;
-      width: string;
-      transition: {
-        duration: number;
-        delay: number;
-      };
-    };
-  };
-  ref?: React.RefObject<HTMLDivElement | null>;
-  classList?: string;
-  children: ReactNode;
+  children: ReactNode
 }
 
-export const PageTransitionAnimation = ({
-  animation,
-  ref,
-  classList,
-  children,
-}: PageProps) => {
-  const { theme } = useTheme();
+export const PageTransitionAnimation = ({ children }: PageProps) => {
+  const { theme } = useTheme()
+  const location = useLocation()
+
+  const pageRef = useRef<HTMLDivElement>(null)
+
+  // Update visibility based on scroll direction
+  useEffect(() => {
+    pageRef.current!.scrollIntoView({ behavior: "smooth" })
+  }, [location])
 
   return (
-    <div className={theme}>
+    <div className={theme} ref={pageRef}>
       <motion.div
-        // variants={animation}
-        ref={ref}
-        className={classList}
-        initial="initial"
-        animate="animate"
-        exit="exit"
+        className={`container container-dark`}
+        initial='initial'
+        animate='animate'
+        exit='exit'
       >
         {children}
+        <Footer />
       </motion.div>
     </div>
-  );
-};
+  )
+}
