@@ -1,4 +1,4 @@
-@use "@styles/abstracts" as *;
+@use '@/styles/abstracts' as *;
 
 * {
   margin: 0;
@@ -17,7 +17,7 @@ html {
 }
 
 body {
-  font-family: "Roboto Mono", monospace;
+  font-family: 'Roboto Mono', monospace;
   font-size: 1.8rem;
   line-height: 1.49;
   background-color: $white;

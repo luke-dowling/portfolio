@@ -1,4 +1,4 @@
-@use "@styles/abstracts" as *;
+@use '@/styles/abstracts' as *;
 
 .util {
   &__button-group {
@@ -40,7 +40,7 @@
   width: calc(50vw - 24px);
   text-wrap: nowrap;
   &::before {
-    content: "";
+    content: '';
     display: inline-block;
     border-bottom: 1px solid $orange;
     width: calc(100% - 24px - 10px);

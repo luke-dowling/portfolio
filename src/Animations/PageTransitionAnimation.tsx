@@ -1,9 +1,9 @@
-import { motion } from "framer-motion"
-import { useEffect, useRef, type ReactNode } from "react"
-import { useLocation } from "react-router-dom"
+import { motion } from 'framer-motion'
+import { useEffect, useRef, type ReactNode } from 'react'
+import { useLocation } from 'react-router-dom'
 
-import { useTheme } from "@/hooks/useThemeContext"
-import { Footer } from "@/components/Footer/Footer"
+import { useTheme } from '@/hooks/useThemeContext'
+import { Footer } from '@/components/Footer/Footer'
 
 interface PageProps {
   children: ReactNode
@@ -17,7 +17,7 @@ export const PageTransitionAnimation = ({ children }: PageProps) => {
 
   // Update visibility based on scroll direction
   useEffect(() => {
-    pageRef.current!.scrollIntoView({ behavior: "smooth" })
+    pageRef.current!.scrollIntoView({ behavior: 'smooth' })
   }, [location])
 
   return (

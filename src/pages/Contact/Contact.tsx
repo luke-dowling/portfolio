@@ -1,14 +1,14 @@
-import "./_contact.scss"
+import './_contact.scss'
 
-import { motion } from "framer-motion"
-import { useState, useRef } from "react"
-import { FaArrowRight } from "react-icons/fa"
-import emailjs from "emailjs-com"
-import { Link } from "react-router-dom"
-import { FiArrowLeft, FiArrowRight } from "react-icons/fi"
+import { motion } from 'framer-motion'
+import { useState, useRef } from 'react'
+import { FaArrowRight } from 'react-icons/fa'
+import emailjs from 'emailjs-com'
+import { Link } from 'react-router-dom'
+import { FiArrowLeft, FiArrowRight } from 'react-icons/fi'
 
-import { layoutAnimation, itemAnimation } from "@/Animations/layoutAnimation"
-import { useContactForm, type ContactFormData } from "@/hooks/useFormValidation"
+import { layoutAnimation, itemAnimation } from '@/Animations/layoutAnimation'
+import { useContactForm, type ContactFormData } from '@/hooks/useFormValidation'
 
 export const Contact = () => {
   const {
@@ -20,14 +20,14 @@ export const Contact = () => {
   } = useContactForm()
 
   const [isOpen, setIsOpen] = useState<boolean>(false)
-  const [submitError, setSubmitError] = useState<string>("")
+  const [submitError, setSubmitError] = useState<string>('')
   const formRef = useRef<HTMLFormElement>(null)
 
   const formValues = watch()
 
   const onSubmit = handleSubmit(async (data: ContactFormData) => {
     try {
-      setSubmitError("")
+      setSubmitError('')
 
       await emailjs.sendForm(
         import.meta.env.VITE_SERVICE_ID!,
@@ -40,8 +40,8 @@ export const Contact = () => {
       setIsOpen(true)
       reset()
     } catch (error) {
-      console.error("Error sending email:", error)
-      setSubmitError("Failed to send message. Please try again.")
+      console.error('Error sending email:', error)
+      setSubmitError('Failed to send message. Please try again.')
     }
   })
 
@@ -54,7 +54,7 @@ export const Contact = () => {
       hasError,
       hasValue,
       isValid,
-      className: hasError ? "error" : isValid ? "valid" : "",
+      className: hasError ? 'error' : isValid ? 'valid' : '',
     }
   }
 
@@ -68,8 +68,8 @@ export const Contact = () => {
         </motion.h1>
 
         <motion.p variants={itemAnimation}>
-          I would love to hear your thoughts on my site or let me know if you
-          are interested in collaborating.
+          I would love to hear your thoughts on my site or let me know if you are interested in
+          collaborating.
         </motion.p>
 
         <motion.p variants={itemAnimation}>
@@ -88,10 +88,10 @@ export const Contact = () => {
             <motion.input
               type='text'
               placeholder='Name'
-              {...register("name")}
-              className={`form-input ${getFieldStatus("name").className}`}
-              aria-invalid={errors.name ? "true" : "false"}
-              aria-describedby={errors.name ? "name-error" : undefined}
+              {...register('name')}
+              className={`form-input ${getFieldStatus('name').className}`}
+              aria-invalid={errors.name ? 'true' : 'false'}
+              aria-describedby={errors.name ? 'name-error' : undefined}
             />
             {errors.name && (
               <span id='name-error' className='contact-form-error' role='alert'>
@@ -105,17 +105,13 @@ export const Contact = () => {
             <motion.input
               type='email'
               placeholder='Email'
-              {...register("email")}
-              className={`form-input ${getFieldStatus("email").className}`}
-              aria-invalid={errors.email ? "true" : "false"}
-              aria-describedby={errors.email ? "email-error" : undefined}
+              {...register('email')}
+              className={`form-input ${getFieldStatus('email').className}`}
+              aria-invalid={errors.email ? 'true' : 'false'}
+              aria-describedby={errors.email ? 'email-error' : undefined}
             />
             {errors.email && (
-              <span
-                id='email-error'
-                className='contact-form-error'
-                role='alert'
-              >
+              <span id='email-error' className='contact-form-error' role='alert'>
                 {errors.email.message}
               </span>
             )}
@@ -125,18 +121,14 @@ export const Contact = () => {
           <div className='form-field'>
             <motion.textarea
               placeholder='Message'
-              {...register("message")}
-              className={`form-textarea ${getFieldStatus("message").className}`}
-              aria-invalid={errors.message ? "true" : "false"}
-              aria-describedby={errors.message ? "message-error" : undefined}
+              {...register('message')}
+              className={`form-textarea ${getFieldStatus('message').className}`}
+              aria-invalid={errors.message ? 'true' : 'false'}
+              aria-describedby={errors.message ? 'message-error' : undefined}
               rows={2}
             />
             {errors.message && (
-              <span
-                id='message-error'
-                className='contact-form-error'
-                role='alert'
-              >
+              <span id='message-error' className='contact-form-error' role='alert'>
                 {errors.message.message}
               </span>
             )}
@@ -153,33 +145,30 @@ export const Contact = () => {
             <motion.button
               type='submit'
               disabled={isSubmitting}
-              className={isSubmitting ? "submitting" : ""}
+              className={isSubmitting ? 'submitting' : ''}
               aria-describedby='submit-status'
             >
               {isSubmitting ? (
                 <span>Sending...</span>
               ) : (
                 <>
-                  Submit <FaArrowRight style={{ verticalAlign: "middle" }} />
+                  Submit <FaArrowRight style={{ verticalAlign: 'middle' }} />
                 </>
               )}
             </motion.button>
           </div>
         </motion.form>
 
-        <motion.div
-          variants={itemAnimation}
-          className='button-group last-item-on-page'
-        >
+        <motion.div variants={itemAnimation} className='button-group last-item-on-page'>
           <Link to='/projects'>
             <button>
-              {" "}
-              <FiArrowLeft style={{ verticalAlign: "middle" }} /> projects
+              {' '}
+              <FiArrowLeft style={{ verticalAlign: 'middle' }} /> projects
             </button>
           </Link>
           <Link to='/profile'>
             <button>
-              profile <FiArrowRight style={{ verticalAlign: "middle" }} />
+              profile <FiArrowRight style={{ verticalAlign: 'middle' }} />
             </button>
           </Link>
         </motion.div>

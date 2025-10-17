@@ -1,4 +1,4 @@
-@use "variables" as *;
+@use 'variables' as *;
 
 @mixin button($color: $orange) {
   // width: 162px;
@@ -26,7 +26,7 @@
 }
 
 @mixin heading($size: 32px) {
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 900;
   font-size: $size;
 }
