@@ -1,4 +1,4 @@
-@use "sass:color";
+@use 'sass:color';
 
 .wrap {
   white-space: pre-line;
@@ -148,10 +148,5 @@ section:nth-of-type(2) {
       // border: 1px solid white;
       border-radius: 50%;
     }
-  }
-}
-
-@media (min-width: $desktop) {
-  .home {
   }
 }

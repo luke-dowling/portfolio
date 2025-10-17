@@ -10,7 +10,6 @@ interface PageProps {
 }
 
 export const PageTransitionAnimation = ({ children }: PageProps) => {
-  const { theme } = useTheme()
   const location = useLocation()
 
   const pageRef = useRef<HTMLDivElement>(null)
@@ -21,7 +20,7 @@ export const PageTransitionAnimation = ({ children }: PageProps) => {
   }, [location])
 
   return (
-    <div className={theme} ref={pageRef}>
+    <div ref={pageRef}>
       <motion.div
         className={`container container-dark`}
         initial='initial'

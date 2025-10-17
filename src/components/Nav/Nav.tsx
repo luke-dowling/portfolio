@@ -1,62 +1,41 @@
-import "./_nav.scss"
+import './_nav.scss'
 
-import { motion } from "framer-motion"
-import { useState } from "react"
-import { FaGithubSquare, FaLinkedin } from "react-icons/fa"
-import { RiMenu2Line } from "react-icons/ri"
-import { IoMdExit } from "react-icons/io"
+import { motion } from 'framer-motion'
+import { useState } from 'react'
+import { FaGithubSquare, FaLinkedin } from 'react-icons/fa'
+import { RiMenu2Line } from 'react-icons/ri'
+import { IoMdExit } from 'react-icons/io'
+import { Link } from 'react-router-dom'
 
-import {
-  navContainerAnimation,
-  mobileNavContainerAnimation,
-  navItemAnimation,
-  navIconAnimation,
-} from "../../Animations/navAnimation"
-import { Link } from "react-router-dom"
+import { mobileNavContainerAnimation, navItemAnimation } from '@/Animations/navAnimation'
+import { useTheme } from '@/hooks/useThemeContext.ts'
+import { ThemeSwitch } from '@/components/ThemeSwitch/ThemeSwitch.tsx'
 
-import type { Theme } from "../../types.ts"
-import { useTheme } from "@/hooks/useThemeContext.ts"
-import { ThemeSwitch } from "../ThemeSwitch/ThemeSwitch.tsx"
-
-interface NavProps {
-  theme: Theme
-}
-
-interface ModalProps extends NavProps {
+interface ModalProps {
   handleClick: () => void
 }
 
-const Modal = ({ theme, handleClick }: ModalProps) => {
-  const mobileTheme = theme === "light" ? "dark" : "light"
-
+const Modal = ({ handleClick }: ModalProps) => {
   return (
     <>
       <motion.ul className={`modal-nav`} variants={mobileNavContainerAnimation}>
         <motion.li variants={navItemAnimation}>
-          <Link onClick={handleClick} to='/' className={`link--${mobileTheme}`}>
+          <Link onClick={handleClick} to='/' className={`link`}>
             home
           </Link>
         </motion.li>
         <motion.li variants={navItemAnimation}>
-          <Link
-            onClick={handleClick}
-            to='/profile'
-            className={`link--${mobileTheme}`}
-          >
+          <Link onClick={handleClick} to='/profile' className={`link`}>
             profile
           </Link>
         </motion.li>
         <motion.li variants={navItemAnimation}>
-          <Link
-            onClick={handleClick}
-            to='/projects'
-            className={`link--${mobileTheme}`}
-          >
+          <Link onClick={handleClick} to='/projects' className={`link`}>
             projects
           </Link>
         </motion.li>
         <motion.li onClick={handleClick} variants={navItemAnimation}>
-          <Link to='/contact' className={`link--${mobileTheme}`}>
+          <Link to='/contact' className={`link`}>
             contact
           </Link>
         </motion.li>
@@ -65,7 +44,7 @@ const Modal = ({ theme, handleClick }: ModalProps) => {
             href='https://github.com/luke-dowling'
             target='_blank'
             rel='noreferrer'
-            className={`link--${mobileTheme}`}
+            className={`link`}
           >
             <FaGithubSquare />
           </a>
@@ -75,7 +54,7 @@ const Modal = ({ theme, handleClick }: ModalProps) => {
             href='https://www.linkedin.com/in/luke-dowling-760840147/'
             target='_blank'
             rel='noreferrer'
-            className={`link--${mobileTheme}`}
+            className={`link`}
           >
             <FaLinkedin />
           </a>
@@ -95,27 +74,26 @@ export const Nav = () => {
   }
 
   return (
-    <nav className={`nav nav-${theme}`}>
+    <nav className={`nav`}>
       {/* mobile Nav */}
       <div className='mobile'>
         <Link to='/'>lukeDowling</Link>
         <motion.div
-          className={`nav-icons link--${
-            isOpen ? (theme === "light" ? "dark" : "light") : theme
-          }`}
+          className={`nav-icons
+          ${isOpen && 'nav-icons-offset'}`}
         >
           <ThemeSwitch />
           {!isOpen ? (
             <RiMenu2Line onClick={handleClick} />
           ) : (
             <IoMdExit
-              style={{ fontSize: "35px", zIndex: 30, position: "relative" }}
+              style={{ fontSize: '35px', zIndex: 30, position: 'relative' }}
               onClick={handleClick}
             />
           )}
         </motion.div>
 
-        {isOpen ? <Modal theme={theme} handleClick={handleClick} /> : null}
+        {isOpen ? <Modal handleClick={handleClick} /> : null}
       </div>
 
       {/* Desktop Nav */}
