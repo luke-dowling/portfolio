@@ -113,27 +113,22 @@
 
 @media (min-width: $tablet) {
   .projects {
-    .projects-container {
-      max-width: 500px;
+    .dots {
+      justify-content: center;
+      gap: 3em;
     }
   }
 }
 
 @media (min-width: $desktop) {
   .projects {
-    .projects-container {
-      max-width: 650px;
-    }
-
     &-image-container {
       height: 250px;
       margin-block: 2em;
     }
-  }
 
-  .dots {
-    justify-content: center;
-    gap: 3em;
-    padding-top: 5em;
+    .dots {
+      padding-top: 5em;
+    }
   }
 }
