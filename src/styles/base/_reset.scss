@@ -1,4 +1,4 @@
-@use "@styles/abstracts" as *;
+@use '@/styles/abstracts' as *;
 
 * {
   margin: 0;
@@ -14,14 +14,36 @@ html {
 
 :root {
   font-size: 62.5%;
+  color-scheme: light dark;
+
+  --bg: #{$black};
+  --bg-offset: #{$white};
+  --text: #{$white};
+  --text-offset: #{$black};
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #{$black};
+  --bg-offset: #{$white};
+  --text: #{$white};
+  --text-offset: #{$black};
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --bg: #{$white};
+  --bg-offset: #{$black};
+  --text: #{$black};
+  --text-offset: #{$white};
 }
 
 body {
-  font-family: "Roboto Mono", monospace;
+  font-family: 'Roboto Mono', monospace;
   font-size: 1.8rem;
   line-height: 1.49;
-  background-color: $white;
-  color: $black;
+  background-color: var(--bg);
+  color: var(--text);
   overflow-x: hidden;
 }
 
@@ -71,5 +93,5 @@ ol {
 
 ::selection {
   background: $orange;
-  color: $white;
+  color: var(--text);
 }

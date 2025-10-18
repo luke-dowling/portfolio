@@ -1,13 +1,13 @@
-import "@styles/main.scss";
+import '@/styles/main.scss'
 
-import { createRoot } from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
-import React from "react";
+import { createRoot } from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
+import React from 'react'
 
-import App from "./App.tsx";
-import { ThemeProvider } from "@/context/ThemeContext";
+import App from './App.tsx'
+import { ThemeProvider } from '@/context/ThemeContext'
 
-const root = createRoot(document.getElementById("root")!);
+const root = createRoot(document.getElementById('root')!)
 
 root.render(
   <React.StrictMode>
@@ -17,4 +17,4 @@ root.render(
       </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>
-);
+)
