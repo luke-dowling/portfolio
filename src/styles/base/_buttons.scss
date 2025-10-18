@@ -23,7 +23,7 @@ button {
 
 @media screen and (min-width: $tablet) {
   .button-group {
-    justify-content: flex-start;
-    gap: 3em;
+    justify-content: space-between;
+    padding-inline: 1em;
   }
 }

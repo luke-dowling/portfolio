@@ -67,97 +67,101 @@ export const Contact = () => {
           Hello<span>.</span>
         </motion.h1>
 
-        <motion.p variants={itemAnimation}>
-          I would love to hear your thoughts on my site or let me know if you are interested in
-          collaborating.
-        </motion.p>
+        <div className='contact-container'>
+          <div>
+            <motion.p variants={itemAnimation}>
+              I would love to hear your thoughts on my site or let me know if you are interested in
+              collaborating.
+            </motion.p>
 
-        <motion.p variants={itemAnimation}>
-          Either way, thanks for looking through and till next time 👋
-        </motion.p>
-
-        <motion.form
-          variants={itemAnimation}
-          onSubmit={onSubmit}
-          ref={formRef}
-          className='contact-form'
-          noValidate
-        >
-          {/* Name */}
-          <div className='form-field'>
-            <motion.input
-              type='text'
-              placeholder='Name'
-              {...register('name')}
-              className={`form-input ${getFieldStatus('name').className}`}
-              aria-invalid={errors.name ? 'true' : 'false'}
-              aria-describedby={errors.name ? 'name-error' : undefined}
-            />
-            {errors.name && (
-              <span id='name-error' className='contact-form-error' role='alert'>
-                {errors.name.message}
-              </span>
-            )}
+            <motion.p variants={itemAnimation}>
+              Either way, thanks for looking through and till next time 👋
+            </motion.p>
           </div>
 
-          {/* Email */}
-          <div className='form-field'>
-            <motion.input
-              type='email'
-              placeholder='Email'
-              {...register('email')}
-              className={`form-input ${getFieldStatus('email').className}`}
-              aria-invalid={errors.email ? 'true' : 'false'}
-              aria-describedby={errors.email ? 'email-error' : undefined}
-            />
-            {errors.email && (
-              <span id='email-error' className='contact-form-error' role='alert'>
-                {errors.email.message}
-              </span>
-            )}
-          </div>
-
-          {/* Message */}
-          <div className='form-field'>
-            <motion.textarea
-              placeholder='Message'
-              {...register('message')}
-              className={`form-textarea ${getFieldStatus('message').className}`}
-              aria-invalid={errors.message ? 'true' : 'false'}
-              aria-describedby={errors.message ? 'message-error' : undefined}
-              rows={2}
-            />
-            {errors.message && (
-              <span id='message-error' className='contact-form-error' role='alert'>
-                {errors.message.message}
-              </span>
-            )}
-          </div>
-
-          {/* Submit Error */}
-          {submitError && (
-            <div className='submit-error' role='alert'>
-              <span className='contact-form-error'>{submitError}</span>
-            </div>
-          )}
-
-          <div className='contact-submit-container'>
-            <motion.button
-              type='submit'
-              disabled={isSubmitting}
-              className={isSubmitting ? 'submitting' : ''}
-              aria-describedby='submit-status'
-            >
-              {isSubmitting ? (
-                <span>Sending...</span>
-              ) : (
-                <>
-                  Submit <FaArrowRight style={{ verticalAlign: 'middle' }} />
-                </>
+          <motion.form
+            variants={itemAnimation}
+            onSubmit={onSubmit}
+            ref={formRef}
+            className='contact-form'
+            noValidate
+          >
+            {/* Name */}
+            <div className='form-field'>
+              <motion.input
+                type='text'
+                placeholder='Name'
+                {...register('name')}
+                className={`form-input ${getFieldStatus('name').className}`}
+                aria-invalid={errors.name ? 'true' : 'false'}
+                aria-describedby={errors.name ? 'name-error' : undefined}
+              />
+              {errors.name && (
+                <span id='name-error' className='contact-form-error' role='alert'>
+                  {errors.name.message}
+                </span>
               )}
-            </motion.button>
-          </div>
-        </motion.form>
+            </div>
+
+            {/* Email */}
+            <div className='form-field'>
+              <motion.input
+                type='email'
+                placeholder='Email'
+                {...register('email')}
+                className={`form-input ${getFieldStatus('email').className}`}
+                aria-invalid={errors.email ? 'true' : 'false'}
+                aria-describedby={errors.email ? 'email-error' : undefined}
+              />
+              {errors.email && (
+                <span id='email-error' className='contact-form-error' role='alert'>
+                  {errors.email.message}
+                </span>
+              )}
+            </div>
+
+            {/* Message */}
+            <div className='form-field'>
+              <motion.textarea
+                placeholder='Message'
+                {...register('message')}
+                className={`form-textarea ${getFieldStatus('message').className}`}
+                aria-invalid={errors.message ? 'true' : 'false'}
+                aria-describedby={errors.message ? 'message-error' : undefined}
+                rows={2}
+              />
+              {errors.message && (
+                <span id='message-error' className='contact-form-error' role='alert'>
+                  {errors.message.message}
+                </span>
+              )}
+            </div>
+
+            {/* Submit Error */}
+            {submitError && (
+              <div className='submit-error' role='alert'>
+                <span className='contact-form-error'>{submitError}</span>
+              </div>
+            )}
+
+            <div className='contact-submit-container'>
+              <motion.button
+                type='submit'
+                disabled={isSubmitting}
+                className={isSubmitting ? 'submitting' : ''}
+                aria-describedby='submit-status'
+              >
+                {isSubmitting ? (
+                  <span>Sending...</span>
+                ) : (
+                  <>
+                    Submit <FaArrowRight style={{ verticalAlign: 'middle' }} />
+                  </>
+                )}
+              </motion.button>
+            </div>
+          </motion.form>
+        </div>
 
         <motion.div variants={itemAnimation} className='button-group last-item-on-page'>
           <Link to='/projects'>
@@ -166,9 +170,9 @@ export const Contact = () => {
               <FiArrowLeft style={{ verticalAlign: 'middle' }} /> projects
             </button>
           </Link>
-          <Link to='/profile'>
+          <Link to='/'>
             <button>
-              profile <FiArrowRight style={{ verticalAlign: 'middle' }} />
+              home <FiArrowRight style={{ verticalAlign: 'middle' }} />
             </button>
           </Link>
         </motion.div>

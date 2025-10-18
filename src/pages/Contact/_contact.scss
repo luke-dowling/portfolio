@@ -35,7 +35,7 @@
   .contact-submit-container {
     display: flex;
     justify-content: center;
-    // padding-block: 3em;
+
     margin-bottom: 2em;
 
     button {
@@ -72,15 +72,23 @@
       margin-bottom: 1em;
     }
 
+    p:nth-of-type(1) {
+      padding-top: 1em;
+    }
     p {
-      max-width: 650px;
       text-align: justify;
+    }
+
+    &-container {
+      display: flex;
+      align-items: start;
+      gap: 75px;
     }
   }
 
   .contact-form {
-    max-width: 650px;
-    padding-block: 0.5em;
+    min-width: 325px;
+    padding-block: 0;
 
     input,
     textarea {

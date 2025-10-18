@@ -88,9 +88,9 @@ export const Homepage = () => {
           transition={{ duration: 1, delay: 1 }}
           viewport={{ once: false, amount: 0.5 }}
         >
-          <Link to='/projects'>
+          <Link to='/contact'>
             <button>
-              <FiArrowLeft style={{ verticalAlign: 'middle' }} /> projects
+              <FiArrowLeft style={{ verticalAlign: 'middle' }} /> contact
             </button>
           </Link>
           <Link to='/profile'>

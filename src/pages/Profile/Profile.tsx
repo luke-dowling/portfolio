@@ -44,15 +44,15 @@ export const Profile = () => {
         </div>
 
         <motion.div variants={itemAnimation} className='button-group last-item-on-page'>
-          <Link to='/projects'>
+          <Link to='/'>
             <button>
               {' '}
-              <FiArrowLeft style={{ verticalAlign: 'middle' }} /> projects
+              <FiArrowLeft style={{ verticalAlign: 'middle' }} /> home
             </button>
           </Link>
-          <Link to='/contact'>
+          <Link to='/projects'>
             <button>
-              contact <FiArrowRight style={{ verticalAlign: 'middle' }} />
+              projects <FiArrowRight style={{ verticalAlign: 'middle' }} />
             </button>
           </Link>
         </motion.div>
