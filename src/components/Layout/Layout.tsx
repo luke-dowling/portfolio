@@ -1,8 +1,8 @@
-import { Outlet } from "react-router-dom"
+import { Outlet } from 'react-router-dom'
 
-import { PageTransitionAnimation } from "@/Animations/PageTransitionAnimation"
-import { Nav } from "@/components/Nav/Nav"
-import { Footer } from "@/components/Footer/Footer"
+import { PageTransitionAnimation } from '@/components/Anims/PageTransitionAnimation'
+import { Nav } from '@/components/Nav/Nav'
+import { Footer } from '@/components/Footer/Footer'
 
 export interface LayoutProps {
   ref?: React.RefObject<HTMLDivElement | null>

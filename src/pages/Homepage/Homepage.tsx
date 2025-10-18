@@ -1,22 +1,19 @@
-import "./_homepage.scss"
+import './_homepage.scss'
 
-import { motion, useMotionValueEvent, useScroll } from "framer-motion"
-import { Link } from "react-router-dom"
-import { FiArrowLeft, FiArrowRight } from "react-icons/fi"
-import { useEffect, useState, useRef } from "react"
+import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
+import { Link } from 'react-router-dom'
+import { FiArrowLeft, FiArrowRight } from 'react-icons/fi'
+import { useState } from 'react'
 
-import {
-  nameAnimation,
-  jobTitleAnimation,
-} from "@/Animations/homeAnimations.js"
-import LogosAnimation from "@/Animations/LogosAnimation.tsx"
+import { nameAnimation, jobTitleAnimation } from '@/Animations/homeAnimations.js'
+import { LogosAnimation } from '@/components/Anims/LogosAnimation'
 
 export const Homepage = () => {
   const { scrollY } = useScroll()
   const [isVisible, setIsVisible] = useState(true)
 
   // Track scroll direction
-  useMotionValueEvent(scrollY, "change", (current) => {
+  useMotionValueEvent(scrollY, 'change', current => {
     const prevY = scrollY.getPrevious() ?? 0
     if (current > prevY) {
       setIsVisible(false)
@@ -56,9 +53,7 @@ export const Homepage = () => {
             delay: isVisible ? 1 : 0,
           }}
         >
-          <FiArrowLeft
-            style={{ fontSize: "1.8rem", verticalAlign: "middle" }}
-          />
+          <FiArrowLeft style={{ fontSize: '1.8rem', verticalAlign: 'middle' }} />
           <p>more about me</p>
         </motion.div>
       </section>
@@ -82,8 +77,8 @@ export const Homepage = () => {
             I'm Luke, a <span>Website Developer</span>
           </p>
           <p>
-            I'm a full stack web developer based in Hamburg, passionate about
-            building modern, responsive websites and web applications.
+            I'm a full stack web developer based in Hamburg, passionate about building modern,
+            responsive websites and web applications.
           </p>
         </motion.div>
         <motion.div
@@ -95,12 +90,12 @@ export const Homepage = () => {
         >
           <Link to='/projects'>
             <button>
-              <FiArrowLeft style={{ verticalAlign: "middle" }} /> projects
+              <FiArrowLeft style={{ verticalAlign: 'middle' }} /> projects
             </button>
           </Link>
           <Link to='/profile'>
             <button>
-              profile <FiArrowRight style={{ verticalAlign: "middle" }} />
+              profile <FiArrowRight style={{ verticalAlign: 'middle' }} />
             </button>
           </Link>
         </motion.div>
