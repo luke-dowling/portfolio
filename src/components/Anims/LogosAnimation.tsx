@@ -45,12 +45,11 @@ interface GlobeWithIconsProps {
 function GlobeWithIcons({ prefersReducedMotion }: GlobeWithIconsProps) {
   const groupRef = useRef<THREE.Group>(null)
 
-  // Generate fixed positions on a sphere for each icon
   const iconPositions = useMemo(() => {
     const positions: THREE.Vector3[] = []
     const radius = 2
 
-    // Distribute icons evenly around the sphere using Fibonacci sphere
+    // Distribute icons evenly
     const goldenRatio = (1 + Math.sqrt(5)) / 2
 
     for (let i = 0; i < icons.length; i++) {
@@ -67,7 +66,6 @@ function GlobeWithIcons({ prefersReducedMotion }: GlobeWithIconsProps) {
     return positions
   }, [])
 
-  // Rotate the entire group slowly
   useFrame(() => {
     if (prefersReducedMotion || !groupRef.current) return
     groupRef.current.rotation.y += 0.003
@@ -93,14 +91,12 @@ interface IconMarkerProps {
 function IconMarker({ children, position, prefersReducedMotion }: IconMarkerProps) {
   const ref = useRef<THREE.Group>(null)
 
-  // Make icon always face the camera
   useFrame(({ camera }) => {
     if (ref.current) {
       ref.current.quaternion.copy(camera.quaternion)
     }
   })
 
-  // Calculate distance from center for intensity effect
   const distance = position.length()
   const intensity = Math.max(0, 1.2 - distance / 2)
 

@@ -19,12 +19,7 @@ export const PageTransitionAnimation = ({ children }: PageProps) => {
 
   return (
     <div ref={pageRef}>
-      <motion.div
-        className={`container container-dark`}
-        initial='initial'
-        animate='animate'
-        exit='exit'
-      >
+      <motion.div className={`container`} initial='initial' animate='animate' exit='exit'>
         {children}
         <Footer />
       </motion.div>
