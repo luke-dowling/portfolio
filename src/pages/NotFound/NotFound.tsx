@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import './_notFound.scss'
+import './_notfound.scss'
 import { FaArrowRight } from 'react-icons/fa'
 
 export const NotFound = () => {
