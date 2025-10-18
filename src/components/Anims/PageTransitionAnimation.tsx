@@ -13,7 +13,6 @@ export const PageTransitionAnimation = ({ children }: PageProps) => {
 
   const pageRef = useRef<HTMLDivElement>(null)
 
-  // Update visibility based on scroll direction
   useEffect(() => {
     pageRef.current!.scrollIntoView({ behavior: 'smooth' })
   }, [location])
