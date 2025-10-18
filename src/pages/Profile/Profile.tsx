@@ -37,11 +37,11 @@ export const Profile = () => {
               Before stepping into the world of software engineering, I was a performer— so I might
               just be the only developer you’ll meet who can tap dance 😉
             </motion.p>
+            <motion.p className='orange-line profile-tag-line' variants={itemAnimation}>
+              Peace & code ✌️
+            </motion.p>
           </div>
         </div>
-        <motion.p className='orange-line profile-tag-line' variants={itemAnimation}>
-          Peace & code ✌️
-        </motion.p>
 
         <motion.div variants={itemAnimation} className='button-group last-item-on-page'>
           <Link to='/projects'>
