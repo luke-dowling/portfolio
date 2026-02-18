@@ -90,7 +90,7 @@ export const Contact = () => {
                 type='text'
                 placeholder='Name'
                 {...register('name')}
-                className='block w-full border-b border-[var(--text)] mb-8 leading-8 focus:border-none desktop:text-xl desktop:my-4'
+                className='block w-full border-b border-primary-black dark:border-primary-white mb-8 leading-8 focus:border-none desktop:text-xl desktop:my-4'
                 aria-invalid={errors.name ? 'true' : 'false'}
                 aria-describedby={errors.name ? 'name-error' : undefined}
               />
@@ -111,7 +111,7 @@ export const Contact = () => {
                 type='email'
                 placeholder='Email'
                 {...register('email')}
-                className='block w-full border-b border-[var(--text)] mb-8 leading-8 focus:border-none desktop:text-xl desktop:my-4'
+                className='block w-full border-b border-primary-black dark:border-primary-white mb-8 leading-8 focus:border-none desktop:text-xl desktop:my-4'
                 aria-invalid={errors.email ? 'true' : 'false'}
                 aria-describedby={errors.email ? 'email-error' : undefined}
               />
@@ -131,7 +131,7 @@ export const Contact = () => {
               <motion.textarea
                 placeholder='Message'
                 {...register('message')}
-                className='block w-full border-b border-[var(--text)] mb-8 leading-8 focus:border-none desktop:text-xl desktop:my-4'
+                className='block w-full border-b border-primary-black dark:border-primary-white mb-8 leading-8 focus:border-none desktop:text-xl desktop:my-4'
                 aria-invalid={errors.message ? 'true' : 'false'}
                 aria-describedby={errors.message ? 'message-error' : undefined}
                 rows={2}
@@ -207,7 +207,7 @@ function Modal({ setIsOpen }: ModalProps) {
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.8 }}
     >
-      <div className='bg-[var(--bg)] text-[var(--text)] p-8 rounded-lg shadow-lg max-w-md'>
+      <div className='bg-primary-white dark:bg-primary-black text-primary-black dark:text-primary-white p-8 rounded-lg shadow-lg max-w-md'>
         <h1>Thanks for the mail!</h1>
         <p>I'll get back to you as soon as possible.</p>
         <button onClick={() => setIsOpen(false)} className='btn mt-4'>

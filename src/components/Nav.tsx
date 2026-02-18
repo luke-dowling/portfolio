@@ -17,8 +17,7 @@ const Modal = ({ handleClick }: ModalProps) => {
   return (
     <>
       <motion.ul
-        className='fixed w-[55vw] max-w-70 h-screen top-0 -right-3 bottom-0 z-10 flex flex-col justify-start items-center py-[10vh] list-none'
-        style={{ backgroundColor: 'var(--bg-offset)', color: 'var(--text-offset)' }}
+        className='fixed w-[45vw] max-w-70 h-screen top-0 -right-3 bottom-0 z-10 flex flex-col justify-start items-end py-[10vh] pr-4 list-none bg-primary-black text-primary-white dark:bg-primary-white dark:text-primary-black'
         variants={mobileNavContainerAnimation}
       >
         <motion.li className='py-4 px-3' variants={navItemAnimation}>
@@ -72,15 +71,14 @@ export const Nav = () => {
 
   return (
     <nav
-      className='fixed z-50 top-0 left-3 right-3 w-[calc(100vw-24px)] mx-auto pt-5'
-      style={{ backgroundColor: 'var(--bg)', color: 'var(--text)' }}
+      className='nav fixed z-50 top-0 left-0 right-0 mx-auto px-3 pt-5 
+    bg-primary-white text-primary-black dark:bg-primary-black dark:text-primary-white'
     >
       {/* mobile Nav */}
-      <div className='block lg:hidden flex justify-between items-center'>
+      <div className='flex sm:hidden justify-between items-center'>
         <Link to='/'>lukeDowling</Link>
         <motion.div
-          className='flex text-[3.5rem] gap-3 cursor-pointer'
-          style={{ color: isOpen ? 'var(--text-offset) ' : 'var(--text)' }}
+          className={`flex text-[3.5rem] gap-3 cursor-pointer ${isOpen ? 'text-primary-white dark:text-primary-black' : 'text-primary-black dark:text-primary-white'}`}
         >
           <ThemeSwitch />
           {!isOpen ? (
@@ -98,10 +96,10 @@ export const Nav = () => {
 
       {/* Desktop Nav */}
       <motion.ul
-        className='hidden lg:flex lg:w-full lg:justify-between'
+        className='hidden sm:flex sm:w-full sm:justify-between'
         variants={mobileNavContainerAnimation}
       >
-        <div className='flex gap-3 lg:gap-4'>
+        <div className='flex gap-3 sm:gap-4'>
           <motion.li className='list-none p-0.5' variants={navItemAnimation}>
             <Link
               to='/'
@@ -135,8 +133,8 @@ export const Nav = () => {
             </Link>
           </motion.li>
         </div>
-        <div className='flex gap-3 lg:gap-4'>
-          <motion.li variants={navItemAnimation} className='flex gap-3 lg:gap-4'>
+        <div className='flex gap-3 sm:gap-4'>
+          <motion.li variants={navItemAnimation} className='flex gap-3 sm:gap-4'>
             <ThemeSwitch />
             <a
               href='https://github.com/luke-dowling'

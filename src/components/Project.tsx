@@ -91,7 +91,7 @@ export const Project = ({ currentProjectId, setProject, direction, project }: Pr
           <Link to={project.url} target='_blank' rel='noreferrer'>
             <motion.div
               // variants={projectsItemAnimation}
-              className='rounded-lg overflow-hidden h-[180px] relative bg-[var(--bg)] desktop:h-[250px] desktop:my-8'
+              className='rounded-lg overflow-hidden h-[180px] relative bg-primary-white dark:bg-primary-black desktop:h-[250px] desktop:my-8'
             >
               <FaExternalLinkAlt className='absolute right-2.5 top-2.5 text-primary-white bg-primary-black text-xl dark:bg-primary-white dark:text-primary-black' />{' '}
               <picture>
