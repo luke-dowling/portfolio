@@ -1,6 +1,7 @@
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Html, OrbitControls } from '@react-three/drei'
 import { useRef, useState, useMemo, useEffect } from 'react'
+import { useInView } from 'framer-motion'
 import * as THREE from 'three'
 import {
   SiTypescript,
@@ -121,20 +122,27 @@ function IconMarker({ children, position, prefersReducedMotion }: IconMarkerProp
 
 export const LogosAnimation = () => {
   const prefersReducedMotion = usePrefersReducedMotion()
+  const canvasRef = useRef<HTMLDivElement>(null)
+  const isInView = useInView(canvasRef, { margin: '100px' })
+
+  // Determine frameloop: pause when not in view or when reduced motion is preferred
+  const frameloop = prefersReducedMotion || !isInView ? 'demand' : 'always'
 
   return (
-    <Canvas
-      camera={{ position: [0, 2, 5] }}
-      className='home-logo-animation'
-      frameloop={prefersReducedMotion ? 'demand' : 'always'}
-    >
-      <ambientLight intensity={0.5} />
-      <pointLight position={[5, 5, 5]} intensity={1} />
-      <pointLight position={[-5, -5, -5]} intensity={0.5} />
+    <div ref={canvasRef}>
+      <Canvas
+        camera={{ position: [0, 2, 5] }}
+        className='home-logo-animation'
+        frameloop={frameloop}
+      >
+        <ambientLight intensity={0.5} />
+        <pointLight position={[5, 5, 5]} intensity={1} />
+        <pointLight position={[-5, -5, -5]} intensity={0.5} />
 
-      <GlobeWithIcons prefersReducedMotion={prefersReducedMotion} />
+        <GlobeWithIcons prefersReducedMotion={prefersReducedMotion} />
 
-      <OrbitControls enableZoom={false} />
-    </Canvas>
+        <OrbitControls enableZoom={false} />
+      </Canvas>
+    </div>
   )
 }
