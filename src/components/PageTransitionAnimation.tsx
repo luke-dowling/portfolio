@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { useEffect, useRef, type ReactNode } from 'react'
 import { useLocation } from 'react-router-dom'
 
-import { Footer } from '@/components/Footer/Footer'
+import { Footer } from '@/components/ui/Footer'
 
 interface PageProps {
   children: ReactNode

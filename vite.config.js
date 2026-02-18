@@ -1,22 +1,14 @@
 import { defineConfig } from 'vite'
+import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 import viteTsconfigPaths from 'vite-tsconfig-paths'
-import svgrPlugin from 'vite-plugin-svgr'
 import path from 'node:path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), svgrPlugin(), viteTsconfigPaths()],
+  plugins: [react(), viteTsconfigPaths(), tailwindcss()],
   server: {
     open: true,
-  },
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: `@use "@/styles/abstracts" as *;`, // Auto-import variables/mixins
-        includePaths: ['src/styles'],
-      },
-    },
   },
   resolve: {
     alias: {

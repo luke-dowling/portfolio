@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,900;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import 'tailwindcss';
+
+@source '../**/*.{js,ts,jsx,tsx}';
+@source '../index.html';
+
+@theme {
+  --font-roboto: 'Roboto Mono', monospace;
+  --font-raleway: 'Raleway', sans-serif;
+
+  --color-primary-black: #101112;
+  --color-primary-white: #f7f8f8;
+  --color-primary-orange: #db573e;
+}
+
+@layer base {
+  html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+    color-scheme: light dark;
+  }
+
+  :root {
+    --bg: #101112;
+    --bg-offset: #f7f8f8;
+    --text: #f7f8f8;
+    --text-offset: #101112;
+  }
+
+  :root[data-theme='dark'] {
+    color-scheme: dark;
+    --bg: #101112;
+    --bg-offset: #f7f8f8;
+    --text: #f7f8f8;
+    --text-offset: #101112;
+  }
+
+  :root[data-theme='light'] {
+    color-scheme: light;
+    --bg: #f7f8f8;
+    --bg-offset: #101112;
+    --text: #101112;
+    --text-offset: #f7f8f8;
+  }
+
+  body {
+    @apply font-roboto leading-relaxed overflow-x-hidden;
+    background-color: var(--bg);
+    color: var(--text);
+  }
+
+  a {
+    @apply no-underline cursor-pointer transition-colors duration-200;
+    color: inherit;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    @apply block max-w-full h-auto;
+  }
+
+  svg {
+    @apply text-4xl;
+  }
+
+  input,
+  textarea,
+  select {
+    @apply p-0 m-0 border-none outline-none bg-transparent;
+    font: inherit;
+    color: inherit;
+    box-shadow: none;
+    appearance: none;
+  }
+
+  ul,
+  ol {
+    @apply list-none;
+  }
+
+  h1 {
+    @apply font-raleway font-black text-4xl;
+  }
+
+  h2 {
+    @apply font-raleway font-black text-3xl;
+  }
+
+  h1 span,
+  h2 span {
+    @apply text-primary-orange;
+  }
+
+  p {
+    @apply my-4;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-primary-orange outline-offset-2;
+  }
+
+  ::selection {
+    background: #db573e;
+    color: var(--text);
+  }
+}
+
+@layer components {
+  .btn {
+    @apply border-none bg-transparent px-4 py-2 text-base text-primary-orange transition-all duration-200 ease-in-out;
+  }
+
+  .btn:hover {
+    @apply cursor-pointer;
+    box-shadow: 0 0 8px #db573e;
+  }
+
+  .btn:active {
+    @apply shadow-none;
+  }
+
+  .container {
+    @apply mx-auto min-h-screen px-3 relative;
+  }
+
+  .container h1 {
+    @apply pt-[12vh] leading-tight;
+  }
+
+  @media (min-width: 480px) {
+    .container,
+    .nav {
+      @apply max-w-[650px];
+    }
+  }
+
+  @media (min-width: 768px) {
+    .container,
+    .nav {
+      @apply max-w-[850px];
+    }
+  }
+}
+
+@layer utilities {
+  @keyframes fadePulse {
+    0%,
+    50% {
+      color: inherit;
+    }
+    20% {
+      color: #e46d56;
+    }
+  }
+
+  .animate-fade-pulse {
+    animation: fadePulse 2s ease-in-out 3s infinite;
+  }
+
+  .last-item-on-page {
+    padding-bottom: 120px;
+  }
+}

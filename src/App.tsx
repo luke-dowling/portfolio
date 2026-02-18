@@ -1,11 +1,11 @@
 import { Routes, Route } from 'react-router-dom'
 
-import { Homepage } from '@/pages/Homepage/Homepage.tsx'
-import { Profile } from '@/pages/Profile/Profile'
-import { Projects } from '@/pages/Projects/Projects.tsx'
-import { Contact } from '@/pages/Contact/Contact.tsx'
-import { NotFound } from '@/pages/NotFound/NotFound.tsx'
-import { Layout } from '@/components/Layout/Layout'
+import { Homepage } from '@/pages/Homepage'
+import { Profile } from '@/pages/Profile'
+import { Projects } from '@/pages/Projects'
+import { Contact } from '@/pages/Contact'
+import { NotFound } from '@/pages/NotFound'
+import { Layout } from '@/components/Layout'
 
 export default function App() {
   return (

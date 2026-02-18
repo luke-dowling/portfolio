@@ -1,13 +1,11 @@
-import './_projects.scss'
-
 import { Link } from 'react-router-dom'
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 
-import { Project } from '@/components/Project/Project'
-import { projectsData } from '@/lib/data'
-import { Pagination } from '@/components/Project/Pagination'
+import { Project } from '@/components/Project'
+import { projectsData } from '@/libs/data'
+import { Pagination } from '@/components/Pagination'
 import { itemAnimation } from '@/Animations/layoutAnimation'
 
 export const Projects = () => {
@@ -35,16 +33,19 @@ export const Projects = () => {
         />
         <Pagination currentProjectId={currentProjectId} setProject={setProject} />
       </div>
-      <motion.div variants={itemAnimation} className='button-group last-item-on-page'>
+      <motion.div
+        variants={itemAnimation}
+        className='flex justify-around mt-12 pb-12 tablet:justify-between tablet:px-4'
+      >
         <Link to={'/profile'}>
-          <button>
+          <button className='btn flex items-center gap-2'>
             {' '}
             <FiArrowLeft style={{ verticalAlign: 'middle' }} /> profile
           </button>
         </Link>
 
         <Link to={'/contact'}>
-          <button>
+          <button className='btn flex items-center gap-2'>
             contact <FiArrowRight style={{ verticalAlign: 'middle' }} />
           </button>
         </Link>

@@ -9,6 +9,7 @@ type Technology =
   | 'JavaScript'
   | 'RestAPI'
   | 'Styled Components'
+  | 'ThreeJS'
 
 export interface Project {
   id: number

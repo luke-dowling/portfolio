@@ -1,4 +1,3 @@
-
 FROM oven/bun:1 AS build
 
 WORKDIR /app
