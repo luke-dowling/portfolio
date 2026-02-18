@@ -1,42 +1,33 @@
-import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi'
-import { useState } from 'react'
+import { useRef } from 'react'
 
 import { nameAnimation, jobTitleAnimation } from '@/Animations/homeAnimations.js'
 import { LogosAnimation } from '@/components/LogosAnimation'
 
 export const Homepage = () => {
-  const { scrollY } = useScroll()
-  const [isVisible, setIsVisible] = useState(true)
-
-  // Track scroll direction
-  useMotionValueEvent(scrollY, 'change', current => {
-    const prevY = scrollY.getPrevious() ?? 0
-    if (current > prevY) {
-      setIsVisible(false)
-    } else {
-      setIsVisible(true)
-    }
-  })
+  const h1Ref = useRef(null)
+  const isH1InView = useInView(h1Ref)
 
   return (
-    <div className='snap-y snap-mandatory mt-10'>
-      <section className='h-screen relative snap-start lg:h-auto lg:snap-none'>
+    <div className='snap-y snap-mandatory pt-10 page-container'>
+      <section className='h-screen relative snap-start sm:h-auto sm:snap-none'>
         <motion.h1
-          className='pt-[18vh] leading-tight whitespace-pre-line wrap-break-word w-[10ch] lg:pt-10 lg:w-auto'
+          ref={h1Ref}
+          className='pt-[18vh] leading-tight whitespace-pre-line wrap-break-word w-[10ch] sm:pt-10 sm:w-auto'
           {...nameAnimation}
         >
           Luke Dowling<span>.</span>
         </motion.h1>
-        <motion.div className='mt-10 w-1/2 ml-auto lg:my-8 lg:w-3/5' {...jobTitleAnimation}>
-          <hr className='border border-primary-orange lg:w-55' />
-          <p className='pt-2 leading-relaxed whitespace-pre-line wrap-break-word w-[10ch] lg:p-0 lg:w-auto'>
+        <motion.div className='mt-10 w-1/2 ml-auto sm:my-8 sm:w-3/5' {...jobTitleAnimation}>
+          <hr className='border border-primary-orange sm:w-55' />
+          <p className='pt-2 leading-relaxed whitespace-pre-line wrap-break-word w-[10ch] sm:p-0 sm:w-auto'>
             <span>Website</span> <span>Developer</span>
           </p>
         </motion.div>
         <motion.div
-          className='hidden lg:block lg:relative'
+          className='hidden sm:block sm:relative'
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
@@ -44,21 +35,21 @@ export const Homepage = () => {
           <LogosAnimation />
         </motion.div>
         <motion.div
-          className='flex gap-1 absolute bottom-24 left-1/2 -translate-x-1/2 -rotate-90 animate-fade-pulse lg:hidden'
+          className='flex gap-1 absolute bottom-24 left-1/2 -translate-x-1/2 -rotate-90 animate-fade-pulse sm:hidden'
           initial={{ opacity: 0 }}
           animate={{
-            opacity: isVisible ? 1 : 0,
+            opacity: isH1InView ? 1 : 0,
           }}
           transition={{
-            duration: isVisible ? 1 : 0.2,
-            delay: isVisible ? 1 : 0,
+            duration: isH1InView ? 1 : 0.2,
+            delay: isH1InView ? 1 : 0,
           }}
         >
           <FiArrowLeft style={{ fontSize: '1.8rem', verticalAlign: 'middle' }} />
           <p>more about me</p>
         </motion.div>
       </section>
-      <section className='snap-end lg:snap-none'>
+      <section className='snap-end sm:snap-none'>
         <motion.h2
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -68,7 +59,7 @@ export const Homepage = () => {
           Hey there<span>.</span>
         </motion.h2>
         <motion.div
-          className='my-12 tracking-wide lg:my-8'
+          className='my-12 tracking-wide sm:my-8'
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
@@ -83,7 +74,7 @@ export const Homepage = () => {
           </p>
         </motion.div>
         <motion.div
-          className='flex justify-around mt-12 pb-12 lg:justify-between lg:px-4'
+          className='flex justify-around mt-12 pb-12 sm:justify-between sm:px-4'
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1 }}
