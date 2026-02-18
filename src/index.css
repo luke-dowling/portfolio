@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,900;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
 @import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 @source '../**/*.{js,ts,jsx,tsx}';
 @source '../index.html';
@@ -21,33 +24,10 @@
     color-scheme: light dark;
   }
 
-  :root {
-    --bg: #101112;
-    --bg-offset: #f7f8f8;
-    --text: #f7f8f8;
-    --text-offset: #101112;
-  }
-
-  :root[data-theme='dark'] {
-    color-scheme: dark;
-    --bg: #101112;
-    --bg-offset: #f7f8f8;
-    --text: #f7f8f8;
-    --text-offset: #101112;
-  }
-
-  :root[data-theme='light'] {
-    color-scheme: light;
-    --bg: #f7f8f8;
-    --bg-offset: #101112;
-    --text: #101112;
-    --text-offset: #f7f8f8;
-  }
-
   body {
     @apply font-roboto leading-relaxed overflow-x-hidden;
-    background-color: var(--bg);
-    color: var(--text);
+    @apply bg-primary-white text-primary-black;
+    @apply dark:bg-primary-black dark:text-primary-white;
   }
 
   a {
@@ -104,8 +84,7 @@
   }
 
   ::selection {
-    background: #db573e;
-    color: var(--text);
+    @apply bg-primary-orange text-primary-white;
   }
 }
 
@@ -123,23 +102,23 @@
     @apply shadow-none;
   }
 
-  .container {
+  .page-container {
     @apply mx-auto min-h-screen px-3 relative;
   }
 
-  .container h1 {
+  .page-container h1 {
     @apply pt-[12vh] leading-tight;
   }
 
   @media (min-width: 480px) {
-    .container,
+    .page-container,
     .nav {
       @apply max-w-[650px];
     }
   }
 
   @media (min-width: 768px) {
-    .container,
+    .page-container,
     .nav {
       @apply max-w-[850px];
     }
