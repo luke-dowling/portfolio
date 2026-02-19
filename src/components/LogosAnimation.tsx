@@ -1,7 +1,7 @@
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Html, OrbitControls } from '@react-three/drei'
 import { useRef, useState, useMemo, useEffect } from 'react'
-import { useInView } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import * as THREE from 'three'
 import {
   SiTypescript,
@@ -129,7 +129,13 @@ export const LogosAnimation = () => {
   const frameloop = prefersReducedMotion || !isInView ? 'demand' : 'always'
 
   return (
-    <div ref={canvasRef}>
+    <motion.div
+      className='hidden sm:block sm:relative'
+      initial={{ opacity: 0, x: -20 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 1, delay: 0.3 }}
+      ref={canvasRef}
+    >
       <Canvas
         camera={{ position: [0, 2, 5] }}
         className='home-logo-animation'
@@ -143,6 +149,6 @@ export const LogosAnimation = () => {
 
         <OrbitControls enableZoom={false} />
       </Canvas>
-    </div>
+    </motion.div>
   )
 }

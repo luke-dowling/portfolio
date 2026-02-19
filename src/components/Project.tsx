@@ -1,5 +1,4 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
 import { FaExternalLinkAlt } from 'react-icons/fa'
 import { useRef } from 'react'
 
@@ -88,7 +87,7 @@ export const Project = ({ currentProjectId, setProject, direction, project }: Pr
             {project.title}
           </motion.h2>
 
-          <Link to={project.url} target='_blank' rel='noreferrer'>
+          <a href={project.url} target='_blank' rel='noreferrer'>
             <motion.div
               // variants={projectsItemAnimation}
               className='rounded-lg overflow-hidden h-[180px] relative bg-primary-white dark:bg-primary-black desktop:h-[250px] desktop:my-8'
@@ -104,7 +103,7 @@ export const Project = ({ currentProjectId, setProject, direction, project }: Pr
                 />
               </picture>
             </motion.div>
-          </Link>
+          </a>
 
           <motion.h3
             className='text-primary-orange pt-4 text-lg'

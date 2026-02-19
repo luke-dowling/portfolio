@@ -3,7 +3,6 @@ import { useState } from 'react'
 import { FaGithubSquare, FaLinkedin } from 'react-icons/fa'
 import { RiMenu2Line } from 'react-icons/ri'
 import { IoMdExit } from 'react-icons/io'
-import { Link } from 'react-router-dom'
 
 import { mobileNavContainerAnimation, navItemAnimation } from '@/Animations/navAnimation'
 import { useTheme } from '@/hooks/useThemeContext.ts'
@@ -21,22 +20,22 @@ const Modal = ({ handleClick }: ModalProps) => {
         variants={mobileNavContainerAnimation}
       >
         <motion.li className='py-4 px-3' variants={navItemAnimation}>
-          <Link onClick={handleClick} to='/'>
+          <a onClick={handleClick} href='#home'>
             home
-          </Link>
+          </a>
         </motion.li>
         <motion.li className='py-4 px-3' variants={navItemAnimation}>
-          <Link onClick={handleClick} to='/profile'>
+          <a onClick={handleClick} href='#profile'>
             profile
-          </Link>
+          </a>
         </motion.li>
         <motion.li className='py-4 px-3' variants={navItemAnimation}>
-          <Link onClick={handleClick} to='/projects'>
+          <a onClick={handleClick} href='#projects'>
             projects
-          </Link>
+          </a>
         </motion.li>
         <motion.li className='py-4 px-3' onClick={handleClick} variants={navItemAnimation}>
-          <Link to='/contact'>contact</Link>
+          <a href='#contact'>contact</a>
         </motion.li>
         <motion.li className='py-4 px-3' variants={navItemAnimation}>
           <a href='https://github.com/luke-dowling' target='_blank' rel='noreferrer'>
@@ -76,7 +75,7 @@ export const Nav = () => {
     >
       {/* mobile Nav */}
       <div className='flex sm:hidden justify-between items-center'>
-        <Link to='/'>lukeDowling</Link>
+        <a href='#home'>lukeDowling</a>
         <motion.div
           className={`flex text-[3.5rem] gap-3 cursor-pointer ${isOpen ? 'text-primary-white dark:text-primary-black' : 'text-primary-black dark:text-primary-white'}`}
         >
@@ -101,36 +100,36 @@ export const Nav = () => {
       >
         <div className='flex gap-3 sm:gap-4'>
           <motion.li className='list-none p-0.5' variants={navItemAnimation}>
-            <Link
-              to='/'
+            <a
+              href='#home'
               className='block transition-transform duration-300 ease-in-out hover:scale-110'
             >
               home
-            </Link>
+            </a>
           </motion.li>
           <motion.li className='list-none p-0.5' variants={navItemAnimation}>
-            <Link
-              to='/profile'
+            <a
+              href='#profile'
               className='block transition-transform duration-300 ease-in-out hover:scale-110'
             >
               profile
-            </Link>
+            </a>
           </motion.li>
           <motion.li className='list-none p-0.5' variants={navItemAnimation}>
-            <Link
-              to='/projects'
+            <a
+              href='#projects'
               className='block transition-transform duration-300 ease-in-out hover:scale-110'
             >
               projects
-            </Link>
+            </a>
           </motion.li>
           <motion.li className='list-none p-0.5' variants={navItemAnimation}>
-            <Link
-              to='/contact'
+            <a
+              href='#contact'
               className='block transition-transform duration-300 ease-in-out hover:scale-110'
             >
               contact
-            </Link>
+            </a>
           </motion.li>
         </div>
         <div className='flex gap-3 sm:gap-4'>
