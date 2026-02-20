@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { useState, useRef } from 'react'
 import { FaArrowRight } from 'react-icons/fa'
 import emailjs from 'emailjs-com'
-import { FiArrowLeft, FiArrowRight } from 'react-icons/fi'
+import { FiArrowLeft, FiArrowRight, FiUser, FiMail, FiMessageSquare } from 'react-icons/fi'
 
 import { layoutAnimation, itemAnimation } from '@/Animations/layoutAnimation'
 import { useContactForm, type ContactFormData } from '@/hooks/useFormValidation'
@@ -58,7 +58,7 @@ export const Contact = () => {
   }
 
   return (
-    <div className='page-container'>
+    <div id='contact' className='page-container'>
       {isOpen ? <Modal setIsOpen={setIsOpen} /> : null}
 
       <motion.div variants={layoutAnimation}>
@@ -66,7 +66,7 @@ export const Contact = () => {
           Get In Touch<span>.</span>
         </PageHeading>
 
-        <div className='md:flex md:items-start md:gap-[75px]'>
+        <div className='md:flex md:items-start md:gap-18.75'>
           <div>
             <motion.p className='md:pt-4 md:text-justify' variants={itemAnimation}>
               I would love to hear your thoughts on my site or let me know if you are interested in
@@ -82,16 +82,24 @@ export const Contact = () => {
             variants={itemAnimation}
             onSubmit={onSubmit}
             ref={formRef}
-            className='pt-12 md:min-w-[325px] md:pt-0'
+            className='pt-8 md:min-w-81.25 md:pt-0'
             noValidate
           >
             {/* Name */}
             <div className='relative'>
+              <label
+                htmlFor='name'
+                className='block text-md font-medium my-4 pl-1 flex items-center gap-1.5'
+              >
+                <FiUser className='w-6 text-black dark:text-white pointer-events-none' /> Name
+              </label>
+
               <motion.input
+                id='name'
                 type='text'
-                placeholder='Name'
+                placeholder=''
                 {...register('name')}
-                className='block w-full rounded-md border border-black/20 dark:border-white/20 bg-transparent px-4 py-3 mb-8 transition-all focus:outline-none focus:border-primary-orange focus:ring-2 focus:ring-primary-orange/30 md:text-xl md:my-4'
+                className='block w-full rounded-md border border-black/40 dark:border-white/40 ring-2 ring-primary-orange/20 bg-transparent px-4 py-3 mb-8 transition-all focus:outline-none focus:border-primary-orange focus:ring-primary-orange/40 md:text-xl md:my-4'
                 aria-invalid={errors.name ? 'true' : 'false'}
                 aria-describedby={errors.name ? 'name-error' : undefined}
               />
@@ -108,11 +116,18 @@ export const Contact = () => {
 
             {/* Email */}
             <div className='relative'>
+              <label
+                htmlFor='email'
+                className='block text-md font-medium my-4 pl-1 flex items-center gap-1.5'
+              >
+                <FiMail className='w-6 text-black dark:text-white pointer-events-none' /> Email
+              </label>
               <motion.input
+                id='email'
                 type='email'
-                placeholder='Email'
+                placeholder=''
                 {...register('email')}
-                className='block w-full rounded-md border border-black/20 dark:border-white/20 bg-transparent px-4 py-3 mb-8 transition-all focus:outline-none focus:border-primary-orange focus:ring-2 focus:ring-primary-orange/30 md:text-xl md:my-4'
+                className='block w-full rounded-md border border-black/40 dark:border-white/40 ring-2 ring-primary-orange/20 bg-transparent px-4 py-3 mb-8 transition-all focus:outline-none focus:border-primary-orange focus:ring-primary-orange/40 md:text-xl md:my-4'
                 aria-invalid={errors.email ? 'true' : 'false'}
                 aria-describedby={errors.email ? 'email-error' : undefined}
               />
@@ -129,10 +144,18 @@ export const Contact = () => {
 
             {/* Message */}
             <div className='relative'>
+              <label
+                htmlFor='message'
+                className='block text-md font-medium my-4 pl-1 flex items-center gap-1.5'
+              >
+                <FiMessageSquare className='w-6 text-black dark:text-white pointer-events-none' />{' '}
+                Message
+              </label>
               <motion.textarea
-                placeholder='Message'
+                id='message'
+                placeholder=''
                 {...register('message')}
-                className='block w-full rounded-md border border-black/20 dark:border-white/20 bg-transparent px-4 py-3 mb-8 transition-all focus:outline-none focus:border-primary-orange focus:ring-2 focus:ring-primary-orange/30 md:text-xl md:my-4'
+                className='block w-full rounded-md border border-black/40 dark:border-white/40 ring-2 ring-primary-orange/20 bg-transparent px-4 py-3 mb-8 transition-all focus:outline-none focus:border-primary-orange focus:ring-primary-orange/40 md:text-xl md:my-4'
                 aria-invalid={errors.message ? 'true' : 'false'}
                 aria-describedby={errors.message ? 'message-error' : undefined}
                 rows={2}
@@ -159,7 +182,7 @@ export const Contact = () => {
               <motion.button
                 type='submit'
                 disabled={isSubmitting}
-                className='btn-ghost flex items-center gap-2'
+                className='btn-ghost flex w-full items-center justify-center gap-2'
                 aria-describedby='submit-status'
               >
                 {isSubmitting ? (

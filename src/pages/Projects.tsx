@@ -34,7 +34,7 @@ export const Projects = () => {
   const isInView = useInView(h1Ref, { margin: '0px 0px -40% 0px', once: true })
 
   return (
-    <div className='page-container overflow-x-hidden'>
+    <div id='projects' className='page-container overflow-x-hidden'>
       <PageHeading
         ref={h1Ref}
         variants={titleContainer}

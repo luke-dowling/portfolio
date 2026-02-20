@@ -14,7 +14,7 @@ export const Profile = () => {
   const p4Anim = useScrollAnimation(undefined, undefined, true)
 
   return (
-    <div className='page-container'>
+    <div id='profile' className='page-container'>
       <PageHeading
         ref={h1Anim.ref}
         className='desktop:mb-4'
