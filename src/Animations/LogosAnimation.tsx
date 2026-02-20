@@ -16,9 +16,9 @@ import {
 
 // horizontal
 const ICON_POSITIONS: [number, number, number][] = [
-  [0, 3.0, 0.2],
-  [-0.5, 2.0, 0.4],
-  [1.3, 1.7, -0.1],
+  [0, 2.7, 0.2],
+  [-0.5, 1.8, 0.4],
+  [1.3, 1.5, -0.1],
   [-1.4, 0.4, 0.1],
   [0.1, 0, 0.0],
   [1.3, -0.9, 0.3],
@@ -132,13 +132,13 @@ export const LogosAnimation = () => {
 
   const { scrollYProgress } = useScroll({
     target: wrapperRef,
-    offset: ['start end', 'end start'],
+    offset: ['0% 70%', 'end start'],
   })
 
   const opacity = useTransform(scrollYProgress, [0, 0.1, 0.72, 0.85], [0, 1, 1, 0])
 
   return (
-    <div ref={wrapperRef} className='w-full h-[120vh]'>
+    <div ref={wrapperRef} className='w-full h-[150vh]'>
       <div className='sticky top-0 h-screen'>
         <motion.div style={{ opacity }} className='w-full h-full'>
           <Canvas
