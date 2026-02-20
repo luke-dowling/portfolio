@@ -1,11 +1,14 @@
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import { FaGithubSquare, FaLinkedin } from 'react-icons/fa'
 import { RiMenu2Line } from 'react-icons/ri'
 import { IoMdExit } from 'react-icons/io'
 
-import { mobileNavContainerAnimation, navItemAnimation } from '@/Animations/navAnimation'
-import { useTheme } from '@/hooks/useThemeContext.ts'
+import {
+  mobileNavContainerAnimation,
+  navContainerAnimation,
+  navItemAnimation,
+} from '@/Animations/navAnimation'
 import { ThemeSwitch } from '@/components/ThemeSwitch'
 
 interface ModalProps {
@@ -18,6 +21,9 @@ const Modal = ({ handleClick }: ModalProps) => {
       <motion.ul
         className='fixed w-[45vw] max-w-70 h-screen top-0 -right-3 bottom-0 z-10 flex flex-col justify-start items-end py-[10vh] pr-4 list-none bg-primary-black text-primary-white dark:bg-primary-white dark:text-primary-black'
         variants={mobileNavContainerAnimation}
+        initial='initial'
+        animate='animate'
+        exit='exit'
       >
         <motion.li className='py-4 px-3' variants={navItemAnimation}>
           <a onClick={handleClick} href='#profile'>
@@ -48,7 +54,7 @@ const Modal = ({ handleClick }: ModalProps) => {
         </motion.li>
       </motion.ul>
       <div
-        className='fixed w-full h-full top-0 left-0 z-[5] bg-transparent'
+        className='fixed w-full h-full top-0 left-0 z-5 bg-transparent'
         onClick={handleClick}
       ></div>
     </>
@@ -56,7 +62,6 @@ const Modal = ({ handleClick }: ModalProps) => {
 }
 
 export const Nav = () => {
-  const { theme } = useTheme()
   const [isOpen, setIsOpen] = useState(false)
 
   const handleClick = () => {
@@ -85,13 +90,15 @@ export const Nav = () => {
           )}
         </motion.div>
 
-        {isOpen ? <Modal handleClick={handleClick} /> : null}
+        <AnimatePresence>{isOpen ? <Modal handleClick={handleClick} /> : null}</AnimatePresence>
       </div>
 
       {/* Desktop Nav */}
       <motion.ul
         className='hidden sm:flex sm:w-full sm:justify-between'
-        variants={mobileNavContainerAnimation}
+        variants={navContainerAnimation}
+        initial='initial'
+        animate='animate'
       >
         <div className='flex gap-3 sm:gap-4'>
           <motion.li className='list-none p-0.5' variants={navItemAnimation}>
