@@ -101,7 +101,7 @@ export const LogosAnimation = () => {
 
   const { scrollYProgress } = useScroll({
     target: wrapperRef,
-    offset: ['start end', 'end start'],
+    offset: ['40% end', 'end start'],
   })
 
   const opacity = useTransform(scrollYProgress, [0, 0.1, 0.6, 0.75], [0, 1, 1, 0])
