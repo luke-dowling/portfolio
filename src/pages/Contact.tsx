@@ -7,6 +7,7 @@ import { FiArrowLeft, FiArrowRight } from 'react-icons/fi'
 import { layoutAnimation, itemAnimation } from '@/Animations/layoutAnimation'
 import { useContactForm, type ContactFormData } from '@/hooks/useFormValidation'
 import { Footer } from '@/components/ui/Footer'
+import { PageHeading } from '@/components/ui/Heading'
 
 export const Contact = () => {
   const {
@@ -57,17 +58,17 @@ export const Contact = () => {
   }
 
   return (
-    <div className='contact'>
+    <div className='page-container'>
       {isOpen ? <Modal setIsOpen={setIsOpen} /> : null}
 
       <motion.div variants={layoutAnimation}>
-        <motion.h1 className='desktop:mb-4' variants={itemAnimation}>
-          Hello<span>.</span>
-        </motion.h1>
+        <PageHeading className='md:mb-4' variants={itemAnimation}>
+          Get In Touch<span>.</span>
+        </PageHeading>
 
-        <div className='desktop:flex desktop:items-start desktop:gap-[75px]'>
+        <div className='md:flex md:items-start md:gap-[75px]'>
           <div>
-            <motion.p className='desktop:pt-4 desktop:text-justify' variants={itemAnimation}>
+            <motion.p className='md:pt-4 md:text-justify' variants={itemAnimation}>
               I would love to hear your thoughts on my site or let me know if you are interested in
               collaborating.
             </motion.p>
@@ -81,7 +82,7 @@ export const Contact = () => {
             variants={itemAnimation}
             onSubmit={onSubmit}
             ref={formRef}
-            className='pt-12 desktop:min-w-[325px] desktop:pt-0'
+            className='pt-12 md:min-w-[325px] md:pt-0'
             noValidate
           >
             {/* Name */}
@@ -90,7 +91,7 @@ export const Contact = () => {
                 type='text'
                 placeholder='Name'
                 {...register('name')}
-                className='block w-full border-b border-primary-black dark:border-primary-white mb-8 leading-8 focus:border-none desktop:text-xl desktop:my-4'
+                className='block w-full rounded-md border border-black/20 dark:border-white/20 bg-transparent px-4 py-3 mb-8 transition-all focus:outline-none focus:border-primary-orange focus:ring-2 focus:ring-primary-orange/30 md:text-xl md:my-4'
                 aria-invalid={errors.name ? 'true' : 'false'}
                 aria-describedby={errors.name ? 'name-error' : undefined}
               />
@@ -111,7 +112,7 @@ export const Contact = () => {
                 type='email'
                 placeholder='Email'
                 {...register('email')}
-                className='block w-full border-b border-primary-black dark:border-primary-white mb-8 leading-8 focus:border-none desktop:text-xl desktop:my-4'
+                className='block w-full rounded-md border border-black/20 dark:border-white/20 bg-transparent px-4 py-3 mb-8 transition-all focus:outline-none focus:border-primary-orange focus:ring-2 focus:ring-primary-orange/30 md:text-xl md:my-4'
                 aria-invalid={errors.email ? 'true' : 'false'}
                 aria-describedby={errors.email ? 'email-error' : undefined}
               />
@@ -131,7 +132,7 @@ export const Contact = () => {
               <motion.textarea
                 placeholder='Message'
                 {...register('message')}
-                className='block w-full border-b border-primary-black dark:border-primary-white mb-8 leading-8 focus:border-none desktop:text-xl desktop:my-4'
+                className='block w-full rounded-md border border-black/20 dark:border-white/20 bg-transparent px-4 py-3 mb-8 transition-all focus:outline-none focus:border-primary-orange focus:ring-2 focus:ring-primary-orange/30 md:text-xl md:my-4'
                 aria-invalid={errors.message ? 'true' : 'false'}
                 aria-describedby={errors.message ? 'message-error' : undefined}
                 rows={2}
@@ -154,11 +155,11 @@ export const Contact = () => {
               </div>
             )}
 
-            <div className='flex justify-center mb-8 desktop:justify-start'>
+            <div className='flex justify-center mb-8 md:justify-start'>
               <motion.button
                 type='submit'
                 disabled={isSubmitting}
-                className='btn flex items-center gap-2'
+                className='btn-ghost flex items-center gap-2'
                 aria-describedby='submit-status'
               >
                 {isSubmitting ? (

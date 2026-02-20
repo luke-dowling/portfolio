@@ -102,6 +102,30 @@
     @apply shadow-none;
   }
 
+  .btn-solid {
+    @apply bg-primary-orange text-primary-white px-6 py-2 font-semibold transition-all duration-200 ease-in-out;
+  }
+
+  .btn-solid:hover {
+    @apply brightness-110 cursor-pointer;
+  }
+
+  .btn-solid:active {
+    @apply brightness-95;
+  }
+
+  .btn-ghost {
+    @apply border border-primary-orange text-primary-orange px-6 py-2 rounded-full font-semibold transition-all duration-200 ease-in-out;
+  }
+
+  .btn-ghost:hover {
+    @apply bg-primary-orange text-primary-white cursor-pointer;
+  }
+
+  .btn-ghost:active {
+    @apply brightness-95;
+  }
+
   .page-container {
     @apply mx-auto px-3 relative;
   }

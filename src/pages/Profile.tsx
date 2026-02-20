@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import { LogosAnimation } from '@/Animations/LogosAnimation'
+import { PageHeading } from '@/components/ui/Heading'
 
 const initial = { opacity: 0, x: -200 }
 
@@ -14,14 +15,14 @@ export const Profile = () => {
 
   return (
     <div className='page-container'>
-      <motion.h1
+      <PageHeading
         ref={h1Anim.ref}
         className='desktop:mb-4'
         initial={initial}
         animate={h1Anim.controls}
       >
         Hey there<span>.</span>
-      </motion.h1>
+      </PageHeading>
 
       <div className='relative'>
         <div className='flex flex-row-reverse items-start'>

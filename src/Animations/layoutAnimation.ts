@@ -17,7 +17,7 @@ export const itemAnimation = {
     y: 0,
     transition: {
       duration: 0.6,
-      ease: 'easeOut',
+      ease: 'easeOut' as const,
     },
   },
   exit: {
@@ -25,7 +25,7 @@ export const itemAnimation = {
     y: -100,
     transition: {
       duration: 0.4,
-      ease: 'easeIn',
+      ease: 'easeIn' as const,
     },
   },
 }

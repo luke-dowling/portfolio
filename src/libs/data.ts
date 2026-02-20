@@ -30,7 +30,7 @@ export const projectsData: Project[] = [
   },
   {
     id: 2,
-    title: 'Mask Runner',
+    title: 'Masked Runner',
     tagline: 'Global Game Jam 2026 - App with the theme of "MASK".',
     description: 'A game designed with the theme of MASKm using a 2d grid system.',
     image_mobile: maskedRunnerImage,

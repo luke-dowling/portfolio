@@ -3,6 +3,7 @@ import { motion, useInView } from 'framer-motion'
 
 import { Project } from '@/components/Project'
 import { projectsData } from '@/libs/data'
+import { PageHeading } from '@/components/ui/Heading'
 
 const titleContainer = {
   initial: {},
@@ -34,7 +35,7 @@ export const Projects = () => {
 
   return (
     <div className='page-container overflow-x-hidden'>
-      <motion.h1
+      <PageHeading
         ref={h1Ref}
         variants={titleContainer}
         initial='initial'
@@ -46,9 +47,9 @@ export const Projects = () => {
           </motion.span>
         ))}
         <motion.span variants={dotVariant}>.</motion.span>
-      </motion.h1>
+      </PageHeading>
 
-      <div className='flex flex-col gap-8'>
+      <div className='flex flex-col gap-12'>
         {projectsData.map(project => (
           <Project key={project.id} project={project} />
         ))}

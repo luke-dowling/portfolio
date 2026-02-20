@@ -65,7 +65,7 @@ export const Nav = () => {
 
   return (
     <nav
-      className='nav fixed z-50 top-0 left-0 right-0 mx-auto px-3 pt-5 
+      className='nav fixed z-50 top-0 left-0 right-0 mx-auto px-3 py-4
     bg-primary-white text-primary-black dark:bg-primary-black dark:text-primary-white'
     >
       {/* mobile Nav */}
