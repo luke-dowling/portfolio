@@ -1,55 +1,58 @@
-import { Link } from 'react-router-dom'
-import { FiArrowLeft, FiArrowRight } from 'react-icons/fi'
-import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 
 import { Project } from '@/components/Project'
 import { projectsData } from '@/libs/data'
-import { Pagination } from '@/components/Pagination'
-import { itemAnimation } from '@/Animations/layoutAnimation'
+
+const titleContainer = {
+  initial: {},
+  animate: { transition: { staggerChildren: 0.06, delayChildren: 0.1 } },
+}
+
+const letterVariant = {
+  initial: { opacity: 0, y: 40 },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: 'easeOut' as const },
+  },
+}
+
+const dotVariant = {
+  initial: { opacity: 0, y: 40, scale: 1.6 },
+  animate: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.4, ease: 'easeOut' as const, delay: 0.05 },
+  },
+}
 
 export const Projects = () => {
-  const [[currentProjectId, direction], setCurrentProjectId] = useState([0, 0])
-  const [selectedProject, setSelectedProject] = useState(projectsData[currentProjectId])
-
-  function setProject(newProjectId: number, newDirection?: number) {
-    if (!newDirection) newDirection = newProjectId - currentProjectId
-    setCurrentProjectId([newProjectId, newDirection])
-    setSelectedProject(projectsData[newProjectId])
-  }
+  const h1Ref = useRef(null)
+  const isInView = useInView(h1Ref, { margin: '0px 0px -40% 0px', once: true })
 
   return (
-    <div className='projects'>
-      <motion.h1 variants={itemAnimation}>
-        Projects<span>.</span>
+    <div className='page-container overflow-x-hidden'>
+      <motion.h1
+        ref={h1Ref}
+        variants={titleContainer}
+        initial='initial'
+        animate={isInView ? 'animate' : 'initial'}
+      >
+        {'Projects'.split('').map((char, i) => (
+          <motion.span key={i} variants={letterVariant} style={{ color: 'inherit' }}>
+            {char}
+          </motion.span>
+        ))}
+        <motion.span variants={dotVariant}>.</motion.span>
       </motion.h1>
 
-      <div className='projects-container'>
-        <Project
-          currentProjectId={currentProjectId}
-          direction={direction}
-          setProject={setProject}
-          project={selectedProject}
-        />
-        <Pagination currentProjectId={currentProjectId} setProject={setProject} />
+      <div className='flex flex-col gap-8'>
+        {projectsData.map(project => (
+          <Project key={project.id} project={project} />
+        ))}
       </div>
-      <motion.div
-        variants={itemAnimation}
-        className='flex justify-around mt-12 pb-12 tablet:justify-between tablet:px-4'
-      >
-        <Link to={'/profile'}>
-          <button className='btn flex items-center gap-2'>
-            {' '}
-            <FiArrowLeft style={{ verticalAlign: 'middle' }} /> profile
-          </button>
-        </Link>
-
-        <Link to={'/contact'}>
-          <button className='btn flex items-center gap-2'>
-            contact <FiArrowRight style={{ verticalAlign: 'middle' }} />
-          </button>
-        </Link>
-      </motion.div>
     </div>
   )
 }

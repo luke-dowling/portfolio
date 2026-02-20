@@ -2,11 +2,11 @@ import { motion } from 'framer-motion'
 import { useState, useRef } from 'react'
 import { FaArrowRight } from 'react-icons/fa'
 import emailjs from 'emailjs-com'
-import { Link } from 'react-router-dom'
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi'
 
 import { layoutAnimation, itemAnimation } from '@/Animations/layoutAnimation'
 import { useContactForm, type ContactFormData } from '@/hooks/useFormValidation'
+import { Footer } from '@/components/ui/Footer'
 
 export const Contact = () => {
   const {
@@ -172,24 +172,8 @@ export const Contact = () => {
             </div>
           </motion.form>
         </div>
-
-        <motion.div
-          variants={itemAnimation}
-          className='flex justify-around mt-12 pb-12 tablet:justify-between tablet:px-4'
-        >
-          <Link to='/projects'>
-            <button className='btn flex items-center gap-2'>
-              {' '}
-              <FiArrowLeft style={{ verticalAlign: 'middle' }} /> projects
-            </button>
-          </Link>
-          <Link to='/'>
-            <button className='btn flex items-center gap-2'>
-              home <FiArrowRight style={{ verticalAlign: 'middle' }} />
-            </button>
-          </Link>
-        </motion.div>
       </motion.div>
+      <Footer />
     </div>
   )
 }

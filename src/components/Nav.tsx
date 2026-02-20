@@ -20,11 +20,6 @@ const Modal = ({ handleClick }: ModalProps) => {
         variants={mobileNavContainerAnimation}
       >
         <motion.li className='py-4 px-3' variants={navItemAnimation}>
-          <a onClick={handleClick} href='#home'>
-            home
-          </a>
-        </motion.li>
-        <motion.li className='py-4 px-3' variants={navItemAnimation}>
           <a onClick={handleClick} href='#profile'>
             profile
           </a>
@@ -99,14 +94,6 @@ export const Nav = () => {
         variants={mobileNavContainerAnimation}
       >
         <div className='flex gap-3 sm:gap-4'>
-          <motion.li className='list-none p-0.5' variants={navItemAnimation}>
-            <a
-              href='#home'
-              className='block transition-transform duration-300 ease-in-out hover:scale-110'
-            >
-              home
-            </a>
-          </motion.li>
           <motion.li className='list-none p-0.5' variants={navItemAnimation}>
             <a
               href='#profile'

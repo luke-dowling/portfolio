@@ -3,14 +3,14 @@ import { FiArrowLeft } from 'react-icons/fi'
 import { useRef } from 'react'
 
 import { nameAnimation, jobTitleAnimation } from '@/Animations/homeAnimations.js'
-import { LogosAnimation } from '@/components/LogosAnimation'
+import { LogosAnimation } from '@/Animations/LogosAnimation'
 
 export const Welcome = () => {
   const h1Ref = useRef(null)
   const isH1InView = useInView(h1Ref)
 
   return (
-    <section className='pt-10 page-container h-screen relative sm:h-auto'>
+    <section id='home' className='pt-10 page-container h-screen relative snap-start sm:h-auto'>
       <motion.h1
         ref={h1Ref}
         className='pt-[18vh] leading-tight whitespace-pre-line wrap-break-word w-[10ch] sm:pt-10 sm:w-auto'
@@ -24,8 +24,6 @@ export const Welcome = () => {
           <span>Website</span> <span>Developer</span>
         </p>
       </motion.div>
-
-      <LogosAnimation />
 
       <motion.div
         className='flex gap-1 absolute bottom-20 left-1/2 -translate-x-1/2 -rotate-90 animate-fade-pulse sm:hidden'
