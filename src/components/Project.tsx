@@ -18,7 +18,7 @@ export const Project = ({ project }: ProjectProps) => {
       ref={cardAnim.ref}
       initial={{ opacity: 0, x: X_IN }}
       animate={cardAnim.controls}
-      className='py-4 border-b border-primary-black/10 dark:border-primary-white/10 last:border-none'
+      className='py-4 border-b border-primary-orange/40  last:border-none'
     >
       <h2 className='mb-4 font-roboto text-2xl font-light'>{project.title}</h2>
 
