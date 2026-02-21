@@ -25,7 +25,7 @@ export const Project = ({ project }: ProjectProps) => {
       <a href={project.url} target='_blank' rel='noreferrer'>
         <div className='rounded-lg overflow-hidden h-[180px] relative bg-primary-white dark:bg-primary-black desktop:h-[250px] my-4'>
           <FaExternalLinkAlt className='absolute right-2.5 top-2.5 text-primary-white bg-primary-black text-xl dark:bg-primary-white dark:text-primary-black' />
-          <picture>
+          <picture className='w-full h-full block'>
             <source media='(min-width: 768px)' srcSet={project.image_desktop} />
             <source media='(max-width: 768px)' srcSet={project.image_mobile} />
             <img
