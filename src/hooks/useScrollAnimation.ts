@@ -4,6 +4,8 @@ import { useInView, useAnimation } from 'framer-motion'
 export const useScrollAnimation = (
   margin = '-100px 0px -200px 0px',
   initialX = -100,
+  initialY = 0,
+  scaleX = 1,
   once = false,
 ) => {
   const ref = useRef(null)
@@ -15,12 +17,16 @@ export const useScrollAnimation = (
       controls.start({
         opacity: 1,
         x: 0,
+        y: 0,
+        scaleX: 1,
         transition: { duration: 0.6, ease: 'easeOut' },
       })
     } else if (!once) {
       controls.start({
         opacity: 0,
         x: initialX,
+        y: initialY,
+        scaleX,
         transition: { duration: 0.4, ease: 'easeIn' },
       })
     }

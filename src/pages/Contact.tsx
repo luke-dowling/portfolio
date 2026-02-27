@@ -7,7 +7,7 @@ import { FiArrowLeft, FiArrowRight, FiUser, FiMail, FiMessageSquare } from 'reac
 import { layoutAnimation, itemAnimation } from '@/Animations/layoutAnimation'
 import { useContactForm, type ContactFormData } from '@/hooks/useFormValidation'
 import { Footer } from '@/components/ui/Footer'
-import { PageHeading } from '@/components/ui/Heading'
+import { Heading, Text } from '@/components/ui/Typography'
 
 export const Contact = () => {
   const {
@@ -62,20 +62,20 @@ export const Contact = () => {
       {isOpen ? <Modal setIsOpen={setIsOpen} /> : null}
 
       <motion.div variants={layoutAnimation}>
-        <PageHeading className='md:mb-4' variants={itemAnimation}>
+        <Heading className='md:mb-4' variants={itemAnimation}>
           Get In Touch<span>.</span>
-        </PageHeading>
+        </Heading>
 
         <div className='md:flex md:items-start md:gap-18.75'>
           <div>
-            <motion.p className='md:pt-4 md:text-justify' variants={itemAnimation}>
+            <Text className='md:pt-4 md:text-justify' variants={itemAnimation}>
               I would love to hear your thoughts on my site or let me know if you are interested in
               collaborating.
-            </motion.p>
+            </Text>
 
-            <motion.p variants={itemAnimation}>
+            <Text variants={itemAnimation}>
               Either way, thanks for looking through and till next time 👋
-            </motion.p>
+            </Text>
           </div>
 
           <motion.form

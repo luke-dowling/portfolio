@@ -134,17 +134,23 @@
     @apply pt-[12vh] leading-tight;
   }
 
-  @media (min-width: 480px) {
+  #home {
+    @apply max-w-[480px];
+  }
+
+  @media (min-width: theme(--breakpoint-sm)) {
+    #home,
     .page-container,
     .nav {
       @apply max-w-[650px];
     }
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: theme(--breakpoint-lg)) {
+    #home,
     .page-container,
     .nav {
-      @apply max-w-212.5;
+      @apply max-w-[850px];
     }
   }
 }

@@ -1,104 +1,54 @@
 import { motion } from 'framer-motion'
-
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
-import { LogosAnimation } from '@/Animations/LogosAnimation'
-import { PageHeading } from '@/components/ui/Heading'
+import { Heading, Text } from '@/components/ui/Typography'
 
 const initial = { opacity: 0, x: -200 }
 
 export const Profile = () => {
-  const h1Anim = useScrollAnimation(undefined, undefined, true)
-  const p1Anim = useScrollAnimation(undefined, undefined, true)
-  const p2Anim = useScrollAnimation(undefined, undefined, true)
-  const p3Anim = useScrollAnimation(undefined, undefined, true)
-  const p4Anim = useScrollAnimation(undefined, undefined, true)
+  const h1Anim = useScrollAnimation(undefined, undefined, undefined, undefined, true)
+  const p1Anim = useScrollAnimation(undefined, undefined, undefined, undefined, true)
+  const p2Anim = useScrollAnimation(undefined, undefined, undefined, undefined, true)
+  const p3Anim = useScrollAnimation(undefined, undefined, undefined, undefined, true)
+  const p4Anim = useScrollAnimation(undefined, 0, -100, undefined, true)
+  const hrAnim = useScrollAnimation(undefined, -50, undefined, 0, true)
 
   return (
-    <div id='profile' className='page-container'>
-      <PageHeading
-        ref={h1Anim.ref}
-        className='desktop:mb-4'
-        initial={initial}
-        animate={h1Anim.controls}
-      >
+    <section id='profile' className='page-container'>
+      <Heading ref={h1Anim.ref} className='md:mb-4' initial={initial} animate={h1Anim.controls}>
         Hey there<span>.</span>
-      </PageHeading>
+      </Heading>
 
-      <div className='relative'>
-        <div className='flex flex-row-reverse items-start'>
-          <div>
-            <motion.p
-              ref={p1Anim.ref}
-              className='text-justify'
-              initial={initial}
-              animate={p1Anim.controls}
-            >
-              I'm Luke, a fullstack web developer passionate about building creative, user-focused
-              applications that make a real impact.
-            </motion.p>
-            <motion.p ref={p2Anim.ref} initial={initial} animate={p2Anim.controls}>
-              I love exploring new technologies, experimenting with ideas, and writing clean,
-              maintainable code.
-            </motion.p>
-            <motion.p ref={p3Anim.ref} initial={initial} animate={p3Anim.controls}>
-              Before stepping into the world of software engineering, I was a performer— so I might
-              just be the only developer you'll meet who can tap dance 😉
-            </motion.p>
-            <motion.p
-              ref={p4Anim.ref}
-              className='my-12'
-              initial={initial}
-              animate={p4Anim.controls}
-            >
-              Peace & code ✌️
-            </motion.p>
-          </div>
+      <div className='flex flex-col'>
+        <Text ref={p1Anim.ref} initial={initial} animate={p1Anim.controls}>
+          I'm Luke, a fullstack web developer passionate about building creative, user-focused
+          applications that make a real impact.
+        </Text>
+        <Text ref={p2Anim.ref} initial={initial} animate={p2Anim.controls}>
+          I love exploring new technologies, experimenting with ideas, and writing clean,
+          maintainable code.
+        </Text>
+        <Text ref={p3Anim.ref} initial={initial} animate={p3Anim.controls}>
+          Before stepping into the world of software engineering, I was a performer— so I might just
+          be the only developer you'll meet who can tap dance 😉
+        </Text>
+
+        <div className='flex items-baseline gap-4 mt-24 mb-12'>
+          <motion.span
+            ref={hrAnim.ref}
+            initial={{ x: '-50%', scaleX: 0, opacity: 0 }}
+            animate={hrAnim.controls}
+            className='h-1 flex-1 align-baseline bg-primary-orange'
+          ></motion.span>
+          <Text
+            ref={p4Anim.ref}
+            initial={{ x: 0, y: 30, opacity: 0 }}
+            animate={p4Anim.controls}
+            className='font-semibold'
+          >
+            Peace & code ✌️
+          </Text>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
-
-// export const Profile = () => {
-//   const h1Ref = useRef(null)
-//   const isInView = useInView(h1Ref, { margin: '0px 0px -50% 0px' })
-//   const controls = useAnimation()
-
-//   useEffect(() => {
-//     if (isInView) controls.start('animate')
-//     else controls.start('exit')
-//   }, [isInView, controls])
-
-//   return (
-//     <motion.div
-//       className='page-container'
-//       variants={layoutAnimation}
-//       initial='initial'
-//       animate={controls}
-//     >
-//       <motion.h1 ref={h1Ref} className='desktop:mb-4' variants={itemAnimation}>
-//         Hey there<span>.</span>
-//       </motion.h1>
-
-//       <div className='desktop:flex desktop:flex-row-reverse desktop:items-start'>
-//         <div>
-//           <motion.p className='desktop:text-justify' variants={itemAnimation}>
-//             I’m Luke, a fullstack web developer passionate about building creative, user-focused
-//             applications that make a real impact.
-//           </motion.p>
-//           <motion.p variants={itemAnimation}>
-//             I love exploring new technologies, experimenting with ideas, and writing clean,
-//             maintainable code.
-//           </motion.p>
-//           <motion.p variants={itemAnimation}>
-//             Before stepping into the world of software engineering, I was a performer— so I might
-//             just be the only developer you’ll meet who can tap dance 😉
-//           </motion.p>
-//           <motion.p className='my-12' variants={itemAnimation}>
-//             Peace & code ✌️
-//           </motion.p>
-//         </div>
-//       </div>
-//     </motion.div>
-//   )
-// }

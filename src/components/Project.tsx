@@ -11,16 +11,16 @@ interface ProjectProps {
 const X_IN = 120
 
 export const Project = ({ project }: ProjectProps) => {
-  const cardAnim = useScrollAnimation('-40% 0px -40% 0px', X_IN, true)
+  const cardAnim = useScrollAnimation('-40% 0px -40% 0px', X_IN, undefined, undefined, true)
 
   return (
     <motion.div
       ref={cardAnim.ref}
       initial={{ opacity: 0, x: X_IN }}
       animate={cardAnim.controls}
-      className='py-4 border-b border-primary-orange/40  last:border-none'
+      className='py-4 border-b border-primary-orange  last:border-none'
     >
-      <h2 className='mb-4 font-roboto text-2xl font-light'>{project.title}</h2>
+      <h2 className='mb-4 font-roboto text-2xl font-light md:text-3xl'>{project.title}</h2>
 
       <a href={project.url} target='_blank' rel='noreferrer'>
         <div className='rounded-lg overflow-hidden h-[180px] relative bg-primary-white dark:bg-primary-black desktop:h-[250px] my-4'>
