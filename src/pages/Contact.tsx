@@ -66,136 +66,134 @@ export const Contact = () => {
           Get In Touch<span>.</span>
         </Heading>
 
-        <div className='md:flex md:items-start md:gap-18.75'>
-          <div>
-            <Text className='md:pt-4 md:text-justify' variants={itemAnimation}>
-              I would love to hear your thoughts on my site or let me know if you are interested in
-              collaborating.
-            </Text>
+        <div>
+          <Text className='md:pt-4 md:text-justify' variants={itemAnimation}>
+            I would love to hear your thoughts on my site or let me know if you are interested in
+            collaborating.
+          </Text>
 
-            <Text variants={itemAnimation}>
-              Either way, thanks for looking through and till next time 👋
-            </Text>
+          <Text variants={itemAnimation}>
+            Either way, thanks for looking through and till next time 👋
+          </Text>
+        </div>
+
+        <motion.form
+          variants={itemAnimation}
+          onSubmit={onSubmit}
+          ref={formRef}
+          className='pt-8 md:min-w-81.25'
+          noValidate
+        >
+          {/* Name */}
+          <div className='relative'>
+            <label
+              htmlFor='name'
+              className='block text-md font-medium my-4 pl-1 flex items-center gap-1.5'
+            >
+              <FiUser className='w-6 text-black dark:text-white pointer-events-none' /> Name
+            </label>
+
+            <motion.input
+              id='name'
+              type='text'
+              placeholder=''
+              {...register('name')}
+              className='block w-full rounded-md border border-black/40 dark:border-white/40 ring-2 ring-primary-orange/20 bg-transparent px-4 py-3 mb-8 transition-all focus:outline-none focus:border-primary-orange focus:ring-primary-orange/40 md:text-xl md:my-4'
+              aria-invalid={errors.name ? 'true' : 'false'}
+              aria-describedby={errors.name ? 'name-error' : undefined}
+            />
+            {errors.name && (
+              <span
+                id='name-error'
+                className='absolute bottom-[-1.7em] text-xs pl-1.5 text-error-red'
+                role='alert'
+              >
+                {errors.name.message}
+              </span>
+            )}
           </div>
 
-          <motion.form
-            variants={itemAnimation}
-            onSubmit={onSubmit}
-            ref={formRef}
-            className='pt-8 md:min-w-81.25 md:pt-0'
-            noValidate
-          >
-            {/* Name */}
-            <div className='relative'>
-              <label
-                htmlFor='name'
-                className='block text-md font-medium my-4 pl-1 flex items-center gap-1.5'
+          {/* Email */}
+          <div className='relative'>
+            <label
+              htmlFor='email'
+              className='block text-md font-medium my-4 pl-1 flex items-center gap-1.5'
+            >
+              <FiMail className='w-6 text-black dark:text-white pointer-events-none' /> Email
+            </label>
+            <motion.input
+              id='email'
+              type='email'
+              placeholder=''
+              {...register('email')}
+              className='block w-full rounded-md border border-black/40 dark:border-white/40 ring-2 ring-primary-orange/20 bg-transparent px-4 py-3 mb-8 transition-all focus:outline-none focus:border-primary-orange focus:ring-primary-orange/40 md:text-xl md:my-4'
+              aria-invalid={errors.email ? 'true' : 'false'}
+              aria-describedby={errors.email ? 'email-error' : undefined}
+            />
+            {errors.email && (
+              <span
+                id='email-error'
+                className='absolute bottom-[-1.7em] text-xs pl-1.5 text-error-red'
+                role='alert'
               >
-                <FiUser className='w-6 text-black dark:text-white pointer-events-none' /> Name
-              </label>
-
-              <motion.input
-                id='name'
-                type='text'
-                placeholder=''
-                {...register('name')}
-                className='block w-full rounded-md border border-black/40 dark:border-white/40 ring-2 ring-primary-orange/20 bg-transparent px-4 py-3 mb-8 transition-all focus:outline-none focus:border-primary-orange focus:ring-primary-orange/40 md:text-xl md:my-4'
-                aria-invalid={errors.name ? 'true' : 'false'}
-                aria-describedby={errors.name ? 'name-error' : undefined}
-              />
-              {errors.name && (
-                <span
-                  id='name-error'
-                  className='absolute bottom-[-1.7em] text-xs pl-1.5 text-error-red'
-                  role='alert'
-                >
-                  {errors.name.message}
-                </span>
-              )}
-            </div>
-
-            {/* Email */}
-            <div className='relative'>
-              <label
-                htmlFor='email'
-                className='block text-md font-medium my-4 pl-1 flex items-center gap-1.5'
-              >
-                <FiMail className='w-6 text-black dark:text-white pointer-events-none' /> Email
-              </label>
-              <motion.input
-                id='email'
-                type='email'
-                placeholder=''
-                {...register('email')}
-                className='block w-full rounded-md border border-black/40 dark:border-white/40 ring-2 ring-primary-orange/20 bg-transparent px-4 py-3 mb-8 transition-all focus:outline-none focus:border-primary-orange focus:ring-primary-orange/40 md:text-xl md:my-4'
-                aria-invalid={errors.email ? 'true' : 'false'}
-                aria-describedby={errors.email ? 'email-error' : undefined}
-              />
-              {errors.email && (
-                <span
-                  id='email-error'
-                  className='absolute bottom-[-1.7em] text-xs pl-1.5 text-error-red'
-                  role='alert'
-                >
-                  {errors.email.message}
-                </span>
-              )}
-            </div>
-
-            {/* Message */}
-            <div className='relative'>
-              <label
-                htmlFor='message'
-                className='block text-md font-medium my-4 pl-1 flex items-center gap-1.5'
-              >
-                <FiMessageSquare className='w-6 text-black dark:text-white pointer-events-none' />{' '}
-                Message
-              </label>
-              <motion.textarea
-                id='message'
-                placeholder=''
-                {...register('message')}
-                className='block w-full rounded-md border border-black/40 dark:border-white/40 ring-2 ring-primary-orange/20 bg-transparent px-4 py-3 mb-8 transition-all focus:outline-none focus:border-primary-orange focus:ring-primary-orange/40 md:text-xl md:my-4'
-                aria-invalid={errors.message ? 'true' : 'false'}
-                aria-describedby={errors.message ? 'message-error' : undefined}
-                rows={2}
-              />
-              {errors.message && (
-                <span
-                  id='message-error'
-                  className='absolute bottom-[-1.7em] text-xs pl-1.5 text-error-red'
-                  role='alert'
-                >
-                  {errors.message.message}
-                </span>
-              )}
-            </div>
-
-            {/* Submit Error */}
-            {submitError && (
-              <div className='border border-error-red' role='alert'>
-                <span className='text-error-red'>{submitError}</span>
-              </div>
+                {errors.email.message}
+              </span>
             )}
+          </div>
 
-            <div className='flex justify-center mb-8 md:justify-start'>
-              <motion.button
-                type='submit'
-                disabled={isSubmitting}
-                className='btn-ghost flex w-full items-center justify-center gap-2'
-                aria-describedby='submit-status'
+          {/* Message */}
+          <div className='relative'>
+            <label
+              htmlFor='message'
+              className='block text-md font-medium my-4 pl-1 flex items-center gap-1.5'
+            >
+              <FiMessageSquare className='w-6 text-black dark:text-white pointer-events-none' />{' '}
+              Message
+            </label>
+            <motion.textarea
+              id='message'
+              placeholder=''
+              {...register('message')}
+              className='block w-full rounded-md border border-black/40 dark:border-white/40 ring-2 ring-primary-orange/20 bg-transparent px-4 py-3 mb-8 transition-all focus:outline-none focus:border-primary-orange focus:ring-primary-orange/40 md:text-xl md:my-4'
+              aria-invalid={errors.message ? 'true' : 'false'}
+              aria-describedby={errors.message ? 'message-error' : undefined}
+              rows={2}
+            />
+            {errors.message && (
+              <span
+                id='message-error'
+                className='absolute bottom-[-1.7em] text-xs pl-1.5 text-error-red'
+                role='alert'
               >
-                {isSubmitting ? (
-                  <span>Sending...</span>
-                ) : (
-                  <>
-                    Submit <FaArrowRight style={{ verticalAlign: 'middle' }} />
-                  </>
-                )}
-              </motion.button>
+                {errors.message.message}
+              </span>
+            )}
+          </div>
+
+          {/* Submit Error */}
+          {submitError && (
+            <div className='border border-error-red' role='alert'>
+              <span className='text-error-red'>{submitError}</span>
             </div>
-          </motion.form>
-        </div>
+          )}
+
+          <div className='flex justify-center mb-8 md:justify-start'>
+            <motion.button
+              type='submit'
+              disabled={isSubmitting}
+              className='btn-ghost flex w-full items-center justify-center gap-2'
+              aria-describedby='submit-status'
+            >
+              {isSubmitting ? (
+                <span>Sending...</span>
+              ) : (
+                <>
+                  Submit <FaArrowRight style={{ verticalAlign: 'middle' }} />
+                </>
+              )}
+            </motion.button>
+          </div>
+        </motion.form>
       </motion.div>
       <Footer />
     </div>
@@ -216,9 +214,14 @@ function Modal({ setIsOpen }: ModalProps) {
       exit={{ opacity: 0, scale: 0.8 }}
     >
       <div className='bg-primary-white dark:bg-primary-black text-primary-black dark:text-primary-white p-8 rounded-lg shadow-lg max-w-md'>
-        <h1>Thanks for the mail!</h1>
-        <p>I'll get back to you as soon as possible.</p>
-        <button onClick={() => setIsOpen(false)} className='btn mt-4'>
+        <Heading>
+          Thanks for the mail<span>!</span>
+        </Heading>
+        <Text>I'll get back to you as soon as possible 🚀 </Text>
+        <button
+          onClick={() => setIsOpen(false)}
+          className='btn-ghost flex w-full items-center justify-center'
+        >
           Close
         </button>
       </div>
