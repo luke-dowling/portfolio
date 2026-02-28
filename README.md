@@ -22,6 +22,6 @@ Hey — I'm Luke Dowling, a full stack web developer. This repository contains m
 
 ## Quick links
 
-- [Live site](https://luke-dowling.vercel.app/)
+- [Live site](https://luke-dowling.dev/)
 - [Resume/CV Link](https://flowcv.com/resume/pa3dvde1hh)
 - [LinkedIn](https://www.linkedin.com/in/luke-dowling-760840147/)
