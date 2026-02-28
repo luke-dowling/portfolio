@@ -2,6 +2,7 @@ export type Theme = 'light' | 'dark'
 
 type Technology =
   | 'React'
+  | 'Next.js'
   | 'React Native'
   | 'Express'
   | 'MongoDb'
@@ -10,6 +11,7 @@ type Technology =
   | 'RestAPI'
   | 'Styled Components'
   | 'ThreeJS'
+  | 'Docker'
 
 export interface Project {
   id: number
