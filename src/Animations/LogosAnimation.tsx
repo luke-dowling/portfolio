@@ -72,10 +72,11 @@ function buildLine(from: [number, number, number], to: [number, number, number])
 
 function ConstellationScene({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
   const stateRef = useRef({ lineProgress: 0 })
-  const [visibleIcons, setVisibleIcons] = useState(0)
 
   const lineProgressMV = useTransform(scrollYProgress, [0.15, 0.7], [0, CONNECTIONS.length])
   const iconProgressMV = useTransform(scrollYProgress, [0.0, 0.18], [0, icons.length])
+
+  const [visibleIcons, setVisibleIcons] = useState(() => Math.round(iconProgressMV.get()))
 
   useMotionValueEvent(lineProgressMV, 'change', v => {
     stateRef.current.lineProgress = v
@@ -132,7 +133,7 @@ export const LogosAnimation = () => {
 
   const { scrollYProgress } = useScroll({
     target: wrapperRef,
-    offset: ['0% 70%', 'end start'],
+    offset: ['0% 60%', 'end start'],
   })
 
   const opacity = useTransform(scrollYProgress, [0, 0.1, 0.72, 0.85], [0, 1, 1, 0])

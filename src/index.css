@@ -153,6 +153,14 @@
       @apply max-w-[850px];
     }
   }
+
+  @media (min-width: theme(--breakpoint-xl)) {
+    #home,
+    .page-container,
+    .nav {
+      @apply max-w-[900px];
+    }
+  }
 }
 
 @layer utilities {

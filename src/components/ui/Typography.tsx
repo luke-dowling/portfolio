@@ -13,7 +13,7 @@ export const Heading = forwardRef<HTMLHeadingElement, TextProps>(
     return (
       <motion.h2
         ref={ref}
-        className={`${className} py-8 md:text-3xl lg:text-4xl`}
+        className={`${className} pt-16 pb-8 md:text-3xl lg:text-4xl`}
         variants={variants}
         initial={initial}
         animate={animate}
@@ -29,7 +29,7 @@ export const Text = forwardRef<HTMLHeadingElement, TextProps>(
     return (
       <motion.p
         ref={ref}
-        className={`${className} md:text-lg`}
+        className={`md:text-lg ${className}`}
         variants={variants}
         initial={initial}
         animate={animate}

@@ -28,11 +28,11 @@ export const Profile = () => {
           maintainable code.
         </Text>
         <Text ref={p3Anim.ref} initial={initial} animate={p3Anim.controls}>
-          Before stepping into the world of software engineering, I was a performer— so I might just
-          be the only developer you'll meet who can tap dance 😉
+          Before stepping into the world of software engineering, I was a performer — so I might
+          just be the only developer you'll meet who can tap dance 😉
         </Text>
 
-        <div className='flex items-baseline gap-4 mt-24 mb-12'>
+        <div className='flex items-baseline gap-4 mt-12 mb-12 sm:mt-24'>
           <motion.span
             ref={hrAnim.ref}
             initial={{ x: '-50%', scaleX: 0, opacity: 0 }}

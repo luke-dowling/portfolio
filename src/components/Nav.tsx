@@ -103,6 +103,14 @@ export const Nav = () => {
         <div className='flex gap-3 sm:gap-4'>
           <motion.li className='list-none p-0.5' variants={navItemAnimation}>
             <a
+              href='#home'
+              className='block transition-transform duration-300 ease-in-out hover:scale-110'
+            >
+              cd ~
+            </a>
+          </motion.li>
+          <motion.li className='list-none p-0.5' variants={navItemAnimation}>
+            <a
               href='#profile'
               className='block transition-transform duration-300 ease-in-out hover:scale-110'
             >
