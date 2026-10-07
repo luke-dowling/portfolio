@@ -1,3 +1,5 @@
+'use client'
+
 import { projectsData } from '@/libs/data'
 import { AnimatePresence, motion } from 'framer-motion'
 

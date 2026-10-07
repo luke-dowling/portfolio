@@ -1,14 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,900;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
-
+/* Fonts are self-hosted via @fontsource, imported in src/app/layout.tsx */
 @import 'tailwindcss';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 @source '../**/*.{js,ts,jsx,tsx}';
-@source '../index.html';
 
 @theme {
-  --font-roboto: 'Roboto Mono', monospace;
+  --font-roboto: 'Roboto Mono Variable', 'Roboto Mono', monospace;
   --font-raleway: 'Raleway', sans-serif;
 
   --color-primary-black: #101112;
