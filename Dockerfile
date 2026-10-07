@@ -12,7 +12,7 @@ RUN bun run build
 
 FROM nginx:alpine AS production
 
-COPY --from=build /app/dist /usr/share/nginx/html
+COPY --from=build /app/out /usr/share/nginx/html
 
 EXPOSE 80
 

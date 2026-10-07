@@ -1,3 +1,5 @@
+'use client'
+
 import { createContext, useEffect } from 'react'
 import { useState, type ReactNode } from 'react'
 
@@ -18,14 +20,22 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
-  let currentTheme = localStorage.getItem('theme') as Theme
-  if (currentTheme !== 'light' && currentTheme !== 'dark') {
-    currentTheme = 'dark'
-  }
+  const [theme, setTheme] = useState<Theme>('dark')
+  const [hasLoadedTheme, setHasLoadedTheme] = useState(false)
 
-  const [theme, setTheme] = useState<Theme>(currentTheme)
+  // localStorage only exists in the browser, so read the saved theme after mounting.
+  // (The inline script in app/layout.tsx has already applied it to <html> before paint.)
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme') as Theme
+    if (savedTheme === 'light' || savedTheme === 'dark') {
+      setTheme(savedTheme)
+    }
+    setHasLoadedTheme(true)
+  }, [])
 
   useEffect(() => {
+    if (!hasLoadedTheme) return
+
     document.documentElement.style.colorScheme = theme
     if (theme === 'dark') {
       document.documentElement.classList.add('dark')
@@ -34,7 +44,7 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
       document.documentElement.classList.add('light')
       document.documentElement.classList.remove('dark')
     }
-  }, [theme])
+  }, [theme, hasLoadedTheme])
 
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light'

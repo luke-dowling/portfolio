@@ -1,8 +1,10 @@
+'use client'
+
 import { motion, useInView } from 'framer-motion'
 import { FiArrowLeft } from 'react-icons/fi'
 import { useRef } from 'react'
 
-import { nameAnimation, jobTitleAnimation, hrAnimation } from '@/Animations/homeAnimations.js'
+import { nameAnimation, jobTitleAnimation, hrAnimation } from '@/Animations/homeAnimations'
 
 export const Welcome = () => {
   const h1Ref = useRef(null)
